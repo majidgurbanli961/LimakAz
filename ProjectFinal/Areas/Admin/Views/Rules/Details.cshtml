@@ -1,0 +1,58 @@
+﻿@model ProjectFinal.Models.RulesAccardion
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+@section cssCkEditor{
+    <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+}
+<div class="row ">
+    <div class="col-md-4 col-lg-10 mt-5 text-center">
+
+
+
+        <div class="form-group">
+
+            <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Başlıq</div>
+                </div>
+                <input disabled asp-for="Header" class="form-control" id="inlineFormInputGroupUsername2" />
+
+            </div>
+        </div>
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+
+            <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Mətn</div>
+                </div>
+                <textarea asp-for="Body" name="Body" class="form-control" id="inlineFormInputGroupUsername2"></textarea>
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>
+
+<a asp-action="Index" class="btn btn-outline-warning">Geri Dön</a>
+
+
+@section scriptCkEditor{
+
+    <script>
+        CKEDITOR.replace('Body');
+    </script>
+}
+
+
+
+

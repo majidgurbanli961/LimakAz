@@ -1,0 +1,126 @@
+﻿@model List<Questions>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="row mt-4">
+        <!-- First Column -->
+        <div class="col-lg-12">
+            <!-- Custom Text Color Utilities -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                    <h6 class="m-0 font-weight-bold text-primary">Suallar</h6>
+                    <a asp-action="create" class="btn btn-sm btn-success btn-circle">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+
+                                <th scope="col">Başlıq</th>
+
+                                <th scope="col"> Settings</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>
+                                    @item.Header
+                                </td>
+
+                                <td class="d-flex">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info btn-circle btn-sm">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </a>
+                                    <p>&nbsp;</p>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-warning btn-circle btn-sm">
+                                        <i class="fa fa-list" aria-hidden="true"></i>
+
+                                    </a>
+                                    @if (Model.Count() > 1)
+                                    {
+
+                                        <p>&nbsp;</p>
+                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-circle btn-sm deleteitem ">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <p>&nbsp;</p>
+                                        <h6> Bir Akkardion Qalmasi Mutleqdir</h6>
+                                    }
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+@*<a asp-action="create" class="btn btn-outline-success mt-4">Yeni Accordion Yarat</a>
+
+    <div class="row">
+        <div class="col-lg-12 mt-5">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Baslıq</th>
+
+                        <th scope="col"> Settings</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.Header
+                            </td>
+
+                            <td class="d-flex">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info btn-circle btn-sm">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </a>
+                                <p>&nbsp;</p>
+                                @if (Model.Count() > 1)
+                                {
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-warning btn-circle btn-sm">
+                                        <i class="fa fa-list" aria-hidden="true"></i>
+
+                                    </a>
+                                    <p>&nbsp;</p>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-circle btn-sm deleteitem ">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <p>&nbsp;</p>
+                                    <h6> Bir Akkardion Qalmasi Mutleqdir</h6>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>*@

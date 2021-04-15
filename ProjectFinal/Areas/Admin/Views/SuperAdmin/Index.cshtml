@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@*//dasda*@
+@section TableCss{
+    <link href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet">
+
+}
+<div style="padding-top:20px;padding-bottom:30px;" class="container">
+    <table id="myTable" class="table ">
+        <thead class="">
+            <tr>
+                <th data-tablesort-type="string" scope="col">Username</th>
+                <th scope="col">Role</th>
+                <th scope="col"> Delete button</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @{
+                foreach (var item in ViewBag.UserAndRole)
+                {
+                    <tr>
+                        <td> @item.Key </td>
+                        <td> @item.Value </td>
+                        @{
+                            if (item.Value != "SuperAdmin")
+                            {
+                                <td> @Html.ActionLink("Delete", "DeleteUser", new { username = item.Key }, new { @class = "btn btn-danger", onclick = "return confirm('Eminsiz?')" }) </td>
+
+
+                            }
+                            else
+                            {
+                                <td> </td>
+                            }
+                        }
+
+                    </tr>
+
+                }
+            }
+        </tbody>
+    </table>
+</div>
+@section CustomTableJs{
+    <script src="~/AdminPanel/js/customTable.js"></script>
+}
+

@@ -1,0 +1,147 @@
+﻿@model IEnumerable<ProjectFinal.Models.MakeOrder.LinkOrder>
+
+@{
+    ViewData["Title"] = "OrdersIndex";
+}
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4 mt-3">
+            <p>İsdifadəci № və İsdifadəci Adı</p>
+            <form method="get">
+                <div class="input-group">
+
+                    <input type="search" class="form-control" value="@ViewData["Get"]" name="search" />
+
+                    <div class="input-group-append">
+
+                        <button class="btn btn-outline-primary" asp-action="OrdersIndex">Axtar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Page Heading -->
+    <div class="row mt-4">
+        <!-- First Column -->
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <!-- Custom Text Color Utilities -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                    <h6 class="m-0 font-weight-bold text-primary">Bağlamalarım</h6>
+
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+
+                          
+                                <th scope="col"> Isdifadeci No</th>
+                                <th scope="col"> Mağaza Adı</th>
+                                <th scope="col"> Məhsulun Sayı</th>
+                                <th scope="col">Cəki </th>
+                                <th scope="col">Çatdırılma qiyməti </th>
+                                <th scope="col">Status </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                          
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.DbPassportUserModel.CustomerNumber</td>
+
+                                    <td>
+                                        @item.CompanyName
+                                    </td>
+
+                                    <td>
+                                        @item.ProductAmount
+                                    </td>
+
+                                    <td>
+                                        @item.OrderProductWeight
+                                    </td>
+
+                                    <td>
+                                        @item.DeliveryMoney
+                                    </td>
+
+                                    <td>
+                                        @{
+                                            if (item.OrderStatus == 10)
+                                            {
+                                                <p>SIFARIŞ Gözləyir</p>
+                                            }
+                                            else if (item.OrderStatus == 1)
+                                            {
+                                                <p>SIFARIŞ VERİLDİ</p>
+                                            }
+                                            else if (item.OrderStatus == 2)
+                                            {
+                                                <p>XARİCİ ANBARDA</p>
+                                            }
+                                            else if (item.OrderStatus == 3)
+                                            {
+                                                <p>YOLDADIR</p>
+                                            }
+                                            else if (item.OrderStatus == 4)
+                                            {
+                                                <p>GÖMRÜK YOXLANIIŞI</p>
+                                            }
+                                            else if (item.OrderStatus == 5)
+                                            {
+                                                <p>ANBARDA</p>
+                                            }
+                                            else if (item.OrderStatus == 6)
+                                            {
+                                                <p>KURYER ÇATDIRMA</p>
+                                            }
+                                            else if (item.OrderStatus == 7)
+                                            {
+                                                <p>İADƏ</p>
+                                            }
+                                            else if (item.OrderStatus == 8)
+                                            {
+                                                <p>TƏHVİL VERİLDİ</p>
+                                            }
+                                        }
+
+
+
+
+                                    </td>
+                                    <td class="d-flex">
+                                        <a asp-action="Edit" asp-route-id="@item.id" class="btn btn-info btn-circle btn-sm">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </a>
+                                        <p>&nbsp;</p>
+
+                                        <a asp-action="Details" asp-route-id="@item.id" class="btn btn-warning btn-circle btn-sm">
+                                            <i class="fa fa-list" aria-hidden="true"></i>
+
+                                        </a>
+                                        <p>&nbsp;</p>
+                                        <a asp-action="Delete" asp-route-id="@item.id" class="btn btn-danger btn-circle btn-sm deleteitem ">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+
+
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

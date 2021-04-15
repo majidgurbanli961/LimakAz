@@ -1,0 +1,140 @@
+﻿    @model List<ProjectFinal.Areas.Admin.Models.Shop>
+@using ProjectFinal.Areas.Admin.Models
+@{
+    ViewData["Title"] = "Index";
+}
+@section contactCss{
+    <link rel="stylesheet" href="~/Project/css/contact.css">
+
+}
+
+<section id="calculator">
+    <div class="container">
+        <div class="calculatorContent">
+            <div class="row colExs">
+                <div class="col-md-4 col-sm-5 col-xs-6 ">
+                    <div class="calculatorContentLeft">
+                        <h4> ƏLAQƏ </h4>
+
+                    </div>
+
+                </div>
+                <div class="col-md-8 col-sm-7 col-xs-6">
+                    <div class="calculatorContentRight">
+                        <ul>
+                            <li>
+                                <a href="/home/index">
+                                    <span class="calcVisible">Ana səhifə</span>
+                                    <span class="calcNotVisible">...</span>
+
+                                </a>
+                            </li>
+                            <li class="customSlash"> / </li>
+                            <li class="calclist"> ƏLAQƏ </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<section id="elaqeMain">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 ">
+                <h1>Əlaqə</h1>
+                <div class="elaqeNav">
+                    @{
+                        for (int i = 0; i < Model.Count; i++)
+                        {
+                            var customclassName = "elaqeNavContent ";
+
+                            if (i == 0)
+                            {
+                                customclassName = "elaqeNavContent elaqeNavContentActive ";
+                             
+
+
+                            }
+                            var idName = $"s{Model[i].Id}";
+                            <div id=@idName class="@customclassName">
+                                @Model[i].ShopAdress                               
+                            </div>
+
+                        }
+                    }
+
+
+
+
+                </div>
+                <div class="tabContent">
+                    @{
+                        for (int i = 0; i < Model.Count; i++)
+                        {
+                            var idName = $"s1{Model[i].Id}";
+                            var shopcontent = Model[i].GetCurrentShopContent(Model[i].Id);
+                            var customDisplay = "none";
+                            if (i == 0)
+                            {
+                                customDisplay = "block";
+                            }
+
+
+                                        <div id=@idName class=" tabPanel" style="display:@customDisplay">
+                                            @{
+                                                for (int k = 0; k < shopcontent.Count; k++)
+                                                {
+
+                                                    <div class="address">
+                                                      
+                                                        <div class="addressText"> @Html.Raw(shopcontent[k].CustomText)  </div>
+                                                    </div>
+
+                                                }
+                                            }
+
+
+
+                                        </div>
+
+                        }
+                    }
+
+
+
+                </div>
+            </div>
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-2">
+                <div class="elaqeRight">
+                    <h3>
+                        <b>
+                            Bizə yazın
+                        </b>
+                    </h3>
+                    <a href="/PanelPage" class="btn-effect border-btn"> Bizə sorğu yaz </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+<section id="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3038.4757179031026!2d49.847022!3d40.398311!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1601813655409!5m2!1sen!2s" width="100%" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+</section>
+@section contactJs{
+
+    <script src="~/Project/js/contact.js"></script>
+}
+

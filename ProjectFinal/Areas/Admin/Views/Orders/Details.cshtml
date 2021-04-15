@@ -1,0 +1,88 @@
+﻿@model ProjectFinal.Models.MakeOrder.LinkOrder
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<h5 class="text-center mt-3">Sifariş haqqında Məlumat</h5>
+<div class="row ">
+    <div class="col-md-4 col-lg-10 mt-5 text-center">
+
+
+
+        <div class="form-group">
+
+            <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Mağaza Adı</div>
+                </div>
+                <input disabled asp-for="CompanyName" class="form-control" id="inlineFormInputGroupUsername2" />
+
+            </div>
+        </div>
+        <div class="form-group">
+
+            <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Məhsulun Sayı</div>
+                </div>
+                <input disabled asp-for="ProductAmount" class="form-control" id="inlineFormInputGroupUsername2" />
+
+            </div>
+        </div>
+        <div class="form-group">
+
+            <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Cəki</div>
+                </div>
+                <input disabled asp-for="OrderProductWeight" class="form-control" id="inlineFormInputGroupUsername2" />
+            </div>
+        </div>
+        <div class="form-group">
+
+            <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Çatdırılma qiyməti</div>
+                </div>
+                <input disabled asp-for="DeliveryMoney" class="form-control" id="inlineFormInputGroupUsername2" />
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+
+            <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"> Status</div>
+                </div>
+
+                <select disabled asp-for="@Model.OrderStatus" class="form-control">
+                    <option value="1">Sifariş verildi</option>
+                    <option value="2">Xarici Anbarda </option>
+                    <option value="3">Yoldadır </option>
+                    <option value="4">Gömrük yoxlanışı </option>
+                    <option value="5">Anbarda </option>
+                    <option value="6">Kuryer Çatdırma</option>
+                    <option value="7">İadə</option>
+                    <option value="8">Təhvil verildi</option>
+                </select>
+            </div>
+        </div>
+
+        <a asp-action="OrdersIndex" class="btn btn-outline-warning">Geri Dön</a>
+
+
+    </div>
+</div>

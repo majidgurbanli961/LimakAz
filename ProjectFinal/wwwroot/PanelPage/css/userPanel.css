@@ -1,0 +1,3083 @@
+* {
+    box-sizing: border-box !important;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f0f0f7;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    margin-bottom: 0px;
+}
+
+main {
+    background-color: #f0f0f7;
+    /* background-color: darkcyan; */
+}
+
+.main-center {
+    width: 1140px;
+    margin: 0 auto;
+    padding: 30px 0;
+    /* background-color: darkgoldenrod; */
+}
+
+.main-header {
+    background-color: #f0f0f7;
+    display: flex;
+    align-items: center;
+    color: #333;
+    width: 100% !important;
+}
+
+    .main-header h4 {
+        font-size: 22px;
+        margin: 0;
+    }
+
+        .main-header h4 span {
+            font-weight: bold;
+        }
+
+.main-header-user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .main-header-user ol {
+        margin: 0;
+        background-color: transparent;
+        font-size: 14px;
+    }
+
+        .main-header-user ol a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .main-header-user ol li:nth-child(2) {
+            margin: 0 7px;
+            color: #ccc;
+        }
+
+        .main-header-user ol li:nth-child(3) {
+            color: #f95732;
+        }
+
+/* ================================================ MAIN PANEL */
+/* ================================================ MAIN PANEL */
+.main-panel {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 30px;
+}
+
+/* ================================================ LEFT ASIDE SECTION */
+/* ================================================ LEFT ASIDE SECTION */
+.main-panel-aside {
+    display: flex;
+    flex-direction: column;
+    width: 265px;
+    /* background-color: red; */
+}
+
+/* ================================================  NAVBAR */
+.main-panel-navbar {
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    padding: 33px 0;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+}
+
+    .main-panel-navbar ul {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .main-panel-navbar ul li {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .main-panel-navbar ul li:last-child {
+                margin-top: 30px;
+            }
+
+            .main-panel-navbar ul li a {
+                text-decoration: none;
+                color: #808080;
+                width: 100%;
+                padding: 10px 0;
+                background-color: white;
+                display: flex;
+                align-items: center;
+                padding-left: 25px;
+                border-left: 5px solid transparent;
+            }
+
+                .main-panel-navbar ul li a img {
+                    margin-right: 10px;
+                }
+
+            .main-panel-navbar ul li:nth-child(1) a {
+                color: #f95732;
+                border-left: 5px solid #f95732;
+            }
+
+/* ========================================== CALCULATOR */
+.main-panel-calculator {
+    background-color: white;
+    padding: 30px 30px 23px 23px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+}
+
+    .main-panel-calculator h4 {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0;
+        text-align: left;
+        color: #333;
+    }
+
+    .main-panel-calculator form {
+        margin-top: 10px;
+    }
+
+        .main-panel-calculator form div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+            .main-panel-calculator form div input,
+            .main-panel-calculator form div select {
+                width: 100px;
+                border-radius: 4px;
+                height: 40px;
+                font-size: 16px;
+                line-height: 1.42857143;
+                color: #555;
+                background-color: #fff;
+                background-image: none;
+                border: 1px solid #ccc;
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+                padding: 6px 12px;
+                /* transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s; */
+            }
+
+            .main-panel-calculator form div select {
+                width: 80px;
+            }
+
+                .main-panel-calculator form div input:focus,
+                .main-panel-calculator form div select:focus {
+                    outline: none !important;
+                    border: 2px solid #f95732;
+                }
+
+    .main-panel-calculator span {
+        font-size: 12px;
+        color: grey;
+        margin-top: 5px;
+    }
+
+/* ============================================== CURRENCY */
+.main-panel-currency {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+    margin-bottom: 30px;
+    padding: 30px;
+}
+
+    .main-panel-currency h4 {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0;
+        text-align: left;
+        margin-bottom: 15px;
+    }
+
+    .main-panel-currency div {
+        margin-top: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 14px;
+    }
+
+        .main-panel-currency div img {
+            margin-right: 10px;
+        }
+
+/* ======================================================== RIGHT MAIN CONTENT */
+/* ======================================================== RIGHT MAIN CONTENT */
+/* ======================================================== RIGHT MAIN CONTENT */
+/* ======================================================== RIGHT MAIN CONTENT */
+
+.main-panel-content-container {
+    width: 820px;
+    /* background-color: darkcyan; */
+}
+
+
+
+/* ======================================================= INVOICE BUTTONS FOR MOBILE VERSION */
+/* ======================================================= INVOICE BUTTONS FOR MOBILE VERSION */
+/* ======================================================= INVOICE BUTTONS FOR MOBILE VERSION */
+/* ======================================================= INVOICE BUTTONS FOR MOBILE VERSION */
+.links-for-invoice-mobile {
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+    .links-for-invoice-mobile a {
+        font-size: 16px;
+        color: #fff;
+        outline: 0;
+        text-decoration: none;
+        border-radius: 10px;
+        transition: 0.3s linear;
+        width: 50%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+    }
+
+
+        .links-for-invoice-mobile a:nth-child(1) {
+            background: #058fff;
+            border: 3px solid #058fff;
+            margin-right: 30px;
+        }
+
+            .links-for-invoice-mobile a:nth-child(1):hover {
+                background-color: white;
+                color: #058fff;
+            }
+
+        .links-for-invoice-mobile a:nth-child(2) {
+            background: #f95732;
+            border: 3px solid #f95732;
+        }
+
+            .links-for-invoice-mobile a:nth-child(2):hover {
+                background-color: white;
+                color: #f95732;
+            }
+
+
+
+
+/* ========================================================= PANEL SEHIFESI PAGE */
+/* ========================================================= PANEL SEHIFESI PAGE */
+/* ========================================================= PANEL SEHIFESI PAGE */
+/* ========================================================= PANEL SEHIFESI PAGE */
+.hidden-panel-page {
+    width: 100%;
+    /* background-color: darkmagenta; */
+    /* display: none; */
+}
+
+.hidden-panel-page-top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.hidden-panel-page-top-balance {
+    background-image: url("../images/balans.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 66%;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+    .hidden-panel-page-top-balance > div:first-child {
+        margin-top: 15px;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        margin: 15px auto 0;
+    }
+
+        .hidden-panel-page-top-balance > div:first-child span:first-child {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .hidden-panel-page-top-balance > div:first-child span:last-child {
+            font-size: 14px;
+            text-align: right;
+        }
+
+    .hidden-panel-page-top-balance > div:nth-child(2) {
+        width: 90%;
+        font-size: 45px;
+        font-weight: bold;
+        margin: 0 auto;
+        color: white;
+    }
+
+    .hidden-panel-page-top-balance > div:last-child {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 90%;
+        margin: 0 auto 15px;
+    }
+
+        .hidden-panel-page-top-balance > div:last-child > div p {
+            margin: 0;
+            color: white;
+            font-size: 14px;
+            width: 260px;
+        }
+
+            .hidden-panel-page-top-balance > div:last-child > div p:last-child {
+                font-weight: bold;
+            }
+
+        .hidden-panel-page-top-balance > div:last-child button {
+            border: 1px solid white;
+            color: white;
+            background-color: transparent;
+            padding: 10px;
+            border-radius: 5px;
+            outline: none;
+        }
+
+.hidden-panel-page-top-wallet {
+    width: 30%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 15px 10px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+    height: 200px;
+    background-color: white;
+    margin-bottom: 30px;
+}
+
+    .hidden-panel-page-top-wallet img:first-child {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+
+    .hidden-panel-page-top-wallet img:last-child {
+        object-fit: contain;
+        height: 150px;
+        width: 150px;
+        /* position: absolute; */
+        cursor: pointer;
+    }
+
+
+.hidden-panel-page-bottom {
+    width: 100%;
+    background-color: white;
+    margin: 0 0 30px;
+    border-radius: 10px;
+    padding: 25px 30px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+}
+
+.hidden-panel-page-bottom-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .hidden-panel-page-bottom-header > div:nth-child(1) {
+        display: flex;
+        align-items: center;
+    }
+
+        .hidden-panel-page-bottom-header > div:nth-child(1) p {
+            margin: 0;
+            margin-right: 20px;
+            color: #555;
+        }
+
+        .hidden-panel-page-bottom-header > div:nth-child(1) select {
+            border-radius: 4px;
+            height: 40px;
+            font-size: 16px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            padding: 6px 12px;
+        }
+
+            .hidden-panel-page-bottom-header > div:nth-child(1) select:focus {
+                outline: none !important;
+                border: 2px solid #f95732;
+            }
+
+    .hidden-panel-page-bottom-header > button {
+        border: none;
+        color: grey;
+        background-color: transparent;
+        outline: none;
+    }
+
+.hidden-panel-page-bottom-table {
+    margin-top: 30px;
+}
+
+    .hidden-panel-page-bottom-table table {
+        border: 1px solid #d2d2d2;
+    }
+
+        .hidden-panel-page-bottom-table table th {
+            background-color: rgb(235, 235, 235);
+            color: #333;
+        }
+
+
+
+
+/* ========================================================= XARICDEKI UNVANLARIM PAGE */
+/* ========================================================= XARICDEKI UNVANLARIM PAGE */
+/* ========================================================= XARICDEKI UNVANLARIM PAGE */
+/* ========================================================= XARICDEKI UNVANLARIM PAGE */
+.hidden-foreign-addresses {
+    background-color: white;
+    width: 100%;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+    border-radius: 10px;
+    display: none;
+}
+
+.hidden-addresses-navigation-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.hidden-addresses-navigation-header-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 60px;
+    text-decoration: none;
+    border-top: 5px solid transparent;
+    border-bottom: 1px solid transparent;
+    position: relative;
+    bottom: -1px;
+    z-index: 1;
+    background-color: white;
+    transition: 0.5s;
+}
+
+    .hidden-addresses-navigation-header-block:nth-child(1) {
+        border-top: 5px solid #f95732;
+        border-top-left-radius: 10px;
+        cursor: default;
+    }
+
+    .hidden-addresses-navigation-header-block:nth-child(2) {
+        border-left: 1px solid #dddddd;
+        border-bottom: 1px solid #dddddd;
+        border-right: 1px solid transparent;
+        border-top-right-radius: 10px;
+    }
+
+    .hidden-addresses-navigation-header-block:hover {
+        text-decoration: none;
+    }
+
+    .hidden-addresses-navigation-header-block img {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
+
+    .hidden-addresses-navigation-header-block p {
+        margin: 0;
+        color: #808080;
+        font-weight: bold;
+    }
+
+.hidden-addresses-detailed-info {
+    background-color: white;
+    width: 100%;
+    position: relative;
+    margin-bottom: 30px;
+    border-top: 1px solid #dddddd;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.hidden-addresses-detailed-info-block {
+    background-color: white;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    padding: 30px 0;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+    .hidden-addresses-detailed-info-block:nth-child(2) {
+        display: none;
+    }
+
+    .hidden-addresses-detailed-info-block ul {
+        margin: 0;
+        padding: 0;
+        width: 40%;
+        margin: 0 auto;
+    }
+
+        .hidden-addresses-detailed-info-block ul li {
+            list-style-type: none;
+            margin-bottom: 25px;
+        }
+
+            .hidden-addresses-detailed-info-block ul li p:nth-child(1) {
+                color: black;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+
+            .hidden-addresses-detailed-info-block ul li p:nth-child(2) {
+                color: #808080;
+            }
+
+
+
+
+/* ====================================================================== ORDERS (SIFARISLERIM) */
+/* ====================================================================== ORDERS (SIFARISLERIM) */
+/* ====================================================================== ORDERS (SIFARISLERIM) */
+/* ====================================================================== ORDERS (SIFARISLERIM) */
+.hidden-orders-section {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+    background-color: white;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    width: 100%;
+    display: none;
+}
+
+.hidden-orders-country-block {
+    background-color: transparent;
+    background-color: white;
+    border-radius: 10px;
+}
+
+    .hidden-orders-country-block:nth-child(2) {
+        display: none;
+    }
+
+.hidden-orders-country-block-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+    .hidden-orders-country-block-header h2 {
+        font-size: 22px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .hidden-orders-country-block-header select {
+        border: 1px solid #ccc;
+        color: #555;
+        border-radius: 4px;
+        height: 40px;
+        font-size: 16px;
+        padding: 8px;
+    }
+
+        .hidden-orders-country-block-header select:focus {
+            outline: none !important;
+            border: 2px solid #f95732;
+        }
+
+.hidden-orders-country-block form {
+    padding: 30px;
+}
+
+    .hidden-orders-country-block form > div:nth-child(1) {
+        display: flex;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+        .hidden-orders-country-block form > div:nth-child(1) input {
+            height: 20px;
+            width: 20px;
+            margin-right: 10px;
+            border: 1px solid #dddddd;
+        }
+
+        .hidden-orders-country-block form > div:nth-child(1) label {
+            margin: 0;
+            color: #333;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857143;
+        }
+
+.user-orders-list {
+    margin-bottom: 30px;
+}
+
+.user-orders-list-main-info,
+.user-orders-list-additional-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user-orders-list-additional-info {
+    display: none;
+}
+
+    .user-orders-list-main-info > div,
+    .user-orders-list-additional-info > div {
+        border: 1px solid #dddddd;
+        width: 20%;
+        /* height: 90px; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        text-align: center;
+        flex-direction: column;
+  
+    }
+.user-orders-list-main-info > div:nth-child(3){
+    padding:10px;
+}
+.user-orders-list-additional-info > div {
+    width: 16.66%;
+}
+
+        .user-orders-list-additional-info > div:last-child {
+            width: 100%;
+        }
+
+
+        .user-orders-list-main-info > div p:nth-child(1),
+        .user-orders-list-additional-info > div p:nth-child(1) {
+            font-weight: bold;
+            color: #333333;
+            margin: 0;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .user-orders-list-main-info > div p:nth-child(2),
+        .user-orders-list-additional-info > div p:nth-child(2) {
+            color: #333333;
+            font-size: 14px;
+            margin: 0;
+            width: 100%;
+        }
+
+.user-orders-list-main-info > div:last-child div {
+    width: 90%;
+    font-size: 12px;
+}
+
+.user-orders-list-additional-info > div:nth-child(6) div {
+    font-size: 12px;
+}
+
+.hidden-orders-country-block form h5 {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #333333;
+    font-size: 14px;
+    line-height: 1.42857143;
+}
+
+.hidden-orders-country-block form h2 {
+    font-weight: 700;
+    font-size: 22px;
+    margin: 5px 0 25px;
+    color: #333333;
+}
+
+.btn-warning {
+    background-color: rgb(249, 87, 50) !important;
+    color: white;
+    border-color: rgb(249, 87, 50) !important;
+}
+
+    .btn-warning:hover {
+        background-color: rgb(229, 67, 30) !important;
+        color: white;
+        border-color: rgb(229, 67, 30) !important;
+    }
+
+
+/* ====================================================================== BAGLAMALARİM */
+/* ====================================================================== BAGLAMALARİM */
+/* ====================================================================== BAGLAMALARİM */
+/* ====================================================================== BAGLAMALARİM */
+.hidden-packages-section {
+    width: 100%;
+    border-radius: 10px;
+    display: none;
+}
+
+.hidden-packages-navigation-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid #dddddd;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+}
+
+.hidden-packages-header-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 60px;
+    text-decoration: none;
+    border-top: 5px solid transparent;
+    border-bottom: 1px solid transparent;
+    background-color: white;
+    transition: 0.5s;
+}
+
+    .hidden-packages-header-block:nth-child(1) {
+        border-top: 5px solid #f95732;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        cursor: default;
+    }
+
+    .hidden-packages-header-block:nth-child(2) {
+        border-left: 1px solid #dddddd;
+        border-bottom: 1px solid #dddddd;
+        border-right: 1px solid transparent;
+        border-top-right-radius: 10px;
+    }
+
+    .hidden-packages-header-block:hover {
+        text-decoration: none;
+    }
+
+    .hidden-packages-header-block img {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
+
+    .hidden-packages-header-block p {
+        margin: 0;
+        color: #808080;
+        font-weight: bold;
+    }
+
+.hidden-packages-content-main-container {
+    background-color: transparent;
+    position: relative;
+    width: 100%;
+}
+
+.hidden-packages-country-block {
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+    margin-bottom: 30px;
+    border-radius: 10px;
+    display: block;
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+}
+
+    .hidden-packages-country-block:nth-child(2) {
+        display: none;
+    }
+
+.hidden-packages-country-block-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+    .hidden-packages-country-block-header h2 {
+        font-size: 22px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .hidden-packages-country-block-header select {
+        border: 1px solid #ccc;
+        color: #555;
+        border-radius: 4px;
+        height: 40px;
+        font-size: 16px;
+        padding: 8px;
+    }
+
+        .hidden-packages-country-block-header select:focus {
+            outline: none !important;
+            border: 2px solid #f95732;
+        }
+
+.hidden-packages-country-block form {
+    padding: 30px;
+}
+
+    .hidden-packages-country-block form > div:nth-child(1) {
+        display: flex;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+        .hidden-packages-country-block form > div:nth-child(1) input {
+            height: 20px;
+            width: 20px;
+            margin-right: 10px;
+            border: 1px solid #dddddd;
+        }
+
+        .hidden-packages-country-block form > div:nth-child(1) label {
+            margin: 0;
+            color: #333;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857143;
+        }
+
+.user-packages-list {
+    margin-bottom: 30px;
+}
+
+.user-packages-list-main-info,
+.user-packages-list-additional-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .user-packages-list-main-info > div p:nth-child(2),
+    .user-packages-list-additional-info > div p:nth-child(2) {
+        word-break: break-all;
+    }
+
+.user-packages-list-additional-info {
+    display: none;
+}
+
+    .user-packages-list-main-info > div,
+    .user-packages-list-additional-info > div {
+        border: 1px solid #dddddd;
+        width: 20%;
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    .user-packages-list-additional-info > div {
+        width: 16.66%;
+    }
+
+        .user-packages-list-additional-info > div:last-child {
+            width: 100%;
+        }
+
+
+        .user-packages-list-main-info > div p:nth-child(1),
+        .user-packages-list-additional-info > div p:nth-child(1) {
+            font-weight: bold;
+            color: #333333;
+            margin: 0;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .user-packages-list-main-info > div p:nth-child(2),
+        .user-packages-list-additional-info > div p:nth-child(2) {
+            color: #333333;
+            font-size: 14px;
+            margin: 0;
+            width: 100%;
+        }
+
+.user-packages-list-main-info > div:last-child * {
+    width: 90%;
+    font-size: 12px;
+}
+
+.user-packages-list-additional-info > div:nth-child(6) div {
+    font-size: 12px;
+}
+
+.hidden-packages-country-block form h5 {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #333333;
+    font-size: 14px;
+    line-height: 1.42857143;
+}
+
+.hidden-packages-country-block form h2 {
+    font-weight: 700;
+    font-size: 22px;
+    margin: 5px 0 25px;
+    color: #333333;
+}
+
+
+
+
+/* ====================================================================== AZN BALANSIM */
+/* ====================================================================== AZN BALANSIM */
+/* ====================================================================== AZN BALANSIM */
+/* ====================================================================== AZN BALANSIM */
+/* ================== TOP BALANCE BOARD */
+.hidden-azn-balance {
+    width: 100%;
+    display: none;
+}
+
+.hidden-azn-balance-top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.hidden-azn-balance-top-balance {
+    background-image: url("../images/balans-mob.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    width: 40%;
+    height: 215px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+    .hidden-azn-balance-top-balance > div:first-child {
+        margin-top: 15px;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        margin: 15px auto 0;
+    }
+
+        .hidden-azn-balance-top-balance > div:first-child span:first-child {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .hidden-azn-balance-top-balance > div:first-child span:last-child {
+            font-size: 14px;
+            text-align: right;
+        }
+
+    .hidden-azn-balance-top-balance > div:nth-child(2) {
+        width: 90%;
+        font-size: 45px;
+        font-weight: bold;
+        margin: 0 auto;
+        color: white;
+    }
+
+    .hidden-azn-balance-top-balance > div:last-child {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 90%;
+        margin: 0 auto 15px;
+    }
+
+        .hidden-azn-balance-top-balance > div:last-child > div p {
+            margin: 0;
+            color: white;
+            font-size: 14px;
+            width: 260px;
+        }
+
+            .hidden-azn-balance-top-balance > div:last-child > div p:last-child {
+                font-weight: bold;
+            }
+
+/* ====================================== INCREASE BALANCE */
+.hidden-azn-balance-top-increase-balance {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: calc(60% - 30px);
+    height: 215px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+    .hidden-azn-balance-top-increase-balance h2 {
+        font-size: 18px;
+        color: #333;
+        font-weight: bold;
+    }
+
+    .hidden-azn-balance-top-increase-balance > div:nth-child(2) {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+        .hidden-azn-balance-top-increase-balance > div:nth-child(2) .azn-balance-increase-input {
+            width: 150px;
+            height: 40px;
+            /* background-color: orchid; */
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+            .hidden-azn-balance-top-increase-balance > div:nth-child(2) .azn-balance-increase-input input {
+                width: 100%;
+                height: 100%;
+                border-radius: 4px;
+                padding: 10px;
+                font-size: 14px;
+                border: 1px solid #999997;
+                color: #999997;
+            }
+
+                .hidden-azn-balance-top-increase-balance > div:nth-child(2) .azn-balance-increase-input input:focus {
+                    outline: none !important;
+                    border: 2px solid #f95732;
+                }
+
+            .hidden-azn-balance-top-increase-balance > div:nth-child(2) .azn-balance-increase-input span {
+                position: absolute;
+                z-index: 1;
+                left: 10px;
+                top: 9.5px;
+                color: #999997;
+                font-weight: bold;
+                font-size: 14px;
+                transition: 0.3s;
+                background-color: white;
+            }
+
+        .hidden-azn-balance-top-increase-balance > div:nth-child(2) button {
+            color: #f95732;
+            border: 1px solid #f95732;
+            background-color: white;
+            margin-left: auto;
+            padding: 5px;
+            border-radius: 4px;
+            transition: 0.5s;
+            margin-bottom: 10px;
+        }
+
+            .hidden-azn-balance-top-increase-balance > div:nth-child(2) button:hover {
+                background-color: #f95732;
+                color: white;
+            }
+
+    .hidden-azn-balance-top-increase-balance > div:nth-child(3) {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+        .hidden-azn-balance-top-increase-balance > div:nth-child(3) p {
+            margin: 0;
+            font-size: 12px;
+            color: #808080;
+        }
+
+/* ============================= AZN BALANCE MIDDLE CONTENT TEXT AND TERMINAL */
+.hidden-azn-balance-middle {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    padding: 28px 30px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.hidden-azn-balance-middle-text {
+    width: 80%;
+}
+
+    .hidden-azn-balance-middle-text h2 {
+        font-size: 18px;
+        color: #333;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+
+    .hidden-azn-balance-middle-text p:nth-child(2) {
+        margin-bottom: 30px;
+    }
+
+        .hidden-azn-balance-middle-text p:nth-child(2) span {
+            color: #333;
+            font-weight: bold;
+            padding: 7px;
+            border: 1px solid #808080;
+        }
+
+            .hidden-azn-balance-middle-text p:nth-child(2) span:nth-child(1) {
+                background-color: white;
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+                box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+            }
+
+
+            .hidden-azn-balance-middle-text p:nth-child(2) span:nth-child(2) {
+                background-color: #d2d2d2;
+                padding-right: 30px;
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+                box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+            }
+
+    .hidden-azn-balance-middle-text p:nth-child(3),
+    .hidden-azn-balance-middle-text p:nth-child(4) {
+        font-size: 14px;
+        color: #333;
+    }
+
+
+.hidden-azn-balance-middle img {
+    background-color: white;
+}
+
+/* ============================== AZN BALANCE TABLE */
+.hidden-azn-balance-bottom {
+    width: 100%;
+    background-color: white;
+    margin: 0 0 30px;
+    border-radius: 10px;
+    padding: 25px 30px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+}
+
+.hidden-azn-balance-bottom-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .hidden-azn-balance-bottom-header > div:nth-child(1) {
+        display: flex;
+        align-items: center;
+    }
+
+        .hidden-azn-balance-bottom-header > div:nth-child(1) p {
+            margin: 0;
+            margin-right: 20px;
+            color: #555;
+        }
+
+        .hidden-azn-balance-bottom-header > div:nth-child(1) select {
+            border-radius: 4px;
+            height: 40px;
+            font-size: 16px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            padding: 6px 12px;
+        }
+
+            .hidden-azn-balance-bottom-header > div:nth-child(1) select:focus {
+                outline: none !important;
+                border: 2px solid #f95732;
+            }
+
+    .hidden-azn-balance-bottom-header > button {
+        border: none;
+        color: grey;
+        background-color: transparent;
+        outline: none;
+    }
+
+.hidden-azn-balance-bottom-table {
+    margin-top: 30px;
+}
+
+    .hidden-azn-balance-bottom-table table {
+        border: 1px solid #d2d2d2;
+    }
+
+        .hidden-azn-balance-bottom-table table th {
+            background-color: rgb(235, 235, 235);
+            color: #333;
+        }
+
+
+
+
+/* ====================================================================== TL BALANSIM */
+/* ====================================================================== TL BALANSIM */
+/* ====================================================================== TL BALANSIM */
+/* ====================================================================== TL BALANSIM */
+/* ====================================================================== TL BALANCE  */
+.hidden-tl-balance {
+    width: 100%;
+    display: none;
+}
+
+.hidden-tl-balance-top {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.hidden-tl-balance-top-balance {
+    background-image: url("../images/balans-mob.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    width: 40%;
+    height: 466px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+    .hidden-tl-balance-top-balance > div:first-child {
+        margin-top: 15px;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        margin: 15px auto 0;
+    }
+
+        .hidden-tl-balance-top-balance > div:first-child span:first-child {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .hidden-tl-balance-top-balance > div:first-child span:last-child {
+            font-size: 14px;
+            text-align: right;
+        }
+
+    .hidden-tl-balance-top-balance > div:nth-child(2) {
+        width: 90%;
+        font-size: 45px;
+        font-weight: bold;
+        margin: 0 auto;
+        color: white;
+        margin-bottom: auto;
+    }
+
+    .hidden-tl-balance-top-balance > div:last-child {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 90%;
+        margin: 0 auto 15px;
+    }
+
+        .hidden-tl-balance-top-balance > div:last-child > div p {
+            margin: 0;
+            color: white;
+            font-size: 14px;
+            width: 260px;
+        }
+
+            .hidden-tl-balance-top-balance > div:last-child > div p:last-child {
+                font-weight: bold;
+            }
+
+/* ========================================== TL BALANCE INFO AND TERMINAL */
+.hidden-tl-balance-middle {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+    width: 450px;
+    height: 466px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    padding: 28px 30px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.hidden-tl-balance-middle-text {
+    width: 80%;
+}
+
+    .hidden-tl-balance-middle-text h2 {
+        font-size: 18px;
+        color: #333;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+
+    .hidden-tl-balance-middle-text p:nth-child(2) {
+        margin-bottom: 30px;
+    }
+
+        .hidden-tl-balance-middle-text p:nth-child(2) span {
+            color: #333;
+            font-weight: bold;
+            padding: 7px;
+            border: 1px solid #808080;
+        }
+
+            .hidden-tl-balance-middle-text p:nth-child(2) span:nth-child(1) {
+                background-color: white;
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+                box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+            }
+
+
+            .hidden-tl-balance-middle-text p:nth-child(2) span:nth-child(2) {
+                background-color: #d2d2d2;
+                padding-right: 30px;
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+                box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+            }
+
+    .hidden-tl-balance-middle-text p:nth-child(3),
+    .hidden-tl-balance-middle-text p:nth-child(4) {
+        font-size: 14px;
+        color: #333;
+    }
+
+
+.hidden-tl-balance-middle img {
+    background-color: white;
+}
+
+/* ============================== TL BALANCE TABLE */
+.hidden-tl-balance-bottom {
+    width: 100%;
+    background-color: white;
+    margin: 0 0 30px;
+    border-radius: 10px;
+    padding: 25px 30px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+}
+
+.hidden-tl-balance-bottom-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .hidden-tl-balance-bottom-header > div:nth-child(1) {
+        display: flex;
+        align-items: center;
+    }
+
+        .hidden-tl-balance-bottom-header > div:nth-child(1) p {
+            margin: 0;
+            margin-right: 20px;
+            color: #555;
+        }
+
+        .hidden-tl-balance-bottom-header > div:nth-child(1) select {
+            border-radius: 4px;
+            height: 40px;
+            font-size: 16px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            padding: 6px 12px;
+        }
+
+            .hidden-tl-balance-bottom-header > div:nth-child(1) select:focus {
+                outline: none !important;
+                border: 2px solid #f95732;
+            }
+
+    .hidden-tl-balance-bottom-header > button {
+        border: none;
+        color: grey;
+        background-color: transparent;
+        outline: none;
+    }
+
+.hidden-tl-balance-bottom-table {
+    margin-top: 30px;
+}
+
+    .hidden-tl-balance-bottom-table table {
+        border: 1px solid #d2d2d2;
+    }
+
+        .hidden-tl-balance-bottom-table table th {
+            background-color: rgb(235, 235, 235);
+            color: #333;
+        }
+
+
+
+
+/* ====================================================================== COURIER */
+/* ====================================================================== COURIER */
+/* ====================================================================== COURIER */
+/* ====================================================================== COURIER */
+.hidden-courier-service {
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+    color: #333;
+    background-color: white;
+    display: none;
+}
+
+    .hidden-courier-service h2 {
+        font-size: 30px;
+        color: #333;
+    }
+
+    .hidden-courier-service form {
+        width: 90%;
+        margin: 30px auto;
+    }
+
+        .hidden-courier-service form h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin: 0 0 21px;
+            color: #333;
+        }
+
+        .hidden-courier-service form > div:nth-child(2) {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+            .hidden-courier-service form > div:nth-child(2) div {
+                width: 45%;
+                margin-bottom: 30px;
+            }
+
+                .hidden-courier-service form > div:nth-child(2) div h4 {
+                    font-size: 18px;
+                    font-weight: 500;
+                    margin: 0 0 21px;
+                    color: #333;
+                }
+
+                .hidden-courier-service form > div:nth-child(2) div p {
+                    display: flex;
+                    align-items: flex-start;
+                }
+
+                .hidden-courier-service form > div:nth-child(2) div input {
+                    transform: translateY(5px);
+                    margin-right: 5px;
+                }
+
+                .hidden-courier-service form > div:nth-child(2) div label {
+                    font-size: 14px;
+                    color: #333;
+                    font-weight: bold;
+                }
+
+.hidden-courier-service-inputs {
+    background-color: transparent;
+}
+
+    .hidden-courier-service-inputs ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+        .hidden-courier-service-inputs ul li {
+            list-style-type: none;
+            position: relative;
+            width: 30%;
+            margin-bottom: 25px;
+        }
+
+            .hidden-courier-service-inputs ul li:nth-child(4),
+            .hidden-courier-service-inputs ul li:nth-child(5) {
+                width: 45%;
+            }
+
+            .hidden-courier-service-inputs ul li input {
+                width: 100%;
+                border: 1px solid #ccc;
+                color: #555;
+                border-radius: 4px;
+                height: 40px;
+                font-size: 16px;
+                padding: 10px;
+            }
+
+                .hidden-courier-service-inputs ul li input:focus {
+                    outline: none !important;
+                    border: 2px solid #f95732;
+                }
+
+                /* =========================== REMOVES ARROWS FROM INPUT TYPE NUMBER */
+                /* Chrome, Safari, Edge, Opera */
+                .hidden-courier-service-inputs ul li input[type=number]::-webkit-outer-spin-button, .hidden-courier-service-inputs ul li input[type=number]::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+
+                /* Firefox */
+                .hidden-courier-service-inputs ul li input[type=number] {
+                    -moz-appearance: textfield;
+                }
+
+            /* =========================== REMOVES ARROWS FROM INPUT TYPE NUMBER */
+
+            .hidden-courier-service-inputs ul li span {
+                position: absolute;
+                left: 10px;
+                top: 9.5px;
+                color: rgb(182, 181, 181);
+                background-color: white;
+                font-size: 14px;
+                transition: 0.5s;
+            }
+
+    .hidden-courier-service-inputs p {
+        margin-bottom: 5px;
+        margin-top: 15px;
+        font-weight: 700;
+        color: #333;
+        font-size: 14px;
+    }
+
+    .hidden-courier-service-inputs select {
+        width: 100%;
+        border: 1px solid #ccc;
+        color: #555;
+        border-radius: 4px;
+        height: 40px;
+        font-size: 16px;
+        padding: 8px;
+    }
+
+        .hidden-courier-service-inputs select:focus {
+            outline: none !important;
+            border: 2px solid #f95732;
+        }
+
+    .hidden-courier-service-inputs textarea {
+        width: 100%;
+        margin-bottom: 35px;
+        margin-top: 35px;
+        border: 1px solid #ccc;
+        color: #555;
+        border-radius: 4px;
+        font-size: 16px;
+        padding: 8px;
+    }
+
+        .hidden-courier-service-inputs textarea:focus {
+            outline: none !important;
+            border: 2px solid #f95732;
+        }
+
+        .hidden-courier-service-inputs textarea::placeholder {
+            color: rgb(182, 181, 181);
+        }
+
+.hidden-courier-service form button {
+    text-decoration: none;
+    border-radius: 4px;
+    border: 1px solid #f95732;
+    background: #f95732;
+    color: #fff;
+    width: 170px;
+    padding: 9px 4px;
+    font-size: 16px;
+    text-align: center;
+    transition: 0.5s;
+}
+
+    .hidden-courier-service form button:hover {
+        border: 1px solid #f95732;
+        background: white;
+        color: #f95732;
+    }
+
+
+.hidden-courier-service-additional-info {
+    width: 90%;
+    margin: 30px auto;
+}
+
+    .hidden-courier-service-additional-info p {
+        margin: 0 0 10px;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+.hidden-courier-table {
+    width: 90%;
+    margin: 70px auto 30px;
+}
+
+    .hidden-courier-table h3 {
+        font-size: 22px;
+        font-weight: 600;
+        margin: 0 0 21px;
+        color: #333;
+    }
+
+.hidden-courier-table-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+    .hidden-courier-table-row > div {
+        border: 1px solid #dddddd;
+        width: 30%;
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+        .hidden-courier-table-row > div:nth-child(2),
+        .hidden-courier-table-row > div:nth-child(4) {
+            width: 20%;
+        }
+
+        .hidden-courier-table-row > div p:nth-child(1) {
+            font-weight: bold;
+            color: #333333;
+            margin: 0;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .hidden-courier-table-row > div p:nth-child(2) {
+            color: #333333;
+            font-size: 14px;
+            margin: 0;
+            width: 100%;
+        }
+
+        .hidden-courier-table-row > div:last-child a {
+            width: 90%;
+            font-size: 14px;
+        }
+        .hidden-courier-table-row > div p:nth-child(2) {
+            word-break: break-all;
+            padding: 10px
+        }
+        /* ====================================================================== REQUESTS (SORĞU) */
+        /* ====================================================================== REQUESTS (SORĞU) */
+        /* ====================================================================== REQUESTS (SORĞU) */
+        /* ====================================================================== REQUESTS (SORĞU) */
+        .hidden-requests-section {
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+            background-color: white;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            padding: 50px 30px;
+            width: 100%;
+            display: none;
+        }
+
+.hidden-requests-navigation-header {
+    border-bottom: 1px solid #dddddd;
+}
+
+    .hidden-requests-navigation-header > h3:nth-child(1) {
+        font-size: 22px;
+        font-weight: 600;
+        color: #333333;
+        margin-bottom: 20px;
+    }
+
+
+
+
+/* ====================================================================== SETTINGS (TENZIMLEMELER) */
+/* ====================================================================== SETTINGS (TENZIMLEMELER) */
+/* ====================================================================== SETTINGS (TENZIMLEMELER) */
+/* ====================================================================== SETTINGS (TENZIMLEMELER) */
+.hidden-user-settings {
+    width: 100%;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+    border-radius: 10px;
+    margin-bottom: 30px;
+    display: none;
+}
+
+.hidden-user-settings-nav-headers {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    background-color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+    .hidden-user-settings-nav-headers a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+        height: 60px;
+        text-decoration: none;
+        margin: 0;
+        color: #808080;
+        font-weight: bold;
+        transform: translateY(1px);
+        z-index: 1;
+        background-color: white;
+        transition: 0.5s;
+        border-top: 5px solid transparent;
+        border-bottom: 1px solid transparent;
+    }
+
+        .hidden-user-settings-nav-headers a:nth-child(1) {
+            border-top: 5px solid #f95732;
+            border-top-left-radius: 10px;
+            cursor: default;
+        }
+
+        .hidden-user-settings-nav-headers a:nth-child(2) {
+            border-bottom: 1px solid #dddddd;
+            border-left: 1px solid #dddddd;
+        }
+
+        .hidden-user-settings-nav-headers a:nth-child(3) {
+            border-left: 1px solid transparent;
+            border-bottom: 1px solid #dddddd;
+            border-right: 1px solid transparent;
+            border-top-right-radius: 10px;
+        }
+
+
+        .hidden-user-settings-nav-headers a:hover {
+            text-decoration: none;
+        }
+
+.hidden-user-settings-content-blocks {
+    border-top: 1px solid #dddddd;
+    position: relative;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+    .hidden-user-settings-content-blocks form {
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+        /* ============================================= PROFIL MELUMATLARI (FIRST FORM) */
+        .hidden-user-settings-content-blocks form:nth-child(1) {
+            background-color: white;
+            padding: 50px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            background-color: white;
+            margin-bottom: 30px;
+        }
+
+            .hidden-user-settings-content-blocks form:nth-child(1) > div {
+                width: 47%;
+                position: relative;
+                margin-bottom: 35px;
+            }
+
+                .hidden-user-settings-content-blocks form:nth-child(1) > div input {
+                    width: 100%;
+                    border-radius: 4px;
+                    height: 40px;
+                    font-size: 16px;
+                    background-color: #eee;
+                    padding: 10px;
+                    line-height: 1.42857143;
+                    color: #555;
+                    border: 1px solid #ccc;
+                    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+                }
+
+                    .hidden-user-settings-content-blocks form:nth-child(1) > div input:focus {
+                        outline: none !important;
+                        border: 2px solid #f95732;
+                    }
+
+                .hidden-user-settings-content-blocks form:nth-child(1) > div:nth-child(6) input {
+                    background-color: white;
+                }
+
+                .hidden-user-settings-content-blocks form:nth-child(1) > div label {
+                    position: absolute;
+                    left: 10px;
+                    top: -10px;
+                    color: rgb(182, 181, 181);
+                    background-color: white;
+                    font-size: 14px;
+                    transition: 0.5s;
+                }
+
+                .hidden-user-settings-content-blocks form:nth-child(1) > div:nth-child(3) h5,
+                .hidden-user-settings-content-blocks form:nth-child(1) > div:nth-child(4) h5 {
+                    font-size: 14px;
+                    line-height: 1.42857143;
+                    font-weight: bold;
+                    margin-bottom: 15px;
+                }
+
+                .hidden-user-settings-content-blocks form:nth-child(1) > div:nth-child(3) select {
+                    width: 100%;
+                    border-radius: 4px;
+                    height: 40px;
+                    font-size: 16px;
+                    background-color: white;
+                    padding: 7px 10px;
+                    line-height: 1.42857143;
+                    color: #555;
+                    border: 1px solid #ccc;
+                }
+
+                    .hidden-user-settings-content-blocks form:nth-child(1) > div:nth-child(3) select:focus {
+                        outline: none !important;
+                        border: 2px solid #f95732;
+                    }
+
+                .hidden-user-settings-content-blocks form:nth-child(1) > div:nth-child(4) > div {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                }
+
+                    .hidden-user-settings-content-blocks form:nth-child(1) > div:nth-child(4) > div select {
+                        width: 40%;
+                        border-radius: 4px;
+                        height: 40px;
+                        font-size: 16px;
+                        background-color: white;
+                        padding: 7px 10px;
+                        line-height: 1.42857143;
+                        color: #555;
+                        border: 1px solid #ccc;
+                    }
+
+                        .hidden-user-settings-content-blocks form:nth-child(1) > div:nth-child(4) > div select:focus {
+                            outline: none !important;
+                            border: 2px solid #f95732;
+                        }
+
+                        .hidden-user-settings-content-blocks form:nth-child(1) > div:nth-child(4) > div select:nth-child(1) {
+                            width: 20%;
+                        }
+
+                        .hidden-user-settings-content-blocks form:nth-child(1) > div:nth-child(4) > div select:nth-child(3) {
+                            width: 30%;
+                        }
+
+            .hidden-user-settings-content-blocks form:nth-child(1) .YaddaSaxla {
+                text-decoration: none;
+                border-radius: 4px;
+                border: 1px solid #f95732;
+                background: #f95732;
+                color: #fff;
+                width: 170px;
+                padding: 9px 4px;
+                font-size: 16px;
+                text-align: center;
+                transition: 0.5s;
+            }
+
+                .hidden-user-settings-content-blocks form:nth-child(1) .YaddaSaxla:hover {
+                    border: 1px solid #f95732;
+                    background: white;
+                    color: #f95732;
+                }
+
+
+        /* ============================================= ŞİFRƏ (SECOND FORM) */
+        .hidden-user-settings-content-blocks form:nth-child(2) {
+            background-color: white;
+            padding: 50px;
+            margin-bottom: 30px;
+            display: none;
+        }
+
+            .hidden-user-settings-content-blocks form:nth-child(2) h5 {
+                font-size: 16px;
+                font-weight: 700;
+                margin-bottom: 20px;
+                margin-top: 0;
+                color: #333333;
+            }
+
+            .hidden-user-settings-content-blocks form:nth-child(2) > div:nth-child(1) {
+                width: 45%;
+                margin-bottom: 30px;
+            }
+
+                .hidden-user-settings-content-blocks form:nth-child(2) > div:nth-child(1) input {
+                    width: 100%;
+                    border-radius: 3px;
+                    height: 40px;
+                    font-size: 16px;
+                    line-height: 1.42857143;
+                    color: #555;
+                    background-color: #fff;
+                    background-image: none;
+                    border: 1px solid #d7d7d7;
+                    padding: 6px 12px;
+                    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+                }
+
+                    .hidden-user-settings-content-blocks form:nth-child(2) > div:nth-child(1) input:focus {
+                        outline: none !important;
+                        border: 2px solid #f95732;
+                    }
+
+            .hidden-user-settings-content-blocks form:nth-child(2) > div:nth-child(3) {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+
+                .hidden-user-settings-content-blocks form:nth-child(2) > div:nth-child(3) > div {
+                    width: 45%;
+                }
+
+                    .hidden-user-settings-content-blocks form:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div {
+                        position: relative;
+                        margin-bottom: 30px;
+                    }
+
+                        .hidden-user-settings-content-blocks form:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div input {
+                            width: 100%;
+                            border-radius: 4px;
+                            height: 40px;
+                            font-size: 16px;
+                            padding: 10px;
+                            line-height: 1.42857143;
+                            color: #555;
+                            border: 1px solid #ccc;
+                            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+                        }
+
+                            .hidden-user-settings-content-blocks form:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div input:focus {
+                                outline: none !important;
+                                border: 2px solid #f95732;
+                            }
+
+                        .hidden-user-settings-content-blocks form:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div label {
+                            position: absolute;
+                            left: 10px;
+                            top: 9.5px;
+                            color: rgb(182, 181, 181);
+                            background-color: white;
+                            font-size: 14px;
+                            transition: 0.5s;
+                        }
+
+                    .hidden-user-settings-content-blocks form:nth-child(2) > div:nth-child(3) > div:nth-child(2) p {
+                        margin: 0 0 10px;
+                        font-size: 14px;
+                        line-height: 1.42857143;
+                        color: #333;
+                    }
+
+                    .hidden-user-settings-content-blocks form:nth-child(2) > div:nth-child(3) > div:nth-child(2) ul {
+                        margin: 0;
+                        padding-left: 17px;
+                    }
+
+                        .hidden-user-settings-content-blocks form:nth-child(2) > div:nth-child(3) > div:nth-child(2) ul li {
+                            margin: 0 0 3px;
+                            font-size: 14px;
+                            line-height: 1.42857143;
+                            color: #333;
+                        }
+
+            .hidden-user-settings-content-blocks form:nth-child(2) .customPasswordButton {
+                text-decoration: none;
+                border-radius: 4px;
+                border: 1px solid #f95732;
+                background: #f95732;
+                color: #fff;
+                width: 170px;
+                padding: 9px 4px;
+                font-size: 16px;
+                text-align: center;
+                transition: 0.5s;
+            }
+
+                .hidden-user-settings-content-blocks form:nth-child(2) .customPasswordButton:hover {
+                    border: 1px solid #f95732;
+                    background: white;
+                    color: #f95732;
+                }
+
+
+        /* ============================================= Ş/V MƏLUMATLARI (THIRD FORM) */
+        .hidden-user-settings-content-blocks form:nth-child(3) {
+            background-color: white;
+            padding: 50px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            display: none;
+        }
+
+            .hidden-user-settings-content-blocks form:nth-child(3) div {
+                position: relative;
+                margin-bottom: 30px;
+            }
+
+                .hidden-user-settings-content-blocks form:nth-child(3) div:nth-child(1),
+                .hidden-user-settings-content-blocks form:nth-child(3) div:nth-child(2) {
+                    width: 45%;
+                }
+
+                .hidden-user-settings-content-blocks form:nth-child(3) div:nth-child(3) {
+                    width: 60%;
+                }
+
+                .hidden-user-settings-content-blocks form:nth-child(3) div:nth-child(5) {
+                    width: 100%;
+                }
+
+            .hidden-user-settings-content-blocks form:nth-child(3) select {
+                width: 30%;
+                border-radius: 4px;
+                height: 40px;
+                font-size: 16px;
+                padding: 7px 10px;
+                line-height: 1.42857143;
+                color: #555;
+                border: 1px solid #ccc;
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+                margin-bottom: 30px;
+            }
+
+                .hidden-user-settings-content-blocks form:nth-child(3) select:focus {
+                    outline: none !important;
+                    border: 2px solid #f95732;
+                }
+
+            .hidden-user-settings-content-blocks form:nth-child(3) div input {
+                width: 100%;
+                border-radius: 4px;
+                height: 40px;
+                font-size: 16px;
+                padding: 10px;
+                line-height: 1.42857143;
+                color: #555;
+                border: 1px solid #ccc;
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            }
+
+                .hidden-user-settings-content-blocks form:nth-child(3) div input:focus {
+                    outline: none !important;
+                    border: 2px solid #f95732;
+                }
+
+            .hidden-user-settings-content-blocks form:nth-child(3) div:nth-child(2) input {
+                background-color: #eee;
+            }
+
+            .hidden-user-settings-content-blocks form:nth-child(3) div span {
+                position: absolute;
+                left: 10px;
+                top: -10px;
+                color: rgb(182, 181, 181);
+                background-color: white;
+                font-size: 14px;
+                transition: 0.5s;
+            }
+
+            .hidden-user-settings-content-blocks form:nth-child(3) .customMPersonalButton {
+                text-decoration: none;
+                border-radius: 4px;
+                border: 1px solid #f95732;
+                background: #f95732;
+                color: #fff;
+                width: 170px;
+                padding: 9px 4px;
+                font-size: 16px;
+                text-align: center;
+                transition: 0.5s;
+            }
+
+                .hidden-user-settings-content-blocks form:nth-child(3) .customMPersonalButton:hover {
+                    border: 1px solid #f95732;
+                    background: white;
+                    color: #f95732;
+                }
+
+
+
+
+
+
+
+
+/*====================================== MODAL INPUTS*/
+.modal input:focus,
+.modal select:focus,
+.modal textarea:focus {
+    outline: none !important;
+    border: 2px solid #f95732;
+    box-shadow: 0 0 2px 0 #f95732;
+}
+
+
+
+
+
+/* =========================================================== MEDIA QUERY */
+/* =========================================================== MEDIA QUERY */
+/* =========================================================== MEDIA QUERY */
+/* =========================================================== MEDIA QUERY */
+@media screen and (min-width: 1142px) {
+    .main-center {
+        width: 1140px;
+    }
+}
+
+@media screen and (max-width: 1142px) {
+    .main-center {
+        width: 960px;
+    }
+
+    .main-panel-aside {
+        width: 230px;
+    }
+
+    .main-panel-content-container {
+        width: 670px;
+    }
+
+    .main-panel-calculator form div input {
+        width: 80px;
+    }
+
+    /* ============================= TL BALANSIM */
+    .hidden-tl-balance-top-balance {
+        height: 550px;
+        width: 43%;
+    }
+
+    .hidden-tl-balance-middle {
+        height: 550px;
+        width: 366px;
+    }
+}
+
+@media screen and (max-width: 960px) {
+
+    main {
+        margin-top: 30px;
+    }
+
+    .main-panel-navbar ul li a span,
+    .main-panel-calculator,
+    .main-panel-currency {
+        display: none;
+    }
+
+    .main-center {
+        width: 100%;
+    }
+
+    .main-panel-aside {
+        width: 60px;
+        position: sticky;
+        top: 0;
+    }
+
+    .main-panel-navbar ul li a {
+        padding-left: 15px;
+    }
+
+    .main-panel-content-container {
+        width: 90%;
+        margin-left: 70px;
+        margin-right: 3%;
+    }
+
+    /* ========= BUTTONS FOR INVOICE */
+    .links-for-invoice-mobile {
+        display: flex;
+    }
+
+    /* ========= BUTTONS FOR INVOICE */
+
+    .hidden-panel-page-top-balance {
+        width: 100%;
+        height: 300px;
+        margin-bottom: 30px;
+    }
+
+    .hidden-panel-page-top-wallet {
+        width: 100%;
+        height: 250px;
+        margin-bottom: 30px;
+    }
+
+    /* ======================= AZN BALANSIM */
+    .hidden-azn-balance-top-balance {
+        height: 370px;
+    }
+
+    /* ====================== COURIER */
+    .hidden-courier-service-inputs ul li {
+        width: 45%;
+    }
+
+    /* ======================= SETTINGS (TENZIMLEMELER) */
+    .hidden-user-settings-content-blocks form:nth-child(1) > div:nth-child(3) {
+        width: 100%;
+    }
+
+    .hidden-user-settings-content-blocks form:nth-child(1) > div:nth-child(4) {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 830px) {
+
+    /* ======================= AZN BALANSIM */
+    .hidden-azn-balance-top-balance {
+        width: 100%;
+        height: 500px;
+    }
+
+        .hidden-azn-balance-top-balance > div:nth-child(2) {
+            text-align: center;
+        }
+
+    .hidden-azn-balance-top-increase-balance {
+        width: 100%;
+    }
+
+    .hidden-azn-balance-middle {
+        justify-content: space-between;
+    }
+
+    /* ===================== TL BALANSIM */
+    .hidden-tl-balance-top-balance {
+        width: 100%;
+        height: 500px;
+    }
+
+    .hidden-tl-balance-tl-balance > div:nth-child(2) {
+        text-align: center;
+    }
+
+    .hidden-tl-balance-middle {
+        justify-content: space-between;
+        width: 100%;
+        height: unset;
+    }
+
+    /* ====================== COURIER */
+    .hidden-courier-service form > div:nth-child(2) div {
+        width: 100%;
+    }
+
+    .hidden-courier-service-inputs ul li {
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .main-panel-content-container {
+        margin-left: 50px;
+        margin-right: 20px;
+    }
+
+    .main-header-user ol {
+        display: none;
+    }
+
+    /* ============================= XARICEKI UNVANLARIM PAGE */
+    .hidden-addresses-detailed-info-block ul {
+        width: 90%;
+    }
+
+    /* ============================ COURIER TABLE */
+    .hidden-courier-table-row > div {
+        width: 100% !important;
+    }
+
+        .hidden-courier-table-row > div:last-child a {
+            width: 50%;
+        }
+}
+
+@media screen and (max-width: 740px) {
+
+    /* ============================ SETTINGS (TENZIMLEMELER) */
+    .hidden-user-settings-nav-headers a {
+        width: 33.333%;
+    }
+
+    /* =========================== PROFIL MELUMATLARI */
+    .hidden-user-settings-content-blocks form:nth-child(1) > div {
+        width: 100% !important;
+    }
+
+        .hidden-user-settings-content-blocks form:nth-child(1) > div:nth-child(4) > div select {
+            margin-bottom: 20px;
+        }
+
+            .hidden-user-settings-content-blocks form:nth-child(1) > div:nth-child(4) > div select:nth-child(1) {
+                width: 65px;
+            }
+
+            .hidden-user-settings-content-blocks form:nth-child(1) > div:nth-child(4) > div select:nth-child(2) {
+                width: 115px;
+            }
+
+            .hidden-user-settings-content-blocks form:nth-child(1) > div:nth-child(4) > div select:nth-child(3) {
+                width: 92px;
+            }
+
+    /* =========================== PASSWORD */
+    .hidden-user-settings-content-blocks form:nth-child(2) > div:nth-child(1),
+    .hidden-user-settings-content-blocks form:nth-child(2) > div:nth-child(3) > div {
+        width: 100%;
+    }
+
+    .hidden-user-settings-content-blocks form:nth-child(2) > div:nth-child(3) > div {
+        margin-bottom: 30px;
+    }
+}
+
+
+@media screen and (max-width: 640px) {
+
+    /* ===================== BAGLAMALARIM */
+    .user-packages-list-main-info > div,
+    .user-packages-list-additional-info > div {
+        width: 50%;
+    }
+
+        .user-packages-list-main-info > div:last-child {
+            width: 100%;
+        }
+
+        .user-packages-list-additional-info > div:nth-child(6) div {
+            width: 90%;
+        }
+
+    /* ===================== SIFARISLERIM */
+    .user-orders-list-main-info > div,
+    .user-orders-list-additional-info > div {
+        width: 50%;
+    }
+
+        .user-orders-list-main-info > div:last-child {
+            width: 100%;
+        }
+
+        .user-orders-list-additional-info > div:nth-child(6) div {
+            width: 90%;
+        }
+}
+
+
+@media screen and (max-width: 590px) {
+    .main-header h4 {
+        font-size: 16px;
+    }
+
+    .main-header-user span {
+        font-size: 14px;
+    }
+
+    .main-panel-content-container {
+        margin-left: 20px;
+    }
+
+    .hidden-panel-page-top-wallet img:last-child {
+        width: 100px;
+        height: 100px;
+    }
+
+    .hidden-panel-page-top-balance {
+        background-image: url("../images/balans-mob.png");
+        height: 400px;
+    }
+
+        .hidden-panel-page-top-balance > div:last-child button {
+            width: 100%;
+        }
+
+        .hidden-panel-page-top-balance > div:last-child {
+            flex-wrap: wrap;
+        }
+
+        .hidden-panel-page-top-balance > div:nth-child(2) {
+            text-align: center;
+            margin: 20px 0;
+            width: 100%;
+        }
+
+        .hidden-panel-page-top-balance > div:last-child > div p {
+            width: 80%;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .hidden-panel-page-top-balance > div:last-child button {
+            margin: 0 auto 30px;
+        }
+
+    .hidden-panel-page-bottom-header,
+    .hidden-azn-balance-bottom-header,
+    .hidden-tl-balance-bottom-header {
+        flex-wrap: wrap;
+    }
+
+    /* ========================== AZN BALANSIM */
+    .hidden-azn-balance-top-balance > div:last-child > div p {
+        text-align: center;
+        width: 100%;
+    }
+
+    /* ========================== TL BALANSIM */
+    .hidden-tl-balance-top-balance {
+        height: 250px;
+    }
+
+        .hidden-tl-balance-top-balance > div:nth-child(2),
+        .hidden-tl-balance-top-balance > div:last-child div,
+        .hidden-tl-balance-top-balance > div:last-child div p {
+            text-align: center;
+            width: 100%;
+        }
+
+    /* ========================== COURIER */
+    .hidden-courier-service {
+        padding: 30px 10px;
+    }
+
+        .hidden-courier-service form button {
+            width: 100%;
+            height: 50px;
+        }
+
+    /* ========================================== SETTINGS FORMS */
+    .hidden-user-settings-content-blocks form {
+        padding: 50px 15px !important;
+    }
+
+        /* ========================== Ş/V MƏLUMATLARI (SETTINGS-TENZIMLEMELER) */
+        .hidden-user-settings-content-blocks form:nth-child(3) div,
+        .hidden-user-settings-content-blocks form:nth-child(3) select {
+            width: 100% !important;
+        }
+}
+
+@media screen and (max-width: 520px) {
+
+    .hidden-panel-page-bottom-header > div:nth-child(1) select,
+    .hidden-azn-balance-bottom-header > div:nth-child(1) select,
+    .hidden-tl-balance-bottom-header > div:nth-child(1) select {
+        width: 250px;
+    }
+
+    .hidden-panel-page-bottom-header > button,
+    .hidden-azn-balance-bottom-header > button,
+    .hidden-tl-balance-bottom-header > button {
+        margin-top: 10px;
+    }
+
+    /* ============================= XARICEKI UNVANLARIM PAGE */
+    .hidden-addresses-navigation-header-block,
+    .hidden-packages-header-block {
+        width: 50%;
+    }
+
+    .hidden-addresses-detailed-info-block ul {
+        width: 95%;
+    }
+
+
+    /* ===================== BAGLAMALARIM AND SIFARISLERIM */
+    .user-packages-list-main-info > div,
+    .user-packages-list-additional-info > div,
+    .user-orders-list-main-info > div,
+    .user-orders-list-additional-info > div {
+        width: 100%;
+    }
+
+    .hidden-packages-header-block:nth-child(2) {
+        border-bottom-right-radius: 10px;
+    }
+
+    .hidden-packages-country-block form *,
+    .hidden-orders-country-block form * {
+        text-align: center;
+    }
+
+    .packages-price-submit-buttons *,
+    .orders-price-submit-buttons * {
+        width: 100%;
+    }
+
+    .hidden-packages-country-block-header select,
+    .hidden-packages-country-block-header h2,
+    .hidden-orders-country-block-header select,
+    .hidden-orders-country-block-header h2 {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* ============================= AZN BALANSIM */
+    .hidden-azn-balance-top-increase-balance {
+        height: 350px;
+    }
+
+        .hidden-azn-balance-top-increase-balance > div:nth-child(3) p {
+            margin-bottom: 20px;
+        }
+
+    .hidden-azn-balance-middle {
+        padding: 15px;
+    }
+
+    .hidden-azn-balance-middle-text {
+        width: 100%;
+    }
+
+    .hidden-azn-balance-middle img {
+        margin: 20px auto 0;
+    }
+
+    .hidden-azn-balance-middle-text p:nth-child(2) {
+        display: flex;
+    }
+
+        .hidden-azn-balance-middle-text p:nth-child(2) span:nth-child(1),
+        .hidden-azn-balance-middle-text p:nth-child(2) span:nth-child(2) {
+            width: 50%;
+            padding: 0;
+            text-align: center;
+        }
+
+
+    /* ============================= TL BALANSIM */
+    .hidden-tl-balance-middle {
+        padding: 15px;
+    }
+
+    .hidden-tl-balance-middle-text {
+        width: 100%;
+    }
+
+    .hidden-tl-balance-middle img {
+        margin: 20px auto 0;
+    }
+
+    .hidden-tl-balance-middle-text p:nth-child(2) {
+        display: flex;
+    }
+
+        .hidden-tl-balance-middle-text p:nth-child(2) span:nth-child(1),
+        .hidden-tl-balance-middle-text p:nth-child(2) span:nth-child(2) {
+            width: 50%;
+            padding: 0;
+            text-align: center;
+        }
+}
+
+@media screen and (max-width: 380px) {
+
+    .hidden-panel-page-bottom-header > div:nth-child(1) select,
+    .hidden-azn-balance-bottom-header > div:nth-child(1) select,
+    .hidden-tl-balance-bottom-header > div:nth-child(1) select {
+        width: 100px;
+    }
+
+    /* ================================ TENZIMLEMELER */
+    .hidden-user-settings-content-blocks form:nth-child(1) button,
+    .hidden-user-settings-content-blocks form:nth-child(2) button,
+    .hidden-user-settings-content-blocks form:nth-child(3) button {
+        width: 100%;
+    }
+
+    /*============================== COURIER TABLE*/
+    .hidden-courier-table-row > div:last-child a {
+        width: 90% !important;
+    }
+}
+
+
+
+
+/* ============================ CLASSES FOR JS */
+.visibleCalculatorCurrency {
+    display: block !important;
+}
+
+
+
+
+
+
+
+
+
+/*============================ FOOTER */
+#main-footer {
+    background: #2b2b2e;
+    color: #fff;
+}
+
+.footer-top {
+    padding: 40px 0 30px;
+    border-bottom: 1px solid #363636;
+}
+
+.footerLeftText {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 30px;
+}
+
+.followSocial {
+    color: #fff;
+    font-weight: 600;
+    margin: 20px 0 25px;
+    display: inline-block;
+}
+
+.socialList ul {
+    padding-left: 0px;
+    list-style: none;
+}
+
+    .socialList ul li {
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        display: inline-block;
+        text-decoration: none;
+        border-radius: 50%;
+        color: #fff;
+        background: #2e4d70;
+        text-align: center;
+        margin-right: 5px;
+    }
+
+.aTag {
+    text-decoration: none;
+}
+
+.socialList ul li i {
+    color: white;
+}
+
+.footerCenterList {
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+}
+
+.footerCenter h4 {
+    font-size: 19px;
+    margin-top: 17px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.footerCenter a {
+    display: block;
+    margin-bottom: 15px;
+    color: #aaa;
+    text-decoration: none;
+}
+
+.footerRight a .numberSpan {
+    color: #ffff;
+    text-decoration: none;
+    font-size: 32px;
+    font-weight: 900;
+}
+
+.footerRight ul {
+    list-style: none;
+    text-align: center;
+}
+
+.numberSpanSecond {
+    font-size: 16px;
+    color: white;
+}
+
+.footerRight i {
+    color: orangered;
+    font-size: 16px;
+}
+
+.footerLeftImage, .footerLeftText, .followSocial {
+    text-align: center;
+}
+
+.followSocialUp {
+    text-align: center;
+}
+
+.tezlikleList {
+    margin-top: 50px;
+    margin-bottom: 40px;
+    text-align: right;
+}
+
+.footer-bottom {
+    padding: 20px 0px;
+    color: #AAAAAA;
+}
+
+.footer-bottom-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media only screen and (max-width: 1147px) {
+    .footerImage {
+        width: 90px;
+    }
+}
+
+@media only screen and (max-width:991px) {
+    .tezlikleList {
+        text-align: center;
+    }
+
+    .lastList {
+        justify-content: center;
+    }
+
+    .footerImage {
+        width: 120px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================ STATUS MODAL STYLE */
+#getStatusModal .modal-dialog {
+    max-width: 900px;
+}
+
+.modal-body-status-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.modal-body-status-header-block {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 20%;
+}
+
+    .modal-body-status-header-block p {
+        margin: 0;
+        color: #333;
+    }
+
+        .modal-body-status-header-block p:nth-child(1) {
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .modal-body-status-header-block p:nth-child(2) {
+            font-weight: normal;
+            font-size: 13px;
+        }
+
+/* ============================== CONTENT THAT IS VISIBLE FOR LARGE SCREENS */
+.modal-body-status-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.modal-body-status-content-status-block {
+    width: 13.5%;
+    display: flex;
+}
+
+
+.modal-body-status-content-status-block-image-block {
+    width: 50%;
+}
+
+.modal-body-status-content-status-block-image-block-image {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin: 0 auto;
+    background-color: #ebebeb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+}
+
+.modal-body-status-content-status-block-image-block-text {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+}
+
+.modal-body-status-content-status-block-linking-block {
+    width: 50%;
+    display: flex;
+    position: relative;
+}
+
+.modal-body-status-content-status-block-linking-block-border {
+    height: 1px;
+    border: 1px #c8c8c8 dashed;
+    width: 100%;
+    margin-top: 22.5px;
+}
+
+.modal-body-status-content-status-block-linking-block-circle {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: transparent;
+    position: absolute;
+    left: 50%;
+    margin-left: -7.5px;
+    top: 22.5px;
+    margin-top: -7.5px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+}
+
+
+.modal-body-status-content-status-block:last-child {
+    width: 6%;
+}
+
+    .modal-body-status-content-status-block:last-child .modal-body-status-content-status-block-image-block {
+        width: 100%;
+    }
+
+
+
+/* ============================== CONTENT THAT IS VISIBLE FOR SMALL SCREENS */
+.modal-body-mobile-status-content {
+    display: flex;
+    flex-direction: column;
+    display: none;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.modal-body-mobile-status-content-status-block {
+    display: flex;
+    width: 140px;
+}
+
+.modal-body-mobile-status-content-status-block-linking-block {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.modal-body-mobile-status-content-status-block-linking-block-border {
+    height: 100%;
+    border: 1px dashed #c8c8c8;
+}
+
+.modal-body-mobile-status-content-status-block-linking-block-circle {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: transparent;
+    position: absolute;
+    left: 50%;
+    margin-left: -7.5px;
+    bottom: 0;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+}
+
+.modal-body-mobile-status-content-status-block-linking-block-circle-mini {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: #058fff;
+    position: absolute;
+    left: 50%;
+    margin-left: -4px;
+    top: 0;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+}
+
+.modal-body-mobile-status-content-status-block-image-block {
+    width: 80%;
+}
+
+.modal-body-mobile-status-content-status-block-image-block-image {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin: 0 auto;
+    background-color: #ebebeb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+}
+
+.modal-body-mobile-status-content-status-block-image-block-text {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+@media screen and (max-width: 900px) {
+    .modal-body-mobile-status-content {
+        display: block;
+    }
+
+    .modal-body-status-content {
+        display: none;
+    }
+}
+
+
+
+
+@media screen and (max-width: 500px) {
+    .modal-body-status-header-block {
+        width: 50%;
+    }
+}

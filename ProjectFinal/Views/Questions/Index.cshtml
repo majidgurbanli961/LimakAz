@@ -1,0 +1,138 @@
+﻿@model List<Questions>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section css {
+    <link rel="stylesheet" href="~/Project/css/style.css">
+
+}
+@section cssRules {
+    <link rel="stylesheet" href="~/Project/css/questions.css">
+
+}
+
+
+<section id="calculator">
+    <div class="container">
+        <div class="calculatorContent">
+            <div class="row colExs">
+                <div class="col-md-4 col-sm-5 col-xs-6 ">
+                    <div class="calculatorContentLeft">
+                        <h4>Suallar    </h4>
+
+                    </div>
+
+                </div>
+                <div class="col-md-8 col-sm-7 col-xs-6">
+                    <div class="calculatorContentRight">
+                        <ul>
+                            <li>
+                                <a href="limak.az">
+                                    <span class="calcVisible">Ana səhifə</span>
+                                    <span class="calcNotVisible">...</span>
+
+                                </a>
+                            </li>
+                            <li class="customSlash"> / </li>
+                            <li class="calclist">  Suallar </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<section id="magazalarMain" style="background-color:white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+
+                <div class="magazalarMainLeft magazalarMainLeftSecond">
+                    <div class="magazalarMainLeftTop">
+                        <h4>Köməkçi bölmələr </h4>
+                        <div class="customBorderClass"></div>
+                        <ul>
+                            <li>
+                                <a href="">
+                                    Qaydalar
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/az/suallar">Suallar</a>
+                            </li>
+                            <li>
+                                <a href="/az/gizlilik-sertleri">Gizlilik şərtləri</a>
+                            </li>
+                            <li class="activeLi">
+                                <a href="#">
+                                    Suallar
+                                </a>
+                            </li>
+
+
+
+                        </ul>
+                        <select class="form-control customOptionalSelect">
+                            <option>Qaydalar</option>
+                            <option>Suallar</option>
+                            <option>Gizlilik şərtləri</option>
+
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                <div class="magazalarMainRight">
+                    <h2>ƏN ÇOX VERİLƏN SUALLAR</h2>
+                    <div class="magazalarMainRightTop">
+                        @foreach (var item in Model)
+                        {
+                            <div class="pagesFaqAcc ">
+
+                                <div class="accHeader ">
+                                    <a>
+
+                                      @item.Header
+
+                                    </a>
+                                    <i class="fas fa-angle-down"></i>
+                                </div>
+                                <div class="accBody">
+                                    @*<ul style="list-style:none">
+            <li>
+
+
+            </li>
+        </ul>*@
+                                    @Html.Raw(item.Body)
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+
+
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+ </div>
+
+</section>
+
+@section scriptRules {
+    <script src="~/Project/js/rules.js"></script>
+}

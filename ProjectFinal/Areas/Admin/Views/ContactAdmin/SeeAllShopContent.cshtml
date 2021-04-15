@@ -1,0 +1,49 @@
+﻿@model List<ProjectFinal.Areas.Admin.Models.Shop>
+@{
+    ViewData["Title"] = "SeeAllShopContent";
+}
+
+
+
+
+@section seeAllShopsAdmin{
+    <link rel="stylesheet" href="~/AdminPanel/css/seeAllShopsAdmin.css">
+
+
+}
+<h1> </h1>
+<a class="btn btn-outline-success mt-4" href="/Admin/ContactAdmin/createshopcontent">Yeni Mağaza Contenti Yarat</a>
+<br />
+
+<br />
+<form>
+    <select class="custom-select customSelect">
+        <option> Magaza adi secin </option>
+        @{
+            for (int i = 0; i < Model.Count; i++)
+            {
+                <option value=@Model[i].Id> @Model[i].ShopAdress </option>
+
+            }
+        }
+    </select>
+</form>
+<br />
+
+
+<table class="table  table-bordered">
+    <thead>
+        <tr>
+            
+            <th scope="col"> Text</th>
+            <th>Settings</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+@section seeAllShopContent{
+    <script src="~/Project/js/seeAllShopContent.js"></script>
+}
+

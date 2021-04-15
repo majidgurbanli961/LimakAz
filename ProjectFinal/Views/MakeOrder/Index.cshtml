@@ -1,0 +1,372 @@
+﻿@model ProjectFinal.Models.PanelPage.AccountBalanceViewModel;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@section makeOrderCss{
+    <link rel="stylesheet" href="~/Project/css/makeOrder.css">
+
+}
+
+<section id="makeOrder">
+    <div class="container">
+        <div class="makeOrderMain">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-9">
+                            <div class="MainLeftTop">
+                                <h4> SİFARİŞ <b>ET</b> </h4>
+
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="makeOrderNav">
+                                <div class="customShow">
+                                    <a href="/home/index"> Ana səhifə </a>
+                                    <span class="littleSpan"> / </span>
+                                </div>
+                                <a asp-controller="PanelPage" asp-action="Index"> İstifadəçi  </a>
+
+                                <div class="customNone">...</div>
+                                <span class="littleSpan"> / </span>
+                                <a class="customColorSpan"> Sifariş et </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-9 col-sm-12 col-xs-12">
+                    <div class="makeOrderMainLeft">
+
+                        <div class="mainLeftMiddle">
+                            <div class="countryList">
+                                <div class="countryListContent countryListContentActive ">
+                                    <img class="turkeyFlag" src="~/Project/images/turkeyFlag.png" alt="">
+                                    Türkiyə
+                                </div>
+                                <div class="countryListContentRemain">
+
+                                </div>
+                            </div>
+                            <div class="countrySpace"></div>
+                            <div class="countryForm countryFormDefault countryFormLastSecond countryFormLast">
+                                <div class="row">
+                                    <div class="col-lg-9 col-sm-12 col-xs-12">
+                                        <div class=" customMarginTop productLink">
+                                            <input class="form-control" type="text" placeholder="Məhsul linki* " id="productLink">
+                                            <span class="text-danger d-none" id="productLinkWarning">Məhsulun linki qeyd olunmalıdır *</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-12 col-xs-12">
+                                        <div class=" customMarginTop priceForm">
+                                            <input class="form-control customPrice" type="number" placeholder="Məbləğ(TL)* " id="productPrice" min="1">
+                                            <span class="text-danger d-none" id="productPriceWarning">Məhsulun qiyməti qeyd olunmalıdır *</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-5 col-sm-12 col-xs-12">
+                                        <div class="isTurkey customMarginTop ">
+                                            <p> <b>Türkiyə içi kargo * </b> </p>
+                                            <select  class="form-control customİsTurkey">
+
+                                                <option value="Xeyr">Xeyr </option>
+                                                <option value="Bəli">Bəli </option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-12 col-xs-12 customAppend"></div>
+                                    <div class="col-lg-3 col-sm-12 col-xs-12">
+                                        <div class="isTurkey ">
+                                            <p> <b> Cəmi(+5%) </b> </p>
+                                            <input class="form-control isPercent " disabled type="text"
+                                                   placeholder="Cəmi " id="productTotalPrice">
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="amountAndQeyd">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="numberInputDiv">
+                                                <button type="button" class="btn customMinusButton btn-default">
+                                                    -
+                                                </button>
+                                                <input class="form-control customAmount" type="number"
+                                                       placeholder="Məhsulların sayı" min="1" id="productAmount">
+                                                <button type="button"
+                                                        class="btn customPlusButton customSecondBtn btn-default">
+                                                    +
+                                                </button>
+                                            </div>
+                                            <span class="text-danger d-none" id="productAmountWarning">Məhsulun sayı qeyd olunmalıdır *</span>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="customAmountDiv customAmountDivSecond">
+                                                <textarea class="form-control" type="number"
+                                                          placeholder="Ölçü, rəng və s. üçün qeydlər *" id="productComments"></textarea>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="addButton">
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-12 col-xs-12">
+                    <div class="makeOrderRight">
+                        <div class="littleBlock">
+                            <div class="littleBlockTop">
+                                <img src="https://limak.az/front/new/img/question-mark.png" alt="">
+                            </div>
+                            <div class="littleBlockMiddleFirst">
+                                <h4>Son 30 gun</h4>
+                            </div>
+                            <div class="littleBlockMiddleSecond">
+                                <span>
+                                    0%
+                                </span>
+                            </div>
+                            <div class="littleBlockMiddleFirst">
+                                <h4 style="font-size: 25px ;">0.00$</h4>
+                            </div>
+
+                        </div>
+                        <div class="bigBlock">
+                            <h4 class="text-center"> Sifariş et </h4>
+                            <div class="bigBlockOdenish">
+                                <div class="bigBLockOdenishLeft">
+                                    <input type="radio" name="PaymentMethod" value="2">
+                                </div>
+                                <div class="bigBlockOdenishRight">
+                                    <p>Kart ilə ödəniş</p>
+                                    <span>( İstənilən kredit və ya debet kartı ilə ödəniş edə bilərsiniz )</span>
+                                </div>
+                            </div>
+                            <div class="bigBlockOdenish">
+                                <div class="bigBLockOdenishLeft">
+                                    <input type="radio" name="PaymentMethod" value="1" checked>
+                                </div>
+                                <div class="bigBlockOdenishRight">
+                                    <p>Tl ilə ödəniş</p>
+
+                                    <span>
+                                        ( İstənilən kredit və ya debet kartı ilə ödəniş <span class="tlBalans">0.00</span> )
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="cemiOdenish">
+                                <div class="cemiOdenishContent">
+                                    <div class="cemiOdenishLeft">
+                                        Cəmi:
+                                    </div>
+                                    <div class="cemiOdenishRight">
+                                        <b>  <span class="spanForSlaw">0</span>  TL</b>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="checkButton">
+                                <div class="checkButtonLeft">
+                                    <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                                </div>
+                                <div class="checkButtonRight">
+                                    <span> Məsafəli satış şərtlərini qəbul edirəm </span>
+                                </div>
+
+                            </div>
+                            <div class="catdirilmaOfisi">
+                                <h5> Çatdırılma ofisi * </h5>
+                                <select class="form-control" id="productDeliveryOffice">
+                                    <option value="1">Bakı (İçərişəhər)</option>
+                                    <option value="2">Bakı (Xalqlar Dostluğu)</option>
+                                    <option value="3">Gəncə</option>
+                                    <option value="4">Sumqayıt</option>
+                                    <option value="5">Zaqatala</option>
+
+
+
+
+                                </select>
+                            </div>
+                            <button class="btn customOdenisEtButton" data-tl-balance="@Model.TLBalance"> Ödəniş et  </button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<section id="firstModal">
+    <div class="container">
+        <div class="firstModalContent">
+            <span class="customX">
+                <i class="fas fa-times-circle"></i>
+            </span>
+            <div class="firstModalHeader">
+                <h5>
+
+                    <h3>
+                        "Limak VM" MMC-nin məsafəli satış müqaviləsi
+                    </h3>
+                </h5>
+            </div>
+            <div class="firstModalBody">
+                <p> Sifarişçi bu müqaviləni təsdiqləməklə şirkətin məsafəli satış şərtlərini qəbul etdiyini bildirir.  </p>
+                <h4 style="font-size: 18px;"> I. Sifarişçinin öhdəlikləri  </h4>
+                <ul>
+                    <li>
+                        — Sifarişçi sistemdə qeydiyyatdan keçməklə, şəxsi məlumatlarını tələb olunan qaydada qeyd etməlidir.
+                    </li>
+                    <li>
+                        — Sifarişçi qeydiyyatdan keçmək üçün daxil etdiyi məlumatların doğruluğuna məsuliyyət daşıyır.
+
+                    </li>
+                    <li>
+                        — Sonradan qeyd olunmuş məlumatlarda dəyişikliklər olarsa, bununla bağlı sistemə məlumatların yenilənməsi üçün bildiriş göndərmək sifarişçinin öhdəliyidir.
+                    </li>
+                    <li>
+                        — Qadağan olunmuş məhsullar xəbərdarlıqdan sonra da sifariş verilərsə, xidmət həmin sifarişçi üçün bloklanır.
+                    </li>
+                    <li>
+                        — Sistemin tələb etdiyi qaydada ödəmə etmək sifarişçinin öhdəliyidir.
+                    </li>
+                    <li>
+                        — Daşınan bağlamanın çatdırılma üçün xidmət haqqı iki meyar üzrə, çəki və həcmə görə hesablanır. İstifadəçi bu meyarlar üzrə hesablanmış daşınma haqqının daha çox olanı üzrə ödəniş aparmalıdır.
+                    </li>
+                    <li>
+                        — Öz şifrə və məlumatları digər şəxslərə verməməlidir. Belə hallar baş verərsə, borclanmaya və sifarişə görə şəxs özü cavabdehdir.
+                    </li>
+                    <li>
+                        — Sifarişdən sonra istehsalçı tələb olunan əşyaya adekvat olaraq sifarişi icra etmədiyi halda icraçı öhdəlik daşımır.
+                    </li>
+                    <li>
+                        — Sifarişlər edilərkən endirim barədə əlavə məlumat verməlidir, əks təqdirdə endirimlər nəzərə alınmır.
+                    </li>
+                    <li>
+                        — Sifarişçi “Təcili sifariş et” xidmətindən istifadə edirsə, buna görə müəyyən olunmuş taarifə uyğun əlavə ödəniş edilməlidir.
+                    </li>
+                    <li>
+                        — Sifarişçi gömrük rüsumu ödəmədən şəxsi istifadəsi üçün ölkəyə mal idxal etməklə bağlı Nazirlər Kabineti tərəfindən müəyyənləşdirilmiş aylıq həddi keçdiyi zaman bağlamanın rəsmiləşdirilməsi üçün ondan əlavə gömrük rüsumu tələb olunur.
+                    </li>
+                    <li>
+                        — Sifarişçi Nazirlər Kabineti tərəfindən müəyyənləşdirilmiş aylıq həddən artıq məbləğdə gömrük bəyannaməsi olan məhsul idxal etdikdə məhsulun gömrük rəsmiləşdirməsini özü və ya vəkalət verdiyi şəxs həyata keçirir.
+                    </li>
+                    <li class="redList">
+                        — Sifarişçi sistemin xəbərdarlığına baxmayaraq, riskli hesab olunan online mağazalardan alış-veriş edilməsində israr edirsə, bu zaman baş verəcək risklərə görə icraçı məsuliyyət daşımır.
+                    </li>
+                    <li class="redList">
+                        — İstehsalçının və sifariş olunmuş əşyanın keyfiyyət, ölçü, marka qüsurları və s. çatışmazlıqlara görə icraçı məsuliyyət daşımır.
+
+                    </li>
+                    <li class="redList">
+                        — Qeyri-etik davranışlar sərgiləyən, əməkdaşlara qarşı açıq hörmətsizlik edən, xidmətdən yararlanarkən Azərbaycan qanunvericiliyinə zidd şəkildə davranan sifarişçinin hesabı məhdudlaşdırılır və ona bir daha xidmət göstərilmir. Sifarişçi qəbul edilmiş qaydalara uyğun davranmadığı halda onunla əməkdaşlığın dayandırılacağını qəbul edir.
+
+                    </li>
+                    <li class="redList">
+                        — Qeyri-etik davranışlar sərgiləyən, əməkdaşlara qarşı açıq hörmətsizlik edən, xidmətdən yararlanarkən Azərbaycan qanunvericiliyinə zidd şəkildə davranan sifarişçinin hesabı məhdudlaşdırılır və ona bir daha xidmət göstərilmir. Sifarişçi qəbul edilmiş qaydalara uyğun davranmadığı halda onunla əməkdaşlığın dayandırılacağını qəbul edir.
+
+                    </li>
+                </ul>
+                <h4 style="font-size: 18px;">
+                    II. İcraçının öhdəlikləri:
+                </h4>
+                <ul>
+                    <li>
+                        — İcraçı yalnız sifarişçi tərəfindən seçilən məhsulun həyata keçirir.
+                    </li>
+                    <li>
+                        — İcraçı sifarişçinin bütün məlumatlarının gizliliyinə və təhlükəsizliyinə təminat verir.
+                    </li>
+                    <li>
+                        — İcraçıya sifarişin alınması və bu xidmətin həyata keçirilməsi üçün müəyyən olunmuş vəsait tam ödədikdən sonra sifariş icra olunur.
+                    </li>
+                    <li>
+                        — İcraçının məhsulun tam və vaxtında, sifariş şərtlərinə görə sifariş edilməsi öhdəliyi var
+                    </li>
+                    <li>
+                        — İcraçı hər hansı səbəbdən sifarişi yerinə yetirə bilmədikdə sifarişçinin ödədiyi məbləği və xidmət haqqını ona geri qaytarır.
+                    </li>
+                    <li>
+                        — İcraçı sifarişin izlənməsini təmin edir, sifarişin verilməsi ilə bağlı sifarişçini mütəmadi məlumatlandırır.
+                    </li>
+                </ul>
+
+            </div>
+            <div class="firstModalFooter">
+                <div class="row">
+                    <div class="col-6"></div>
+                    <div class="col-6">
+                        <div class="buttonContent">
+                            <button class="btn customBtnEffect customTestiq ">Təsdiq</button>
+                            <button class="btn customBtnEffect customImtina ">Imtina</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</section>
+
+
+
+
+<div class="modal fade" id="confirmPayTL" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Diqqət!</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body delete-modal-body">
+                <p>TL hesabınızdan ödəməyə razısınızmı?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancel-payment">Xeyr</button>
+                <button type="button" class="btn btn-danger" id="confirm-payment">Bəli</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+@section makeOrderJs{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script src="~/Project/js/makeOrder.js"></script>
+    <script src="~/Project/js/makeOrderAjax.js"></script>
+
+
+}

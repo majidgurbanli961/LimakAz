@@ -1,0 +1,82 @@
+﻿@model ProjectFinal.Areas.Admin.Models.SuperAdminViewModel
+@inject ProjectFinal.DataConnect.DbContextApp customDb;
+@inject Microsoft.AspNetCore.Identity.UserManager<DbPassportUserModel> userManager;
+@{
+    ViewData["Title"] = "GiveRoleToUser";
+}
+@section TableCss{
+    <link href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet">
+
+}
+
+<br />
+<br />
+
+
+
+
+<table id="myTable" class="table table-bordered">
+    <thead>
+        <tr>
+            <th data-tablesort-type="string" scope="col"> Username</th>
+            <th scope="col"> Indiki rolu</th>
+
+            <th scope="col"> Role ver</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{
+
+            for (int i = 0; i < Model.Users.Count; i++)
+            {
+                var customUser = customDb.CustomUsers.FirstOrDefault(x => x.UserName == Model.Users[i].UserName);
+
+                var myuser = await userManager.FindByNameAsync(Model.Users[i].UserName);
+                var roles = userManager.GetRolesAsync(myuser).Result.ToList();
+                var result = roles[0];
+                if (result == "SuperAdmin")
+                {
+                    continue;
+                }
+                <tr>
+                    <td>@Model.Users[i].UserName </td>
+                    <td>
+                        @result
+                    </td>
+                    <td>
+                        <form method="post" action="/admin/superadmin/GiveRoleToUser">
+                            <input type="hidden" name="userId" value=@Model.Users[i].Id />
+                            <select class="dropdown" name="roleId">
+                                @{
+                                    for (int j = 0; j < Model.Roles.Count; j++)
+                                    {
+                                        <option value=@Model.Roles[j].Id>  @Model.Roles[j].Name </option>
+                                    }
+
+                                }
+
+                            </select>
+                            <button class="btn btn-primary">Role ver</button>
+                        </form>
+                    </td>
+
+                </tr>
+
+            }
+        }
+
+
+
+    </tbody>
+</table>
+@section CustomTableJs{
+    <script src="~/AdminPanel/js/customTable.js"></script>
+}
+
+
+
+
+
+
+

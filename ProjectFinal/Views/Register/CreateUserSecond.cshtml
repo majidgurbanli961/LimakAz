@@ -1,0 +1,262 @@
+﻿@model ProjectFinal.Models.PassportUserModel
+@{
+    ViewData["Title"] = "CreateUserSecond";
+}
+@section registerCSS{
+    <link rel="stylesheet" href="~/css/register.css">
+}
+<section id="calculator">
+    <div class="container">
+        <div class="calculatorContent">
+            <div class="row colExs">
+                <div class="col-md-4 col-sm-5 col-xs-6 ">
+                    <div class="calculatorContentLeft">
+                        <h4>İSTİFADƏÇİ  <b>QEYDİYYATI</b>  </h4>
+
+                    </div>
+
+                </div>
+                <div class="col-md-8 col-sm-7 col-xs-6">
+                    <div class="calculatorContentRight">
+                        <ul>
+                            <li>
+                                <a href="limak.az">
+                                    <span class="calcVisible">Ana səhifə</span>
+                                    <span class="calcNotVisible">...</span>
+
+                                </a>
+                            </li>
+                            <li class="customSlash"> / </li>
+                            <li class="calclist">   QEYDİYYAT </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-12">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="register_content">
+                    <div class="content_left">
+                        <form method="POST" action="">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h4>Profil məlumatları</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-lg-6">
+                                    <input asp-for="Name" type="text" class="form-control" placeholder="Ad * ">
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <input asp-for="Surname" type="text" class="form-control" placeholder="Soyad *">
+                                    <span asp-validation-for="Surname" class="text-danger"></span>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-lg-6">
+                                    <input asp-for="Email" type="text" class="form-control" placeholder="E-mail *">
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+
+
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <input asp-for="MobilePhone" type="tel" class="form-control" placeholder="+994">
+                                    <span asp-validation-for="MobilePhone" class="text-danger"></span>
+
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-lg-6">
+                                    <input asp-for="Password" type="password" class="form-control" placeholder="Şifrə *">
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Şifrənin təkrarı *">
+                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h4>Şəxsiyyət vəsiqəsi məlumatları</h4>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6 ">
+
+
+                                    <input asp-for="SeriaNumber" value="" type="text" class="form-control " placeholder="Seriya nömrəsi * ">
+                                    <span asp-validation-for="SeriaNumber" class="text-danger"></span>
+
+
+
+
+                                </div>
+                                <div class="col-lg-6">
+
+
+                                    <input asp-for="Citizenship" value="" type="text" class="form-control " placeholder=" Vətəndaşlıq *">
+                                    <span asp-validation-for="Citizenship" class="text-danger"></span>
+
+
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+
+                                    <h5>Doğum tarixi *</h5>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <select asp-for="Day" class="form-control " title="Gün" tabindex="-98">
+                                        <option>Gun</option>
+
+                                        @{
+                                            for (int i = 1; i <= 31; i++)
+                                            {
+
+                                                <option value=@i>@i</option>
+
+                                            }
+                                        }
+                                    </select>
+                                    <span asp-validation-for="Day" class="text-danger"></span>
+
+                                </div>
+                                <div class="col-lg-3">
+                                    <select asp-for="Month" class="form-control " title="Ay" tabindex="-98">
+
+                                        <option>Ay</option>
+                                        <option value="1">Yanvar</option>
+                                        <option value="2">Fevral</option>
+                                        <option value="3">Mart</option>
+                                        <option value="4">Aprel</option>
+                                        <option value="5">May</option>
+                                        <option value="6">Iyun</option>
+                                        <option value="7">Iyul</option>
+                                        <option value="8">Avqust</option>
+                                        <option value="9">Sentyabr</option>
+                                        <option value="10">Oktabr</option>
+                                        <option value="11">Noyabr</option>
+                                        <option value="12">Dekabr</option>
+
+
+                                    </select>
+                                    <span asp-validation-for="Month" class="text-danger"></span>
+
+                                </div>
+                                <div class="col-lg-3">
+                                    <select class="form-control " asp-for="Year" title="Gün" tabindex="-98">
+
+                                        <option>Il</option>
+                                        @{
+                                            for (int i = 1940; i < 2002; i++)
+                                            {
+                                                <option value=@i> @i </option>
+
+                                            }
+                                        }
+                                    </select>
+                                </div>
+
+                                <div class="col-lg-3">
+                                    <select asp-for="Sex" class="form-control " title="Cinsi" tabindex="-98">
+
+                                        <option>Cinsi</option>
+                                        <option value="Kisi">Kisi</option>
+                                        <option value="Qadin">Qadin</option>
+
+                                    </select>
+                                    <span asp-validation-for="Year" class="text-danger"></span>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <input asp-for="FinCode" type="text" class="form-control inputText" placeholder=" Fin">
+                                    <span asp-validation-for="FinCode" class="text-danger"></span>
+
+                                </div>
+                                <div class="col-lg-6">
+                                    <input value="" type="text" name="address" class="form-control inputText" placeholder="Ş/V-dəki ünvan * ">
+                                    <span asp-validation-for="Address" class="text-danger"></span>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <input asp-for="agreeBox" type="checkbox">
+
+                                    <a target="_blank" data-toggle="modal" data-target=".privacy-modal"> İstifadəçi qaydaları ilə razıyam</a>
+                                    <span asp-validation-for="agreeBox" class="text-danger"></span>
+
+                                </div>
+                                <div class="col-lg-6">
+                                    <button type="submit" class="btn-effect">
+                                        <span>TƏSDİQ ET</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-4">
+                <div class="register_content responsive-content" style="padding-bottom: 112px;">
+                    <div class="invoice-right block">
+                        <h3 class="text-center">Diqqət!</h3>
+                        <p>Şəxsiyyət vəsiqənizin FİN kodu vəsiqənin aşağı sağ küncündə sonuncu rəqəmdən əvvəlki 7 işarədir. Daha aydın bilməniz üçün nümunə şəkilə diqqət edin!</p>
+                        <img src="https://limak.az/front/new/img/fin-big.png" alt="fin_image" class="img-responsive center-block">
+                        <div class="focus">
+                            <button type="button" class="btn" data-toggle="modal" data-target=".bs-example-modal-sm-2">Şəkili böyüt</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="modal fade bs-example-modal-sm-2" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" style="display: none;">
+                    <div class="modal-dialog modal-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel1">Seriya nömrəsi</h4>
+                            </div>
+                            <img src="https://limak.az/front/new/img/fin-big.png" alt="fin_big" class="img-responsive center-block">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+@section registerJS{
+    <script src="~/Project/js/register.js"></script>
+}
+

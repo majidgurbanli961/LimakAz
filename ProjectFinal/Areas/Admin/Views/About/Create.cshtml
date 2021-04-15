@@ -1,0 +1,56 @@
+﻿@model About
+
+@{
+    ViewData["Title"] = "About";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+@section cssCkEditor{
+    <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+}
+
+<div class="row ">
+    <div class="col-md-4 col-lg-10 mt-5 text-center">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+
+                <div class="custom-file">
+                    <label asp-for="Photo" class="custom-file-label ">Şəkil Yükləyin</label>
+                    <input asp-for="Photo" class="custom-file-input" id="validatedCustomFile" />
+                    <span asp-validation-for="Photo" class="text-danger"></span>
+                </div>
+            </div>
+            @Html.AntiForgeryToken()
+            
+            <div class="form-group">
+
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Mətn</div>
+                    </div>
+                    <textarea asp-for="BodyText" name="BodyText" class="form-control" id="inlineFormInputGroupUsername2"></textarea>
+                    <span asp-validation-for="BodyText" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group w-100 text-center">
+                <input style="width:150px" type="submit" value="Yarat" class="text-center btn btn-outline-success mt-3" />
+            </div>
+
+
+
+        </form>
+    </div>
+</div>
+
+<a asp-action="Index" class="btn btn-outline-warning">Geri Dön</a>
+
+@section scriptCkEditor{
+
+    <script>
+        CKEDITOR.replace('BodyText');
+    </script>
+}

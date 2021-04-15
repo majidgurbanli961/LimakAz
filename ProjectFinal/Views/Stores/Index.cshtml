@@ -1,0 +1,122 @@
+﻿@model List<Stores>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section cssStores {
+    <link rel="stylesheet" href="~/Project/css/shopTr.css">
+
+}
+
+@{ 
+    ViewBag.LongName = ViewBag.FullName;
+}
+<section id="calculator">
+    <div class="container">
+        <div class="calculatorContent">
+            <div class="row colExs">
+                <div class="col-md-4 col-sm-5 col-xs-6 ">
+                    <div class="calculatorContentLeft">
+                        <h4>Magazalar </h4>
+
+                    </div>
+
+                </div>
+                <div class="col-md-8 col-sm-7 col-xs-6">
+                    <div class="calculatorContentRight">
+                        <ul>
+                            <li>
+                                <a href="limak.az">
+                                    <span class="calcVisible">Ana səhifə</span>
+                                    <span class="calcNotVisible">...</span>
+
+                                </a>
+                            </li>
+                            <li class="customSlash"> / </li>
+                            <li class="calclist"> MAGAZALAR </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<section id="magazalarMain" style=" background-color: white;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                <div class="magazalarMainLeft">
+                    <div class="magazalarMainLeftTop">
+                        <h4>Ölkələr üzrə mağazalar</h4>
+                        <div class="customBorderClass"></div>
+                        <ul class="customOptionalList">
+                            <li class="activeLi">Türkiyə</li>
+                            <li>Amerika</li>
+
+                        </ul>
+                        <select class="form-control customOptionalSelect">
+                            <option>Türkiyə</option>
+                            <option>Amerika</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+                <div class="magazalarMainLeft magazalarMainLeftSecond">
+                    <div class="magazalarMainLeftTop">
+                        <h4>Mağaza kateqoriyası </h4>
+                        <div class="customBorderClass"></div>
+                        <ul>
+                            <li class="activeLi">Ümumi</li>
+
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                <div class="magazalarMainRight">
+                    <div class="magazalarMainRightTop">
+                        <h2>Nümunə Saytlar</h2>
+                    </div>
+                    <div class="magazalarMainRightMain">
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-lg-4">
+                                    <div class="magazaContent" style=" padding: 11px;">
+                                        <div class="magazaContentContent">
+                                            <div class="magazaContentImage">
+                                                <img src="~/Project/@item.Image">
+                                            </div>
+                                            <div class="magazaContentText">
+                                                <a href="https://@item.Title" target="_blank">@item.Title</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</section>
+@section scriptStores {
+    <script src="~/Project/js/shopTr.js"></script>
+}
+
+

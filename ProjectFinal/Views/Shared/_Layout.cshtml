@@ -1,0 +1,346 @@
+﻿
+@inject ProjectFinal.DataConnect.DbContextApp customDb;
+@inject Microsoft.AspNetCore.Identity.UserManager<DbPassportUserModel> userManager;
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limak.az - Türkiyədən alış-verişin ən asan yolu..</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.2/css/all.css"
+          integrity="sha384-xVVam1KS4+Qt2OrFa+VdRUoXygyKIuNWUUUBZYv+n27STsJ7oDOHJgfF0bNKLMJF" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="~/Project/css/layout.css">
+    <link rel="stylesheet" href="~/PanelPage/css/createInvoice.css">
+
+
+    @RenderSection("css", required: false)
+
+    @RenderSection("cssRules", required: false)
+    @RenderSection("cssAbout", required: false)
+    @RenderSection("scriptAbout", required: false)
+    @RenderSection("cssStores", required: false)
+    @RenderSection("signInCss", required: false)
+    @RenderSection("contactCss", required: false)
+    @RenderSection("makeOrderCss", required: false)
+    @RenderSection("registerCss", required: false)
+    @RenderSection("calculatorCss", required: false)
+
+    @RenderSection("cssPanel", required: false)
+
+
+
+
+
+</head>
+
+<body style="overflow-x: hidden !important; ">
+    <header>
+
+        <!-- ================================================== MAIN NAVIGATION -->
+        <!-- ================================================== MAIN NAVIGATION -->
+        <nav style="margin:0px">
+            <div class="nav-top">
+                <div class="navbar-center-container">
+                    <div class="nav-top-left">
+                        <a asp-controller="Rules" asp-action="Index">Qaydalar</a>
+                        <a asp-controller="Questions" asp-action="Index">Suallar</a>
+                        <a asp-controller="About" asp-action="Index">Haqqimizda</a>
+                    </div>
+                    <div class="nav-top-right">
+                        @{ if (User.Identity.IsAuthenticated)
+                            {
+                                var customUser = customDb.CustomUsers.FirstOrDefault(x => x.UserName == User.Identity.Name);
+                <p>  @customUser.Name @customUser.Surname </p> var myuser = await userManager.FindByNameAsync(User.Identity.Name);
+                var roles = userManager.GetRolesAsync(myuser).Result.ToList();
+                var result = roles[0];
+                if (result == "User")
+                {
+
+                }
+                else
+                {
+<a href="/admin/" class="btn btn-outline-info" > Admin panel </a> }
+
+
+
+
+}
+else
+{ <p style="font-size:12px ; color:gray">
+    <a style="color:gray" asp-controller="Register" asp-action="SignIn">Daxil ol</a> |
+    <a style="color:gray" asp-controller="Register"  asp-action="CreateUserSecond">Qeydiyyat</a>
+</p> } }
+                        <div class="nav-top-right-hidden-list">
+                            <a href="/PanelPage/index">Panel səhifəsi</a>
+                            <a href="/PanelPage/index">Xaricdəki ünvanlarım</a>
+                            <a href="/PanelPage/index">Sifarişlərim</a>
+                            <a href="/PanelPage/index">Bağlamalarım</a>
+                            <a href="/PanelPage/index">AZN Balansım</a>
+                            <a href="/PanelPage/index">TL Balansım</a>
+                            <a href="/PanelPage/index">Kuryer</a>
+                            <a href="/PanelPage/index">Sorğu</a>
+                            <a href="/PanelPage/index">Tənzimləmələr</a>
+                            <a href="/Register/LogOut">Hesabdan çıx</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-bottom">
+                <div class="navbar-center-container">
+                    <a href="/home/index">
+                        <img src="~/PanelPage/images/Limak-Logo.png" alt="Logo Image!">
+                    </a>
+                    <div class="nav-bottom-center">
+                        <div class="nav-language-option">
+                            <p>AZ <i>&darr;</i></p>
+                            <div class="nav-language-option-block">
+                                <a href="#">AZ</a>
+                                <a href="#">RU</a>
+                            </div>
+                        </div>
+                        <a href="/countries/index">Ölkələr</a>
+                        <a href="/calculator/index">Kalkulyator</a>
+                        <a href="/stores/index">Mağazalar</a>
+                        <a href="/contact/index">Əlaqə</a>
+                    </div>
+                    <div class="nav-bottom-right">
+                        <div class="nav-bottom-right-contact">
+                            <p>*9595</p>
+                            <p>Dəstək <br> xətti</p>
+                            <img src="~/PanelPage/images/phone.png" alt="Mobile Image!">
+                        </div>
+                        @{ if (User.Identity.IsAuthenticated)
+                            {
+                <a id="makeInvoiceNavLarge" asp-controller="Invoice" asp-action="CreateInvoice">BƏYAN ET</a> } }
+                        <a id="makeOrderNavLarge" asp-controller="MakeOrder" asp-action="Index">SİFARİŞ ET</a>
+                        <div class="navbar-toggle-button">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+
+
+
+
+        <!-- ================================================== MAIN NAVIGATION (MOBILE)-->
+        <!-- ================================================== MAIN NAVIGATION (MOBILE)-->
+        <div class="navbar-mobile">
+            <div class="navbar-mobile-container">
+                <div class="navbar-mobile-contact">
+                    <p>*9595</p>
+                    <p>Dəstək <br> xətti</p>
+                    <img src="~/PanelPage/images/phone.png" alt="Mobile Image!">
+                </div>
+                <div class="navbar-mobile-buttons">
+                    @{ if (User.Identity.IsAuthenticated)
+                        {
+            <a id="makeInvoiceNavMobile" asp-controller="Invoice" asp-action="CreateInvoice">BƏYAN ET</a> } }
+                    <a id="makeOrderNavMobile" asp-controller="MakeOrder" asp-action="Index">SİFARİŞ ET</a>
+                </div>
+                <div class="navbar-mobile-nav-links">
+                    <a href="/countries/index">Ölkələr</a>
+                    <a href="/calculator/index">Kalkulyator</a>
+                    <a href="/stores/index">Mağazalar</a>
+                    <a href="/contact/index">Əlaqə</a>
+                </div>
+                <div class="navbar-mobile-detailed-info">
+                    <p>Bazar ertəsi-şənbə</p>
+                    <p><b>Sifariş et xidməti:</b></p>
+                    <p>24 saat</p>
+                    <p><b>Müştəri xidməti:</b></p>
+                    <p>24 saat</p>
+                    <p><b>Anbar:</b></p>
+                    <p>Saat 10:00`dan - 21:00`a dək</p>
+                </div>
+                <div class="close-nav-mobile">&times;</div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </header>
+    @RenderBody()
+
+    <footer id="main-footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                        <div class="footerLeft">
+                            <div class="footerLeftImage">
+                                <img src="https://limak.az/front/new/img/logo-white.png" alt="">
+                            </div>
+                            <div class="footerLeftText">
+                                <p>
+                                    "Limak VM" MMC sürətli poçtdaşıma və kuryer şirkətidir. Fiziki və hüquqi şəxslərin sifariş etdikləri yükləri xaricdəki anbarlarına qəbul edir, onların Azərbaycana daşınıb, müştəriyə təhvil verilməsini təmin edir.
+                                </p>
+
+
+                            </div>
+                            <div class="followSocialUp">
+                                <span class="followSocial">
+                                    Bizi sosial şəbəkələrdən izləyin
+                                </span>
+                                <div class="socialList">
+                                    <ul>
+                                        <li>
+                                            <a href="facebook.com">
+                                                <i class="fab fa-facebook-f"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="twitter.com">
+                                                <i class="fab fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="twitter.com">
+                                                <i class="fab fa-instagram"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                        <div class="footerCenter">
+                            <h4>
+                                Bölmələr
+                            </h4>
+                            <div class="footerCenterList">
+                                <div class="footerCenterListLeft">
+                                    <a href="/countries/index"> Olkeler</a>
+                                    <a href="/stores/index"> Magazalar</a>
+                                    <a> Gizlilik şərtləri</a>
+
+                                </div>
+                                <div class="footerCenterListRight">
+                                    <a href="/calculator/index"> Kalkulyator</a>
+                                    <a href="/about"> Haqqımızda</a>
+                                    <a href="/contact/index"> Əlaqə</a>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12"></div>
+                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                        <div class="footerRight">
+                            <ul>
+                                <li>
+
+
+
+                                    <a href="#9595" style="text-decoration: none;" class="aTag">
+                                        <span class="numberSpan"> *9595 </span>
+                                        <span class="numberSpanSecond">
+                                            Dəstək
+
+                                            Xətti
+                                            <i class="fas fa-phone-alt"></i>
+                                        </span>
+                                        <span>
+
+                                        </span>
+                                    </a>
+
+
+                                </li>
+                                <li>
+                                    <span style="color:#AAAAAA;text-align:right;">
+                                        Səbail rayonu, Mehdi Hüseyn küç. 94
+                                        (İçərişəhər metrostansiyasının yaxınlığı və Təzə Bəy hamamının yanı) Bakı/Azərbaycan
+                                    </span>
+                                </li>
+                                <li class="tezlikleList">
+                                    Tezliklə
+                                </li>
+                                <li class="lastList" style="display: flex;">
+                                    <a href="sad">
+                                        <img class="footerImage" style="margin-right: 5px;" src="https://limak.az/front/new/img/google-play.png" alt="">
+                                    </a>
+                                    <a href="sad">
+                                        <img class="footerImage" src="https://limak.az/front/new/img/appstore.png" alt="">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class=" col-lg-6 col-md-12 col-sm-12">
+                        <span>© 2018 Limak.az | Bütün hüquqlar qorunur</span>
+                    </div>
+                    <div class=" col-lg-6 col-md-12 col-sm-12">
+                        <div class="footer-bottom-right">
+                            <div class="footer-bottom-right-content">
+                                <img src="https://limak.az/front/new/img/visa-logo.png" alt="">
+                                <img src="https://limak.az/front/new/img/master-card-logo.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+
+
+
+    @RenderSection("scriptRules", required: false)
+    @RenderSection("scriptABoutJs", required: false)
+    @RenderSection("scriptAboutMain", required: false)
+    @RenderSection("scriptStores", required: false)
+    @RenderSection("scriptCalc", required: false)
+    @RenderSection("contactJs", required: false)
+    @RenderSection("makeOrderJs", required: false)
+    @RenderSection("createInvoice", required: false)
+    @RenderSection("registerJS", required: false)
+    @RenderSection("calculatorJs", required: false)
+
+
+
+    <script src="~/Project/js/script.js"></script>
+    <script src="~/Project/js/layout.js"></script>
+    <script src="~/PanelPage/js/createInvoiceButtons.js"></script>
+    @RenderSection("scriptPanel", required: false)
+
+</body>
+
+</html>
+
+

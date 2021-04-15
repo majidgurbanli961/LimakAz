@@ -1,0 +1,33 @@
+﻿@model HomeSlider
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+
+<div class="row ">
+    <div class="col-lg-8 col-md-12 mt-5 ">
+        <h3 class="text-center">Yeni  Slider</h3>
+        <form asp-action="Create" enctype="multipart/form-data">
+            
+
+            <div class="custom-file">
+                <label asp-for="Photo" class="custom-file-label ">Şəkil Yükləyin</label>
+                <input asp-for="Photo" class="custom-file-input" id="validatedCustomFile" />
+                <span asp-validation-for="Photo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group w-100 text-center">
+                <input style="width:150px" type="submit" value="Yarat" class="text-center btn btn-outline-success mt-3" />
+            </div>
+        </form>
+
+
+    </div>
+</div>
+<a asp-action="IndexHomeSlider" class="btn btn-outline-warning">Geri Dön</a>

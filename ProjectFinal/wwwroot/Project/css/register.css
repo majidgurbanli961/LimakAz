@@ -1,0 +1,249 @@
+#calculator {
+    background-color: #f8f8f8;
+}
+
+.calculatorContent {
+    padding: 30px 0px;
+}
+
+.calculatorContentLeft h4 {
+    font-size: 23px;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.calculatorContentRight {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.calculatorContentRight ul {
+    display: flex;
+    font-size: 14px;
+    list-style: none;
+}
+
+.customSlash {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.calculatorContentRight a {
+    text-decoration: none;
+    color: #333;
+}
+
+.calclist {
+    color: #f95732;
+}
+
+.calcNotVisible {
+    display: none;
+}
+
+
+.customOptionalSelect:active {
+    box-shadow: none;
+
+    box-shadow: none !important;
+
+
+}
+
+.customOptionalSelect:focus {
+    box-shadow: none !important;
+
+
+}
+
+.customOptionalSelect {
+    display: none;
+}
+/* ============================================================== */
+
+.register_content{
+  
+        border-radius: 10px;
+        background: #fff;
+        padding: 30px;
+       
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+        margin-bottom: 42px;
+}
+ .left-content {
+    padding: 57px 88px 80px;
+}
+.content-left h4 {
+    font-weight: 600;
+}
+.row{
+margin-bottom: 20px;
+}
+.btn-effect {
+    margin-left: 30px;
+    text-decoration: none;
+    border-radius: 3px;
+    border: 1px solid #f95732;
+    background: #f95732;
+    color: #fff;
+    display: inline-block;
+    width: 170px;
+    padding: 9px 4px;
+    font-size: 16px;
+    text-align: center;
+    -webkit-transition: .2s ease-in-out;
+    -moz-transition: .2s ease-in-out;
+    -ms-transition: .2s ease-in-out;
+    -o-transition: .2s ease-in-out;
+    transition: .2s ease-in-out;
+}
+.btn-effect:hover {
+    background: #f57558;
+    border-color: #f57558;
+    color: #fff;
+    outline: 0;
+    text-decoration: none;
+}
+ .block {
+    margin-bottom: 30px;
+}
+.img-responsive, .thumbnail a>img, .thumbnail>img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+ .invoice-right p {
+    text-align: justify;
+    word-break: keep-all;
+    margin-bottom: 25px;
+}
+.invoice-right p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.444;
+    text-align: center;
+    font-weight: 300;
+}
+.focus {
+    text-align: center;
+    margin-top: 40px;
+}
+.focus button {
+    padding: 0;
+    border-bottom: 1px solid;
+    font-size: 16px;
+    border-radius: 0;
+    color: #f95631;
+}
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+}
+.modal-header .close {
+    margin-top: -2px;
+    position: absolute;
+    right: 23px;
+    top: 7px;
+}
+.modal-header h4 {
+    font-weight: 700;
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+    position: relative;
+}
+.modal-content{
+    width: 540px;
+    left: -152px;
+}
+
+/*  */
+@media(max-width:550px) {
+    .calculatorContentLeft h4 {
+        font-size: 13px;
+        line-height: 1.5;
+
+    }
+
+}
+@media(max-width:768px) {
+    .btn-effect  {
+      width: 100%;
+      margin-left: 0px;
+      margin-top: 15px;
+    }
+
+}
+
+@media(max-width:576px) {
+    .colExs {
+        flex-wrap: nowrap;
+        align-items: baseline;
+    }
+
+    .h4,
+    h4 {
+        font-size: 16px;
+        padding-top: 40px;
+        padding-bottom: 18px;
+    }
+
+    .customSlash {
+        margin-left: 3px;
+    }
+}
+
+@media (max-width:991px) {
+
+    .customOptionalSelect {
+        display: block;
+        margin-top: 52px;
+    }
+
+.form-control{
+margin-bottom: 20px;
+}
+.responsive-content {
+    display: none;
+}
+}
+
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+@media(max-width: 992px) {
+    .calcVisible {
+        display: none;
+    }
+
+    .calcNotVisible {
+        display: block;
+    }
+
+
+}
+
+@media (max-width:320px) {
+    .calculatorContentRight .customSlash {
+
+        margin-left: -30px;
+    }
+
+    .calcNotVisible {
+        margin-left: -50px;
+
+    }
+}

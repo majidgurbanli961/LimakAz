@@ -1,0 +1,310 @@
+﻿#calculator {
+    background-color: lightgray;
+}
+#calculatorMain {
+    background-color: white;
+}
+.calculatorContent {
+    padding: 24px 0px;
+}
+
+.calculatorContentLeft h4 {
+    font-size: 23px;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.calculatorContentRight {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+    .calculatorContentRight ul {
+        display: flex;
+        font-size: 14px;
+        list-style: none;
+    }
+
+.customSlash {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.calculatorContentRight a {
+    text-decoration: none;
+    color: #333;
+}
+
+.calclist {
+    color: #f95732;
+}
+
+.calcNotVisible {
+    display: none;
+}
+
+#calculatorMain {
+    padding-top: 70px;
+    padding-bottom: 210px;
+}
+
+.calculatorMainLeftTop {
+    border-radius: 10px;
+    border: 1px solid #dedede;
+    padding: 0;
+}
+
+.block {
+    padding: 30px;
+    /* box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04); */
+}
+
+.blockTop {
+    margin-bottom: 25px;
+}
+
+.customRight {
+    display: flex;
+    flex-direction: row-reverse;
+    cursor:pointer;
+}
+
+    .customRight span {
+        color: rgb(170, 170, 170);
+    }
+
+.dropup {
+    width: 100%;
+    background-color: white;
+    border-color: #ababab;
+}
+
+.customButton {
+    padding: 6px 12px !important;
+    width: 100% !important;
+    background-color: white;
+    color: #ababab;
+    border-color: #d7d7d7;
+}
+
+.customSecondButton {
+    background-color: white;
+    color: #ababab;
+    width: 70%;
+    border-color: #d7d7d7;
+}
+
+.customButton:hover {
+    background-color: white;
+    color: #ababab;
+}
+
+.customButton:active {
+    background-color: white !important;
+    color: #ababab !important;
+}
+
+.redSelected {
+    color: #f95732;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show > .btn-secondary.dropdown-toggle {
+    background-color: white !important;
+    color: #ababab !important;
+}
+
+.dropdown-menu {
+    padding: 0px;
+    width: 100%;
+    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, .4);
+    border: none;
+}
+
+.customButton:focus {
+    background-color: white !important;
+    color: #ababab !important;
+    box-shadow: none !important;
+}
+
+.formContent {
+    margin-bottom: 15px;
+    width: 100% !important;
+}
+
+.dropdownFirst {
+    border-bottom: 1px solid #e2e5e7;
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+    .dropdown-menu ul li:hover {
+        cursor: pointer;
+    }
+
+.customCalcReset {
+    cursor: pointer !important;
+}
+
+.width100 {
+    width: 100%;
+}
+
+.smallSecondButton {
+    background-color: white;
+    color: gray;
+}
+
+.hesablaButton {
+    border-color: #f95732;
+    color: #f95732;
+    transition: .6s;
+}
+
+    .hesablaButton:hover {
+        background-color: #f95732;
+        color: white;
+        border-color: #f95732;
+    }
+
+.dataShower {
+    display: flex;
+    justify-content: space-between;
+}
+
+.customDefaultInput {
+    border-radius: 0.25em 0em 0.25em 0.25em;
+    border-color: #d7d7d7;
+}
+
+    .customDefaultInput:focus {
+        box-shadow: none;
+        border: 2px solid #f95732;
+    }
+
+.smallSecondButton:hover {
+    background-color: white;
+    color: gray;
+}
+
+.smallSecondButton {
+    border-color: #d7d7d7;
+}
+
+.smallDropdownMenu {
+    width: 30%;
+}
+
+.smallSecondButton:focus {
+    box-shadow: none !important;
+}
+
+.smallSecondButton:active {
+    box-shadow: none !important;
+}
+
+.dropdown-menu ul li {
+    padding: 6px 10px;
+}
+
+.calculatorMainRight {
+    padding: 0px 30px;
+}
+
+.howCalculate h3 {
+    margin-bottom: 34px;
+}
+
+.howCalculate p {
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+.howCalculate h5 {
+    margin-top: 7px;
+}
+
+.currency {
+    padding: 30px 15px 23px;
+    background-color: #f6f6f6;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+
+.currencyContent h4 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.currencyInput {
+    display: flex;
+}
+
+.customDefaultInputSecond {
+    width: 90%;
+}
+
+.currencyInputLeft {
+    width: 60%;
+}
+
+.currencyInputRight {
+    width: 30%;
+}
+
+.customThirdButton {
+    border-color: #d7d7d7 !important;
+    background-color: white;
+}
+
+    .customThirdButton:focus {
+        box-shadow: none;
+    }
+
+
+
+
+@media(max-width:550px) {
+    .calculatorContentLeft h4 {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+}
+
+@media(max-width:576px) {
+    .colExs {
+        flex-wrap: nowrap;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+@media(max-width: 992px) {
+    .calcVisible {
+        display: none;
+    }
+
+    .calcNotVisible {
+        display: block;
+    }
+}

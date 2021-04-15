@@ -1,0 +1,2298 @@
+﻿@model ProjectFinal.Models.PanelPage.IndexDataViewModels;
+@inject ProjectFinal.DataConnect.DbContextApp customDb;
+@inject Microsoft.AspNetCore.Identity.UserManager<DbPassportUserModel> userManager;
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.2/css/all.css"
+          integrity="sha384-xVVam1KS4+Qt2OrFa+VdRUoXygyKIuNWUUUBZYv+n27STsJ7oDOHJgfF0bNKLMJF" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="~/PanelPage/css/layout.css">
+    <link rel="stylesheet" href="~/PanelPage/css/userPanel.css">
+
+    <title>Limak.az - Türkiyədən alış-verişin ən asan yolu..</title>
+</head>
+
+<body>
+
+    @*<p>@Model.ValCurs.ValType[1].Valute[0].Name</p>*@
+
+    <!-- ================================================== MAIN NAVIGATION -->
+    <!-- ================================================== MAIN NAVIGATION -->
+    <header>
+
+        <!-- ================================================== MAIN NAVIGATION -->
+        <!-- ================================================== MAIN NAVIGATION -->
+        <nav>
+            <div class="nav-top">
+                <div class="navbar-center-container">
+                    <div class="nav-top-left">
+                        <a asp-controller="Rules" asp-action="Index">Qaydalar</a>
+                        <a asp-controller="Questions" asp-action="Index">Suallar</a>
+                        <a asp-controller="About" asp-action="Index">Haqqimizda</a>
+                    </div>
+                    <div class="nav-top-right">
+                        @{
+                            if (User.Identity.IsAuthenticated)
+                            {
+                                var customUser = customDb.CustomUsers.FirstOrDefault(x => x.UserName == User.Identity.Name);
+                                <p>  @customUser.Name @customUser.Surname </p>
+                                var myuser = await userManager.FindByNameAsync(User.Identity.Name);
+                                var roles = userManager.GetRolesAsync(myuser).Result.ToList();
+                                var result = roles[0];
+                                if (result == "User")
+                                {
+
+                                }
+                                else
+                                {
+                                    <a class="btn btn-outline-info" href="/admin/"> Admin panel </a>
+
+                                }
+
+
+
+
+                            }
+                            else
+                            {
+                                <p><a asp-controller="Register" asp-action="SignIn">Sign In</a></p>
+
+
+                            }
+
+                        }
+                        <div class="nav-top-right-hidden-list">
+                            <a href="#/">Panel səhifəsi</a>
+                            <a href="#/foreign-address">Xaricdəki ünvanlarım</a>
+                            <a href="#/orders">Sifarişlərim</a>
+                            <a href="#/invoices">Bağlamalarım</a>
+                            <a href="#/balance">AZN Balansım</a>
+                            <a href="#/balanceTl">TL Balansım</a>
+                            <a href="#/courier">Kuryer</a>
+                            <a href="#/questions">Sorğu</a>
+                            <a href="#/settings">Tənzimləmələr</a>
+                            <a href="/Register/LogOut">Hesabdan çıx</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-bottom">
+                <div class="navbar-center-container">
+                    <a href="/home/index">
+                        <img src="~/PanelPage/images/Limak-Logo.png" alt="Logo Image!">
+                    </a>
+                    <div class="nav-bottom-center">
+                        <div class="nav-language-option">
+                            <p>AZ <i>&darr;</i></p>
+                            <div class="nav-language-option-block">
+                                <a href="#">AZ</a>
+                                <a href="#">RU</a>
+                            </div>
+                        </div>
+                        <a href="/countries/index">Ölkələr</a>
+                        <a href="/calculator/index">Kalkulyator</a>
+                        <a href="/stores/index">Mağazalar</a>
+                        <a href="/contact/index">Əlaqə</a>
+                    </div>
+                    <div class="nav-bottom-right">
+                        <div class="nav-bottom-right-contact">
+                            <p>*9595</p>
+                            <p>Dəstək <br> xətti</p>
+                            <img src="~/PanelPage/images/phone.png" alt="Mobile Image!">
+                        </div>
+                        <a asp-controller="Invoice" asp-action="CreateInvoice">BEYAN ET</a>
+                        <a asp-controller="MakeOrder" asp-action="Index">SİFARİŞ ET</a>
+                        <div class="navbar-toggle-button">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+
+
+
+
+        <!-- ================================================== MAIN NAVIGATION (MOBILE)-->
+        <!-- ================================================== MAIN NAVIGATION (MOBILE)-->
+        <div class="navbar-mobile">
+            <div class="navbar-mobile-container">
+                <div class="navbar-mobile-contact">
+                    <p>*9595</p>
+                    <p>Dəstək <br> xətti</p>
+                    <img src="~/PanelPage/images/phone.png" alt="Mobile Image!">
+                </div>
+                <div class="navbar-mobile-buttons">
+                    <a asp-controller="Invoice" asp-action="CreateInvoice">BƏYAN ET</a>
+                    <a asp-controller="MakeOrder" asp-action="Index">SİFARİŞ ET</a>
+                </div>
+                <div class="navbar-mobile-nav-links">
+                    <a href="/countries/index">Ölkələr</a>
+                    <a href="/calculator/index">Kalkulyator</a>
+                    <a href="/stores/index">Mağazalar</a>
+                    <a href="/contact/index">Əlaqə</a>
+                </div>
+                <div class="navbar-mobile-detailed-info">
+                    <p>Bazar ertəsi-şənbə</p>
+                    <p><b>Sifariş et xidməti:</b></p>
+                    <p>24 saat</p>
+                    <p><b>Müştəri xidməti:</b></p>
+                    <p>24 saat</p>
+                    <p><b>Anbar:</b></p>
+                    <p>Saat 10:00`dan - 21:00`a dək</p>
+                </div>
+                <div class="close-nav-mobile">&times;</div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </header>
+
+
+    <main>
+        <div class="main-center">
+            <div class="main-header">
+                <h4 class="col-md-3 col-sm-6 col-xs-6">İSTİFADƏÇİ <span>PANELİ</span></h4>
+                <div class="main-header-user col-md-9 col-sm-6 col-xs-6">
+                    <span class="user-code">MÜŞTƏRİ KODU: <b>@ViewBag.CustomerCode</b></span>
+                    <ol class="breadcrumb web">
+                        <li><a asp-controller="Home" asp-action="Index">Ana səhifə </a></li>
+                        <li>/</li>
+                        <li class="active">İstifadəçi paneli</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="main-panel">
+                <!-- ==================================== ASIDE -->
+                <!-- ==================================== ASIDE -->
+                <div class="main-panel-aside">
+                    <!-- ==================================== MAIN NAVBAR -->
+                    <div class="main-panel-navbar">
+                        <ul>
+                            <li>
+                                <a href="">
+                                    <img src="~/PanelPage/images/panel-red.png" alt="">
+                                    <span>Panel səhifəsi</span>
+                                </a>
+                            </li>
+                            <!-- <li>
+                                <a href="#/packages">
+                                    <img src="~/PanelPage/images/box.png" alt="Image Here!">
+                                    <span>Bəyan Gözləyən</span>
+                                </a>
+                            </li> -->
+                            <li>
+                                <a href="#/foreign-address">
+                                    <img src="~/PanelPage/images/address.png" alt="Image Here!">
+                                    <span>Xaricdəki ünvanlarım</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#/orders">
+                                    <img src="~/PanelPage/images/shoppingBasket.png" alt="Image Here!">
+                                    <span>Sifarişlərim</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#/invoices">
+                                    <img src="~/PanelPage/images/box.png" alt="Image Here!">
+                                    <span>Bağlamalarım</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#/balance">
+                                    <img src="~/PanelPage/images/coin.png" alt="Image Here!">
+                                    <span>AZN Balansım</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#/balanceTL">
+                                    <img src="~/PanelPage/images/coin.png" alt="Image Here!">
+                                    <span>TL Balansım</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#/courier">
+                                    <img src="~/PanelPage/images/courierPanel.png" alt="Image Here!">
+                                    <span>Kuryer</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#/questions">
+                                    <img src="~/PanelPage/images/helpButton.png" alt="Image Here!">
+                                    <span>Sorğu (<span>0</span>)</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#/settings">
+                                    <img src="~/PanelPage/images/settings.png" alt="Image Here!">
+                                    <span>Tənzimləmələr</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Register/LogOut">
+                                    <img src="~/PanelPage/images/power.png" alt="">
+                                    <span>Hesabdan çıx</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- ==================================== CALCULATOR INSIDE NAVBAR -->
+                    <div class="main-panel-calculator">
+                        <h4>Məzənnə kalkulyatoru</h4>
+                        <form action="">
+                            <div class="calculator-input">
+                                <input type="number" placeholder="0.0" min="0.00">
+                                <select name="Input" id="Input">
+                                    <option value="1">AZN</option>
+                                    <option value="2">USD</option>
+                                    <option value="3">TRY</option>
+                                </select>
+                            </div>
+                            <div class="calculator-output">
+                                <input type="number" placeholder="0.0" disabled>
+                                <select name="Output" id="Output">
+                                    <option value="1">AZN</option>
+                                    <option value="2">USD</option>
+                                    <option value="3">TRY</option>
+                                </select>
+                            </div>
+                        </form>
+                        <span>Günün məzənnəsinə uyğun hesablanır.</span>
+                    </div>
+                    <!-- ==================================== CURRENCY INSIDE NAVBAR -->
+                    <div class="main-panel-currency">
+                        <h4>Günlük məzənnə</h4>
+                        <div class="panel-currency-line">
+                            <div class="panel-currency-flag">
+                                <img src="~/PanelPage/images/flg-az.png" alt="Flag Here!">
+                                <span>1</span>
+                            </div>
+                            <span>AZN</span>
+                        </div>
+                        <div class="panel-currency-line">
+                            <div class="panel-currency-flag">
+                                <img src="~/PanelPage/images/flg-tr.png" alt="Flag Here!">
+                                @{
+                                    for (int i = 0; i < @Model.rootobject.ValCurs.ValType[1].Valute.Length; i++)
+                                    {
+                                        if (@Model.rootobject.ValCurs.ValType[1].Valute[i].Name == "1 Türkiyə lirəsi")
+                                        {
+                                            var tlAmount = 1 / decimal.Parse(@Model.rootobject.ValCurs.ValType[1].Valute[i].Value);
+                                            var truncatedTl = Math.Truncate(1000 * tlAmount) / 1000;
+                                            <span>@truncatedTl </span>
+                                        }
+                                    }
+                                }
+                            </div>
+                            <span>TL</span>
+                        </div>
+                        <div class="panel-currency-line">
+                            <div class="panel-currency-flag">
+                                <img src="~/PanelPage/images/flg-usa.png" alt="Flag Here!">
+                                @{
+                                    for (int i = 0; i < @Model.rootobject.ValCurs.ValType[1].Valute.Length; i++)
+                                    {
+                                        if (@Model.rootobject.ValCurs.ValType[1].Valute[i].Name == "1 ABŞ dolları")
+                                        {
+                                            var usAmount = 1 / decimal.Parse(@Model.rootobject.ValCurs.ValType[1].Valute[i].Value);
+                                            var truncatedUSD = Math.Truncate(100 * usAmount) / 100;
+                                            <span>@truncatedUSD </span>
+                                        }
+                                    }
+                                }
+                            </div>
+                            <span>USD</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- ==================================== MAIN CONTENT CONTAINER (EVERY CONTENT WILL BE SHOWN HERE) -->
+                <!-- ==================================== MAIN CONTENT CONTAINER (EVERY CONTENT WILL BE SHOWN HERE) -->
+                <div class="main-panel-content-container">
+                    <!-- ======================================================================= INVOICE BUTTONS FOR MOBILE VERSIONS -->
+                    <div class="links-for-invoice-mobile">
+                        <a href="#">BƏYAN ET</a>
+                        <a href="#">SİFARİŞ ET</a>
+                    </div>
+                    <!-- ======================================================================= PANEL SEHIFESI -->
+                    <!-- ======================================================================= PANEL SEHIFESI -->
+                    <div class="navbar-hidden-content hidden-panel-page">
+                        <!-- ==================================== BALANCE AND WALLET -->
+                        <div class="hidden-panel-page-top">
+                            <!-- ==================================== BALANCE -->
+                            <div class="hidden-panel-page-top-balance">
+                                <div>
+                                    <span>Balansım</span>
+
+                                    <span>Son əlavə tarixi: @Model.accountBalanceViewModel.LastIncreasedAZNBalanceDate.ToString("dd/MM/yyyy")</span>
+
+                                </div>
+                                <div>
+                                    <span>@Model.accountBalanceViewModel.AZNBalance<sup data-v-27fd2a5d="">&#x20BC;</sup></span>
+                                </div>
+                                <div>
+                                    <div>
+                                        <p>
+                                            Azərbaycana çatdırılma haqqının ödənilməsi və online kuryer sifarişi üçün
+                                            balansınızı artıra bilərsiniz.
+                                        </p>
+                                        <p>ARTIRILAN BALANS GERİ QAYTARILMIR.</p>
+                                    </div>
+                                    <button>Balansı artır</button>
+                                </div>
+                            </div>
+                            <!-- ==================================== WALLET -->
+                            <div class="hidden-panel-page-top-wallet">
+                                <img data-toggle="tooltip" data-placement="top" src="~/PanelPage/images/question-mark.png"
+                                     alt="Image Here"
+                                     title="Bu, Sizin Limak vasitəsilə son 30 gündə ölkəyə gətirdiyiniz bağlamaların məhsul dəyəri və çatdırılma haqqı üçün ödədiyiniz məbləğdir. Qeyd edək ki, qanunvericiliyə görə 30 gün ərzində şəxsi istifadə üçün gətirilmiş poçt yüklərinin dəyəri və bunun üçün ödənmiş çatdırılma haqqı toplam 300 dolları keçdikdə gömrük rüsumu tətbiq edilir.">
+                                <img src="~/PanelPage/images/wallet1.png" alt="Image Here">
+                            </div>
+                        </div>
+                        <!-- ==================================== TABLE -->
+                        <div class="hidden-panel-page-bottom">
+                            <div class="hidden-panel-page-bottom-header">
+                                <div>
+                                    <p>Filter</p>
+                                    <select name="Filter" id="Filter">
+                                        <option value="1">Hamisi</option>
+                                        <option value="2">Məxaric</option>
+                                        <option value="3">Mədaxil</option>
+                                    </select>
+                                </div>
+                                <a asp-controller="PanelPage" asp-action="DownloadExcell" class="transparent text-secondary">
+                                    <img src="~/PanelPage/images/excel.png" alt="excel">
+                                    <span>Excel faylda yaddaşa ver</span>
+                                </a>
+                            </div>
+                            <div class="hidden-panel-page-bottom-table">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Əməliyyat</th>
+                                            <th>Məbləğ</th>
+                                            <th>Tarix</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            var transactions = Model.Transactions.Where(x => x.CurrencyType == 1).ToList();
+                                            if (transactions.Count() > 0)
+                                            {
+                                                foreach (var transaction in transactions)
+                                                {
+                                                    <tr>
+                                                        @{
+                                                            if (transaction.TransactionType == 1)
+                                                            {
+                                                                <td>Mədaxil</td>
+                                                            }
+                                                            else if (transaction.TransactionType == 2)
+                                                            {
+                                                                <td>Məxaric</td>
+                                                            }
+                                                        }
+                                                        <td>@transaction.Amount</td>
+                                                        <td>@transaction.Date.ToString("dd/MM/yyyy")</td>
+                                                    </tr>
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ======================================================================= XARICDEKI UNVANLARIM -->
+                    <!-- ======================================================================= XARICDEKI UNVANLARIM -->
+                    <div class="navbar-hidden-content hidden-foreign-addresses">
+                        <!-- ==================================== NAVIGATIONS FOR TURKEY AMERICA INFO -->
+                        <div class="hidden-addresses-navigation-header">
+                            <a class="hidden-addresses-navigation-header-block" href="#/turkey">
+                                <img src="~/PanelPage/images/flg-tr.png" alt="Turkey Flag Here!">
+                                <p>Türkiyə</p>
+                            </a>
+                            <a class="hidden-addresses-navigation-header-block" href="#/usa">
+                                <img src="~/PanelPage/images/flg-usa.png" alt="USA Flag Here!">
+                                <p>Amerika</p>
+                            </a>
+                        </div>
+                        <!-- ==================================== DETAILED INFO ABOUT TURKEY AND AMERIKA -->
+                        <div class="hidden-addresses-detailed-info">
+                            <!-- ==================================== TURKEY -->
+                            <div class="hidden-addresses-detailed-info-block">
+                                <ul>
+                                    <li>
+                                        <p>Ad, soyad</p>
+                                        <p>
+                                            <span id="p1copy"> @ViewBag.Name @ViewBag.Surname  - LİMAK İTHALAT VE İHRACAT LİMİTED şirketi </span>  <button id="copyFirstTextBtn" class="btn btn-primary">
+                                                Copy
+                                            </button>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>Adres başlığı</p>
+                                        <p>LİMAK - @ViewBag.CustomerCode - @ViewBag.Name @ViewBag.Surname </p>
+                                    </li>
+                                    @foreach (var item in Model.addressesabroad)
+                                    {
+                                        if (item.CountryId == 1)
+                                        {
+                                            <li>
+                                                <p>
+                                                    Adres satır 1 (Müştəri kodu,ad və soyadınızla birgə tam olaraq kopyalayın)
+                                                </p>
+                                                <p>
+                                                    <span id="p2copy">@ViewBag.CustomerCode @ViewBag.Name @ViewBag.Surname, Halkalı, 1.Tuna cd. Üzümlü SK. 5a</span>  <button id="copySecondTextBtn" class="btn btn-primary">
+                                                        Copy text
+                                                    </button>
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <p>İl-Şehir</p>
+                                                <p>@item.City</p>
+                                            </li>
+                                            <li>
+                                                <p>İlçe</p>
+                                                <p>@item.District</p>
+                                            </li>
+                                            <li>
+                                                <p>Vergi dairesi</p>
+                                                <p>@item.TaxAdministration</p>
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+
+                                <ul>
+                                    @foreach (var item in Model.addressesabroad)
+                                    {
+                                        if (item.CountryId == 1)
+                                        {
+                                            <li>
+                                                <p>Semt</p>
+                                                <p>@item.DistrictTwo</p>
+                                            </li>
+                                            <li>
+                                                <p>ZIP/Post kodu</p>
+                                                <p>@item.ZIP</p>
+                                            </li>
+                                            <li>
+                                                <p>Ülke</p>
+                                                <p>@item.Country.Name</p>
+                                            </li>
+                                            <li>
+                                                <p>TC kimlik</p>
+                                                <p>@item.identityNumber</p>
+                                            </li>
+                                            <li>
+                                                <p>Cep telefon</p>
+                                                <p>@item.PhoneNumber</p>
+                                            </li>
+                                            <li>
+                                                <p>Vergi numarası</p>
+                                                <p>@item.TaxNumber</p>
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+
+                            </div>
+                            <!-- ==================================== AMERIKA -->
+                            <div class="hidden-addresses-detailed-info-block">
+                                <ul>
+
+                                    @foreach (var item in Model.addressesabroad)
+                                    {
+                                        if (item.CountryId == 2)
+                                        {
+                                            <li>
+                                                <p>Name</p>
+                                                <p>AZ0072500 Faxri Nuruyev</p>
+                                            </li>
+                                            <li>
+                                                <p>Address Line</p>
+                                                <p>@item.DistrictTwo</p>
+                                            </li>
+                                            <li>
+                                                <p>Address Line2</p>
+                                                <p>@item.District</p>
+                                            </li>
+                                            <li>
+                                                <p>State</p>
+                                                <p>Delaware (DE)</p>
+                                            </li>
+
+                                        }
+                                    }
+                                </ul>
+                                <ul>
+                                    @foreach (var item in Model.addressesabroad)
+                                    {
+                                        if (item.CountryId == 2)
+                                        {
+                                            <li>
+                                                <p>City</p>
+                                                <p>@item.City</p>
+                                            </li>
+                                            <li>
+                                                <p>ZIP/Postal code</p>
+                                                <p>@item.ZIP</p>
+                                            </li>
+                                            <li>
+                                                <p>Country</p>
+                                                <p>@item.Country.Name</p>
+                                            </li>
+                                            <li>
+                                                <p>Phone Number</p>
+                                                <p>@item.PhoneNumber</p>
+                                            </li>
+
+                                        }
+                                    }
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ======================================================================= SIFARISLERIM -->
+                    <!-- ======================================================================= SIFARISLERIM -->
+                    <div class="navbar-hidden-content hidden-orders-section">
+                        <div class="hidden-orders-country-block">
+                            <div class="hidden-orders-country-block-header">
+                                <h2>Sifarişlərim</h2>
+                                <select name="Baglamalarim" id="Sifarislerim">
+                                    <option value="1">Hamısı (@Model.Orders.Count())</option>
+                                    <option value="10">Gözləyir (@Model.Orders.Where(x => x.OrderStatus == 10).Count())</option>
+                                    <option value="2">Sifariş verildi (@Model.Orders.Where(x => x.OrderStatus == 1).Count())</option>
+                                    <option value="3">Xarici Anbarda (@Model.Orders.Where(x => x.OrderStatus == 2).Count())</option>
+                                    <option value="4">Yoldadır (@Model.Orders.Where(x => x.OrderStatus == 3).Count())</option>
+                                    <option value="5">Gömrük yoxlanışı (@Model.Orders.Where(x => x.OrderStatus == 4).Count())</option>
+                                    <option value="6">Anbarda (@Model.Orders.Where(x => x.OrderStatus == 5).Count())</option>
+                                    <option value="7">Kuryer Çatdırma (@Model.Orders.Where(x => x.OrderStatus == 6).Count())</option>
+                                    <option value="8">İadə (@Model.Orders.Where(x => x.OrderStatus == 7).Count())</option>
+                                    <option value="9">Təhvil verildi (@Model.Orders.Where(x => x.OrderStatus == 8).Count())</option>
+                                </select>
+                            </div>
+                            <form action="">
+                                <div>
+                                    <input type="checkbox" name="PayAllOrders" id="PayAllOrders">
+                                    <label for="">Hamısın seç</label>
+                                </div>
+                                @{
+                                    foreach (var order in Model.Orders)
+                                    {
+                                        <div class="user-orders-list">
+                                            <div class="user-orders-list-main-info">
+                                                <div>
+                                                    <p>Sifariş №</p>
+                                                    <p>@order.OrderNumber</p>
+                                                </div>
+                                                <div>
+                                                    <p>Sifariş tarixi</p>
+                                                    <p>@order.OrderDate</p>
+                                                </div>
+                                                <div>
+                                                    <p>Sifaris</p>
+                                                    @{
+                                                        if (order.CompanyName == null)
+                                                        {
+                                                            <p><a href="@order.OrderLink" target="_blank">Sifarişə keçid</a></p>
+                                                        }
+                                                        else
+                                                        {
+                                                            <p><a href="@order.OrderLink" target="_blank">@order.CompanyName</a></p>
+                                                        }
+                                                    }
+                                                </div>
+                                                <div>
+                                                    <p>Status</p>
+                                                    @{
+                                                        if (order.OrderStatus == 10)
+                                                        {
+                                                            <p>GÖZLƏYİR</p>
+                                                        }
+                                                        else if (order.OrderStatus == 1)
+                                                        {
+                                                            <p>SIFARIŞ VERİLDİ</p>
+                                                        }
+                                                        else if (order.OrderStatus == 2)
+                                                        {
+                                                            <p>XARİCİ ANBARDA</p>
+                                                        }
+                                                        else if (order.OrderStatus == 3)
+                                                        {
+                                                            <p>YOLDADIR</p>
+                                                        }
+                                                        else if (order.OrderStatus == 4)
+                                                        {
+                                                            <p>GÖMRÜK YOXLANIIŞI</p>
+                                                        }
+                                                        else if (order.OrderStatus == 5)
+                                                        {
+                                                            <p>ANBARDA</p>
+                                                        }
+                                                        else if (order.OrderStatus == 6)
+                                                        {
+                                                            <p>KURYER ÇATDIRMA</p>
+                                                        }
+                                                        else if (order.OrderStatus == 7)
+                                                        {
+                                                            <p>İADƏ</p>
+                                                        }
+                                                        else if (order.OrderStatus == 8)
+                                                        {
+                                                            <p>TƏHVİL VERİLDİ</p>
+                                                        }
+                                                    }
+                                                </div>
+                                                <div>
+                                                    <div class="btn btn-warning m-1">Bax</div>
+                                                    @{
+                                                        if (order.OrderStatus == 10)
+                                                        {
+                                                            <div class="btn btn-success m-1 editOrder"
+                                                                 data-order-id="@order.id"
+                                                                 data-order-delivery-address="@order.DeliveryAddress"
+                                                                 data-order-comment="@order.OrderComment">Düzəliş</div>
+                                                            <div class="btn btn-danger m-1 deleteOrder"
+                                                                 data-id="@order.id"
+                                                                 data-controller="PanelPage"
+                                                                 data-action="DeleteLinkOrder"
+                                                                 data-body-message="Bu sifarişi silməyə əminsinizmi?">Sil</div>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                            <div class="user-orders-list-additional-info">
+                                                <div>
+                                                    <p>Çatdırılma ünvanı</p>
+                                                    @{
+                                                        if (order.DeliveryAddress == 1)
+                                                        {
+                                                            <p>İçərişəhər</p>
+                                                        }
+                                                        else if (order.DeliveryAddress == 2)
+                                                        {
+                                                            <p>Xalqlar Dostluğu</p>
+                                                        }
+                                                        else if (order.DeliveryAddress == 3)
+                                                        {
+                                                            <p>Gəncə</p>
+                                                        }
+                                                        else if (order.DeliveryAddress == 4)
+                                                        {
+                                                            <p>Sumqayıt</p>
+                                                        }
+                                                        else if (order.DeliveryAddress == 5)
+                                                        {
+                                                            <p>Zaqatala</p>
+                                                        }
+                                                    }
+                                                </div>
+                                                <div>
+                                                    <p>Məsulun Sayı</p>
+                                                    <p>@order.ProductAmount</p>
+                                                </div>
+                                                <div>
+                                                    <p>Çəkisi</p>
+                                                    <p>@order.OrderProductWeight kg</p>
+                                                </div>
+                                                <div>
+                                                    <p>Çatdırılma qiyməti</p>
+                                                    <p>@order.DeliveryMoney (AZN)</p>
+                                                </div>
+                                                <div>
+                                                    <p>Qiymət</p>
+                                                    <p>@order.ProductPrice TL</p>
+                                                </div>
+                                                <div>
+                                                    <div class="btn btn-primary m-1 getOrderLinkStatus"
+                                                         data-order-number="@order.OrderNumber"
+                                                         data-order-date="@order.OrderDate"
+                                                         data-order-company-name="@order.CompanyName"
+                                                         data-order-link="@order.OrderLink"
+                                                         data-order-status="@order.OrderStatus"> <img src="~/PanelPage/images/location.png" alt="" /> Sifarişi izlə</div>
+                                                </div>
+                                                <div>
+                                                    <p>Əlavə qeyd: </p>
+                                                    <p>@order.OrderComment</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                                <h5>Çatdırılma haqqı</h5>
+                                <h2>0.00 USD</h2>
+                                <h2>0.00 AZN</h2>
+                                <div class="orders-price-submit-buttons">
+                                    <button class="btn btn-warning p-2 m-1">Balansdan Ödəniş et</button>
+                                    <button class="btn btn-warning p-2 m-1">Kartdan Ödəniş et</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- ======================================================================= BAGLAMALARIM -->
+                    <!-- ======================================================================= BAGLAMALARIM -->
+                    <div class="navbar-hidden-content hidden-packages-section">
+                        <div class="hidden-packages-navigation-header">
+                            <a class="hidden-packages-header-block" href="#/turkey">
+                                <img src="~/PanelPage/images/flg-tr.png" alt="Turkey Flag Here!">
+                                <p>Türkiyə</p>
+                            </a>
+                            <a class="hidden-packages-header-block" href="#/usa">
+                                <img src="~/PanelPage/images/flg-usa.png" alt="USA Flag Here!">
+                                <p>Amerika</p>
+                            </a>
+                        </div>
+                        <div class="hidden-packages-content-main-container">
+                            <div class="hidden-packages-country-block">
+                                <div class="hidden-packages-country-block-header">
+                                    <h2>Bağlamalarım</h2>
+                                    <select name="Baglamalarim" id="Baglamalarim">
+                                        <option value="1">Hamısı (@Model.Invoices.Where(x => x.InvoiceCountryIndex == 1).Count())</option>
+                                        <option value="2">Sifariş verildi (@Model.Invoices.Where(x => x.InvoiceStatus == 1 && x.InvoiceCountryIndex == 1).Count())</option>
+                                        <option value="3">Xarici Anbarda (@Model.Invoices.Where(x => x.InvoiceStatus == 2 && x.InvoiceCountryIndex == 1).Count())</option>
+                                        <option value="4">Yoldadır (@Model.Invoices.Where(x => x.InvoiceStatus == 3 && x.InvoiceCountryIndex == 1).Count())</option>
+                                        <option value="5">Gömrük yoxlanışı (@Model.Invoices.Where(x => x.InvoiceStatus == 4 && x.InvoiceCountryIndex == 1).Count())</option>
+                                        <option value="6">Anbarda (@Model.Invoices.Where(x => x.InvoiceStatus == 5 && x.InvoiceCountryIndex == 1).Count())</option>
+                                        <option value="7">Kuryer Çatdırma (@Model.Invoices.Where(x => x.InvoiceStatus == 6 && x.InvoiceCountryIndex == 1).Count())</option>
+                                        <option value="8">İadə (@Model.Invoices.Where(x => x.InvoiceStatus == 7 && x.InvoiceCountryIndex == 1).Count())</option>
+                                        <option value="9">Təhvil verildi (@Model.Invoices.Where(x => x.InvoiceStatus == 8 && x.InvoiceCountryIndex == 1).Count())</option>
+                                    </select>
+                                </div>
+                                <form action="">
+                                    <div>
+                                        <input type="checkbox" name="PayAllPackagesTRY" id="PayAllPackagesTRY">
+                                        <label for="">Hamısın seç</label>
+                                    </div>
+                                    @{
+                                        foreach (var invoice in Model.Invoices)
+                                        {
+                                            if (invoice.InvoiceCountryIndex == 1)
+                                            {
+                                                <div class="user-packages-list">
+                                                    <div class="user-packages-list-main-info">
+                                                        <div>
+                                                            <p>Sifariş №</p>
+                                                            <p>@invoice.InvoiceNumber</p>
+                                                        </div>
+                                                        <div>
+                                                            <p>Sifariş tarixi</p>
+                                                            <p>@invoice.InvoiceDate</p>
+                                                        </div>
+                                                        <div style="padding:10px">
+                                                            <p>Mağaza</p>
+                                                            <p>@invoice.StoreName</p>
+                                                        </div>
+                                                        <div>
+                                                            <p>Status</p>
+                                                            @{
+                                                                if (invoice.InvoiceStatus == 1)
+                                                                {
+                                                                    <p>SIFARIŞ VERİLDİ</p>
+                                                                }
+                                                                else if (invoice.InvoiceStatus == 2)
+                                                                {
+                                                                    <p>XARİCİ ANBARDA</p>
+                                                                }
+                                                                else if (invoice.InvoiceStatus == 3)
+                                                                {
+                                                                    <p>YOLDADIR</p>
+                                                                }
+                                                                else if (invoice.InvoiceStatus == 4)
+                                                                {
+                                                                    <p>GÖMRÜK YOXLANIIŞI</p>
+                                                                }
+                                                                else if (invoice.InvoiceStatus == 5)
+                                                                {
+                                                                    <p>ANBARDA</p>
+                                                                }
+                                                                else if (invoice.InvoiceStatus == 6)
+                                                                {
+                                                                    <p>KURYER ÇATDIRMA</p>
+                                                                }
+                                                                else if (invoice.InvoiceStatus == 7)
+                                                                {
+                                                                    <p>İADƏ</p>
+                                                                }
+                                                                else if (invoice.InvoiceStatus == 8)
+                                                                {
+                                                                    <p>TƏHVİL VERİLDİ</p>
+                                                                }
+                                                            }
+                                                        </div>
+                                                        <div>
+                                                            <div class="btn btn-warning m-1">Bax</div>
+                                                            @{
+                                                                if (invoice.InvoiceStatus == 1)
+                                                                {
+                                                                    <a class="btn btn-success m-1 editInvoice"
+                                                                       data-id="@invoice.id"
+                                                                       data-store-name="@invoice.StoreName"
+                                                                       data-product-type="@invoice.InvoiceProductType"
+                                                                       data-follow-code="@invoice.InvoiceFollowCode"
+                                                                       data-delivery-office="@invoice.DeliveryOffice"
+                                                                       data-product-amount="@invoice.InvoiceProductAmount"
+                                                                       data-product-price="@invoice.InvoiceProductPrice"
+                                                                       data-product-comment="@invoice.InvoiceComments">Düzəliş et</a>
+                                                                    <a class="btn btn-danger m-1 deleteInvoice"
+                                                                       data-id="@invoice.id"
+                                                                       data-controller="PanelPage"
+                                                                       data-action="DeleteInvoice"
+                                                                       data-body-message="Bu bağlamanı silməyə əminsinizmi?">Sil</a>
+                                                                }
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                    <div class="user-packages-list-additional-info">
+                                                        <div>
+                                                            <p>İzləmə №</p>
+                                                            <p>@invoice.InvoiceFollowCode</p>
+                                                        </div>
+                                                        <div>
+                                                            <p>Məhsulun Sayı</p>
+                                                            <p>@invoice.InvoiceProductAmount</p>
+                                                        </div>
+                                                        <div>
+                                                            <p>Çəkisi</p>
+                                                            <p>@invoice.InvoiceProductWeight kg</p>
+                                                        </div>
+                                                        <div>
+                                                            <p>Çatdırılma qiyməti</p>
+                                                            <p>@invoice.DeliveryMoney (AZN)</p>
+                                                        </div>
+                                                        <div>
+                                                            <p>Qiymət</p>
+                                                            <p>@invoice.InvoiceProductPrice</p>
+                                                        </div>
+                                                        <div>
+                                                            <div class="btn btn-primary m-1 getInvoiceStatus"
+                                                                 data-invoice-number="@invoice.InvoiceNumber"
+                                                                 data-invoice-date="@invoice.InvoiceDate"
+                                                                 data-store-name="@invoice.StoreName"
+                                                                 data-invoice-status="@invoice.InvoiceStatus"> <img src="~/PanelPage/images/location.png" alt="" /> Sifarişi izlə</div>
+                                                        </div>
+                                                        <div>
+                                                            <p>@invoice.InvoiceProductType:</p>
+                                                            <p>@invoice.InvoiceComments</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        }
+                                    }
+                                    <h5>Çatdırılma haqqı</h5>
+                                    <h2>0.00 USD</h2>
+                                    <h2>0.00 AZN</h2>
+                                    <div class="packages-price-submit-buttons">
+                                        <button class="btn btn-warning p-2 m-1">Balansdan Ödəniş et</button>
+                                        <button class="btn btn-warning p-2 m-1">Kartdan Ödəniş et</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="hidden-packages-country-block">
+                                <div class="hidden-packages-country-block-header">
+                                    <h2>Bağlamalarım</h2>
+                                    <select name="Baglamalarim" id="Baglamalarim">
+                                        <option value="1">Hamısı (@Model.Invoices.Where(x => x.InvoiceCountryIndex == 2).Count())</option>
+                                        <option value="2">Sifariş verildi (@Model.Invoices.Where(x => x.InvoiceStatus == 1 && x.InvoiceCountryIndex == 2).Count())</option>
+                                        <option value="3">Xarici Anbarda (@Model.Invoices.Where(x => x.InvoiceStatus == 2 && x.InvoiceCountryIndex == 2).Count())</option>
+                                        <option value="4">Yoldadır (@Model.Invoices.Where(x => x.InvoiceStatus == 3 && x.InvoiceCountryIndex == 2).Count())</option>
+                                        <option value="5">Gömrük yoxlanışı (@Model.Invoices.Where(x => x.InvoiceStatus == 4 && x.InvoiceCountryIndex == 2).Count())</option>
+                                        <option value="6">Anbarda (@Model.Invoices.Where(x => x.InvoiceStatus == 5 && x.InvoiceCountryIndex == 2).Count())</option>
+                                        <option value="7">Kuryer Çatdırma (@Model.Invoices.Where(x => x.InvoiceStatus == 6 && x.InvoiceCountryIndex == 2).Count())</option>
+                                        <option value="8">İadə (@Model.Invoices.Where(x => x.InvoiceStatus == 7 && x.InvoiceCountryIndex == 2).Count())</option>
+                                        <option value="9">Təhvil verildi (@Model.Invoices.Where(x => x.InvoiceStatus == 8 && x.InvoiceCountryIndex == 2).Count())</option>
+                                    </select>
+                                </div>
+                                <form action="">
+                                    <div>
+                                        <input type="checkbox" name="PayAllPackagesUSD" id="PayAllPackagesUSD">
+                                        <label for="">Hamısın seç</label>
+                                    </div>
+                                    @{
+                                        foreach (var invoice in Model.Invoices)
+                                        {
+                                            if (invoice.InvoiceCountryIndex == 2)
+                                            {
+                                                <div class="user-packages-list">
+                                                    <div class="user-packages-list-main-info">
+                                                        <div>
+                                                            <p>Sifariş №</p>
+                                                            <p>@invoice.InvoiceNumber</p>
+                                                        </div>
+                                                        <div>
+                                                            <p>Sifariş tarixi</p>
+                                                            <p>@invoice.InvoiceDate</p>
+                                                        </div>
+                                                        <div style="padding:10px">
+                                                            <p>Mağaza</p>
+                                                            <p>@invoice.StoreName</p>
+                                                        </div>
+                                                        <div>
+                                                            <p>Status</p>
+                                                            @{
+                                                                if (invoice.InvoiceStatus == 1)
+                                                                {
+                                                                    <p>SIFARIŞ VERİLDİ</p>
+                                                                }
+                                                                else if (invoice.InvoiceStatus == 2)
+                                                                {
+                                                                    <p>XARİCİ ANBARDA</p>
+                                                                }
+                                                                else if (invoice.InvoiceStatus == 3)
+                                                                {
+                                                                    <p>YOLDADIR</p>
+                                                                }
+                                                                else if (invoice.InvoiceStatus == 4)
+                                                                {
+                                                                    <p>GÖMRÜK YOXLANIIŞI</p>
+                                                                }
+                                                                else if (invoice.InvoiceStatus == 5)
+                                                                {
+                                                                    <p>ANBARDA</p>
+                                                                }
+                                                                else if (invoice.InvoiceStatus == 6)
+                                                                {
+                                                                    <p>KURYER ÇATDIRMA</p>
+                                                                }
+                                                                else if (invoice.InvoiceStatus == 7)
+                                                                {
+                                                                    <p>İADƏ</p>
+                                                                }
+                                                                else if (invoice.InvoiceStatus == 8)
+                                                                {
+                                                                    <p>TƏHVİL VERİLDİ</p>
+                                                                }
+                                                            }
+                                                        </div>
+                                                        <div>
+                                                            <div class="btn btn-warning m-1">Bax</div>
+                                                            @{
+                                                                if (invoice.InvoiceStatus == 1)
+                                                                {
+                                                                    <a class="btn btn-success m-1 editInvoice"
+                                                                       data-id="@invoice.id"
+                                                                       data-store-name="@invoice.StoreName"
+                                                                       data-product-type="@invoice.InvoiceProductType"
+                                                                       data-follow-code="@invoice.InvoiceFollowCode"
+                                                                       data-delivery-office="@invoice.DeliveryOffice"
+                                                                       data-product-amount="@invoice.InvoiceProductAmount"
+                                                                       data-product-price="@invoice.InvoiceProductPrice"
+                                                                       data-product-comment="@invoice.InvoiceComments">Düzəliş et</a>
+                                                                    <a class="btn btn-danger m-1 deleteInvoice"
+                                                                       data-id="@invoice.id"
+                                                                       data-controller="PanelPage"
+                                                                       data-action="DeleteInvoice"
+                                                                       data-body-message="Bu bağlamanı silməyə əminsinizmi?">Sil</a>
+                                                                }
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                    <div class="user-packages-list-additional-info">
+                                                        <div>
+                                                            <p>İzləmə №</p>
+                                                            <p>@invoice.InvoiceFollowCode</p>
+                                                        </div>
+                                                        <div>
+                                                            <p>Məhsulun Sayı</p>
+                                                            <p>@invoice.InvoiceProductAmount</p>
+                                                        </div>
+                                                        <div>
+                                                            <p>Çəkisi</p>
+                                                            <p>@invoice.InvoiceProductWeight kg</p>
+                                                        </div>
+                                                        <div>
+                                                            <p>Çatdırılma qiyməti</p>
+                                                            <p>@invoice.DeliveryMoney $ (AZN)</p>
+                                                        </div>
+                                                        <div>
+                                                            <p>Qiymət</p>
+                                                            <p>@invoice.InvoiceProductPrice </p>
+                                                        </div>
+                                                        <div>
+                                                            <div class="btn btn-primary m-1 getInvoiceStatus"
+                                                                 data-invoice-number="@invoice.InvoiceNumber"
+                                                                 data-invoice-date="@invoice.InvoiceDate"
+                                                                 data-store-name="@invoice.StoreName"
+                                                                 data-invoice-status="@invoice.InvoiceStatus"> <img src="~/PanelPage/images/location.png" alt="" /> Sifarişi izlə</div>
+                                                        </div>
+                                                        <div>
+                                                            <p>@invoice.InvoiceProductType:</p>
+                                                            <p>@invoice.InvoiceComments</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        }
+                                    }
+                                    <h5>Çatdırılma haqqı</h5>
+                                    <h2>0.00 USD</h2>
+                                    <h2>0.00 AZN</h2>
+                                    <div class="packages-price-submit-buttons">
+                                        <button class="btn btn-warning p-2 m-1">Balansdan Ödəniş et</button>
+                                        <button class="btn btn-warning p-2 m-1">Kartdan Ödəniş et</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ======================================================================= AZN BALANSIM -->
+                    <!-- ======================================================================= AZN BALANSIM -->
+                    <div class="navbar-hidden-content hidden-azn-balance">
+                        <!-- ==================================== BALANCE AND CALCULATOR -->
+                        <div class="hidden-azn-balance-top">
+                            <!-- ==================================== BALACNE -->
+                            <div class="hidden-azn-balance-top-balance">
+                                <div>
+                                    <span>Balansım</span>
+                                    <span>Son əlavə tarixi: @Model.accountBalanceViewModel.LastIncreasedAZNBalanceDate.ToString("dd/MM/yyyy")</span>
+                                </div>
+                                <div>
+                                    <span>@Model.accountBalanceViewModel.AZNBalance<sup data-v-27fd2a5d="">&#x20BC;</sup></span>
+                                </div>
+                                <div>
+                                    <div>
+                                        <p>
+                                            Azərbaycana çatdırılma haqqının ödənilməsi və online kuryer sifarişi üçün
+                                            balansınızı artıra bilərsiniz.
+                                        </p>
+                                        <p>ARTIRILAN BALANS GERİ QAYTARILMIR.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ==================================== INCREASE BALANCE CALCULATOR -->
+                            <div class="hidden-azn-balance-top-increase-balance">
+                                <h2>ÖDƏNİŞ ÜÇÜN BALANS ARTIMI</h2>
+                                <div>
+                                    <div class="azn-balance-increase-input">
+                                        <input type="number" name="" id="" min="0.00" max="50.00">
+                                        <span>Məbləğ USD</span>
+                                    </div>
+                                    <div class="azn-balance-increase-input">
+                                        <input type="text" name="" id="" disabled min="0.00">
+                                        <span>Məbləğ AZN</span>
+                                    </div>
+                                    <button>Balansı artır</button>
+                                </div>
+                                <div>
+                                    <p>min: 1 USD - max: 50 USD</p>
+                                    <div>
+                                        <img src="~/PanelPage/images/millikart.png" alt="Millikart!">
+                                        <img src="~/PanelPage/images/visa-logo-master.png" alt="Visa-Master!">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ==================================== TERMINAL AND TEXT INFORMATIONS (AZN) -->
+                        <div class="hidden-azn-balance-middle">
+                            <div class="hidden-azn-balance-middle-text">
+                                <h2>Milli Ön üzərindən balansınızı artırın</h2>
+                                <p><span>Hesab Nömrəsi: </span><span>505800</span></p>
+                                <p>
+                                    MilliÖN terminalına yaxınlaşırsınız, "Çatdırılma xidməti" bölməsinə daxil olub,
+                                    "Limak.az" bölməsinə keçid edirsiniz. Daşınma və kuryer xidmət haqqını ödəyə bilmək
+                                    üçün "limak.az AZN" xanasını seçirsiniz. Açılan xanada yuxarıdakı hesab nömrənizi
+                                    yığaraq "davam et" düyməsini sıxırsınız. Çatdırılma və kuryer xidməti üçün lazım
+                                    olan məbləği daxil edib təsdiqləyirsiniz. Əməliyyatı bitirdikdən sonra məbləğ dərhal
+                                    limak.az saytındakı şəxsi kabinetdəki balansınızda görünəcək.
+                                </p>
+                                <p>
+                                    Qeyd: Çatdırılma balansı ilə Türkiyədən alış-veriş etmək mümkün deyil! AZN
+                                    balansından TRY balansına pul transferi mümkün deyil!
+                                </p>
+                            </div>
+                            <img src="~/PanelPage/images/terminal.png" alt="Terminal Image!">
+                        </div>
+                        <!-- ==================================== TABLE (AZN) -->
+                        <div class="hidden-azn-balance-bottom">
+                            <div class="hidden-azn-balance-bottom-header">
+                                <div>
+                                    <p>Filter</p>
+                                    <select name="Filter" id="Filter">
+                                        <option value="1">Hamisi</option>
+                                        <option value="2">Məxaric</option>
+                                        <option value="3">Mədaxil</option>
+                                    </select>
+                                </div>
+                                <a asp-controller="PanelPage" asp-action="DownloadExcell" class="transparent text-secondary">
+                                    <img src="~/PanelPage/images/excel.png" alt="excel">
+                                    <span>Excel faylda yaddaşa ver</span>
+                                </a>
+                            </div>
+                            <div class="hidden-azn-balance-bottom-table">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Əməliyyat</th>
+                                            <th>Məbləğ</th>
+                                            <th>Tarix</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            var transactionsAZNBalance = Model.Transactions.Where(x => x.CurrencyType == 1).ToList();
+                                            if (transactionsAZNBalance.Count() > 0)
+                                            {
+                                                foreach (var transaction in transactionsAZNBalance)
+                                                {
+                                                    <tr>
+                                                        @{
+                                                            if (transaction.TransactionType == 1)
+                                                            {
+                                                                <td>Mədaxil</td>
+                                                            }
+                                                            else if (transaction.TransactionType == 2)
+                                                            {
+                                                                <td>Məxaric</td>
+                                                            }
+                                                        }
+                                                        <td>@transaction.Amount</td>
+                                                        <td>@transaction.Date.ToString("dd/MM/yyyy")</td>
+                                                    </tr>
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ======================================================================= TL BALANSIM -->
+                    <!-- ======================================================================= TL BALANSIM -->
+                    <div class="navbar-hidden-content hidden-tl-balance">
+                        <div class="hidden-tl-balance-top">
+                            <!-- ==================================== TL BALACNE -->
+                            <div class="hidden-tl-balance-top-balance">
+                                <div>
+                                    <span>Balansım</span>
+                                    <span>Son əlavə tarixi</span>
+                                </div>
+                                <div>
+                                    <span>@Model.accountBalanceViewModel.TLBalance<sup data-v-27fd2a5d="">&#x20BA;</sup></span>
+                                </div>
+                                <div>
+                                    <div>
+                                        <p>TL balansınızı Türkiyə sifarişlərində istifadə edə bilərsiniz.</p>
+                                        <p>ARTIRILAN BALANS GERİ QAYTARILMIR.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ==================================== TERMINAL AND TEXT INFORMATIONS (TL) -->
+                            <div class="hidden-tl-balance-middle">
+                                <div class="hidden-tl-balance-middle-text">
+                                    <h2>Milli Ön üzərindən balansınızı artırın</h2>
+                                    <p><span>Hesab Nömrəsi: </span><span>505800</span></p>
+                                    <p>
+                                        MilliÖN terminalına yaxınlaşırsınız, "Çatdırılma xidməti" bölməsinə daxil olub,
+                                        "Limak.az" bölməsinə keçid edirsiniz. Sifariş verə bilmək üçün "limak.az TRY"
+                                        xanasını seçirsiniz. Açılan xanada 508500 hesab nömrənizi yığaraq "davam et"
+                                        düyməsini sıxırsınız. Türkiyədən alış-veriş üçün lazım olan məbləği daxil edib
+                                        təsdiqləyirsiniz. Əməliyyatı bitirdikdən sonra məbləğ dərhal limak.az saytındakı
+                                        şəxsi kabinetdəki TRY balansınızda görünəcək.
+                                    </p>
+                                    <p>
+                                        Qeyd: TRY balansı ilə çatdırılma və kuryer xidməti haqqını ödəmək mümkün deyil!
+                                        TRY balansından AZN balansına pul transferi mümkün deyil!
+                                    </p>
+                                </div>
+                                <img src="~/PanelPage/images/terminal.png" alt="Terminal Image!">
+                            </div>
+                        </div>
+                        <!-- ==================================== TABLE (TL) -->
+                        <div class="hidden-tl-balance-bottom">
+                            <div class="hidden-tl-balance-bottom-header">
+                                <div>
+                                    <p>Filter</p>
+                                    <select name="Filter" id="Filter">
+                                        <option value="1">Hamisi</option>
+                                        <option value="2">Məxaric</option>
+                                        <option value="3">Mədaxil</option>
+                                    </select>
+                                </div>
+                                <a asp-controller="PanelPage" asp-action="DownloadExcellTL" class="transparent text-secondary">
+                                    <img src="~/PanelPage/images/excel.png" alt="excel">
+                                    <span>Excel faylda yaddaşa ver</span>
+                                </a>
+                            </div>
+                            <div class="hidden-tl-balance-bottom-table">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Əməliyyat</th>
+                                            <th>Məbləğ</th>
+                                            <th>Tarix</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            var transactionsTLBalance = Model.Transactions.Where(x => x.CurrencyType == 2).ToList();
+                                            if (transactionsTLBalance.Count() > 0)
+                                            {
+                                                foreach (var transaction in transactionsTLBalance)
+                                                {
+                                                    <tr>
+                                                        @{
+                                                            if (transaction.TransactionType == 1)
+                                                            {
+                                                                <td>Mədaxil</td>
+                                                            }
+                                                            else if (transaction.TransactionType == 2)
+                                                            {
+                                                                <td>Məxaric</td>
+                                                            }
+                                                        }
+                                                        <td>@transaction.Amount</td>
+                                                        <td>@transaction.Date.ToString("dd/MM/yyyy")</td>
+                                                    </tr>
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ======================================================================= COURIER -->
+                    <!-- ======================================================================= COURIER -->
+                    <div class="navbar-hidden-content hidden-courier-service">
+                        <h2>Kuryer</h2>
+                        <form asp-action="AddCourierDeliveries" asp-controller="PanelPage" method="post">
+                            <h3>Ərazi seç</h3>
+                            <!-- ==================================== REGION INPUTS (RADIO BUTTONS) -->
+                            <div class="hidden-courier-service-region">
+                                <div>
+                                    <h4>Bakı və Abşeron</h4>
+                                    <p>
+                                        <input id="AddressOfDelivery-1" type="radio" checked="checked" asp-for="@Model.createCourierViewModel.AddressOfDelivery" value="1">
+                                        <label for="Region">
+                                            Səbail, Yasamal, Nəsimi, Binəqədi, Nərimanov -
+                                            3AZN
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <input id="AddressOfDelivery-2" type="radio" asp-for="@Model.createCourierViewModel.AddressOfDelivery" value="2">
+                                        <label for="Region">Xətai, Nizami, Sabunçu, Suraxanı - 4AZN</label>
+                                    </p>
+                                    <p>
+                                        <input id="AddressOfDelivery-3" type="radio" asp-for="@Model.createCourierViewModel.AddressOfDelivery" value="3">
+                                        <label for="Region">Xırdalan,Masazır,Lökbatan - 5 AZN</label>
+                                    </p>
+                                    <p>
+                                        <input id="AddressOfDelivery-4" type="radio" asp-for="@Model.createCourierViewModel.AddressOfDelivery" value="4">
+                                        <label for="Region">Bakı ətrafı kənd və qəsəbələr - 5 AZN</label>
+                                    </p>
+                                </div>
+                                <div>
+                                    <h4>Regionlar</h4>
+                                    <p>
+                                        <input id="AddressOfDelivery-5" type="radio" asp-for="@Model.createCourierViewModel.AddressOfDelivery" value="5">
+                                        <label for="Region">Gəncə (Şəhər daxili) - 2 AZN</label>
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- ==================================== FORM INPUTS -->
+                            <div class="hidden-courier-service-inputs">
+                                <ul>
+                                    <li>
+                                        <input type="text" asp-for="@Model.createCourierViewModel.District">
+                                        <span class="forJquerys">Rayon *</span>
+                                        <span class="text-danger position-static d-none">Rayon qeyd olunmalıdır *</span>
+                                    </li>
+                                    <li>
+                                        <input type="text" asp-for="@Model.createCourierViewModel.Village">
+                                        <span class="forJquerys">Qəsəbə</span>
+                                    </li>
+                                    <li>
+                                        <input type="text" asp-for="@Model.createCourierViewModel.Street">
+                                        <span class="forJquerys">Küçə *</span>
+                                        <span class="text-danger position-static d-none">Küçə qeyd olunmalıdır *</span>
+                                    </li>
+                                    <li>
+                                        <input type="text" asp-for="@Model.createCourierViewModel.House">
+                                        <span class="forJquerys">Ev *</span>
+                                        <span class="text-danger position-static d-none">Ev qeyd olunmalıdır *</span>
+                                    </li>
+                                    <li>
+                                        <input type="text" min="0" asp-for="@Model.createCourierViewModel.PhoneNumber" class="courierPhoneAjax">
+                                        <span class="forJquerys">Telefon *</span>
+                                        <span class="text-danger position-static d-none">Telefon qeyd olunmalıdır *</span>
+                                    </li>
+                                </ul>
+                                @{
+                                    var invoicesInsideWareHouse = Model.Invoices.Where(x => x.InvoiceStatus == 5).ToList();
+
+                                    if (invoicesInsideWareHouse.Count() > 0)
+                                    {
+                                        <p>Kuryer sifariş etmək üçün bağlamanızı seçin</p>
+                                    }
+                                    else
+                                    {
+                                        <p>Kuryer sifariş etmək üçün bağlamanız yoxdur</p>
+                                    }
+
+                                    <select asp-for="@Model.createCourierViewModel.IdOfInvoice">
+                                        <option value="0">Bağlamanı seçin</option>
+                                        @{
+                                            for (int i = 0; i < invoicesInsideWareHouse.Count(); i++)
+                                            {
+                                                <option value="@invoicesInsideWareHouse[i].id">@invoicesInsideWareHouse[i].StoreName: @invoicesInsideWareHouse[i].InvoiceProductType</option>
+                                            }
+                                        }
+                                    </select>
+                                    <span class="text-danger d-none selectValidation">Bağlama mütləq seçilməlidir</span>
+                                }
+                                <textarea cols="30" rows="5"
+                                          placeholder="Əlavə qeydlərinizi yazın" asp-for="@Model.createCourierViewModel.InvoiceComments"></textarea>
+                            </div>
+                            <button>Təsdiq et</button>
+                        </form>
+                        <div class="hidden-courier-service-additional-info">
+                            <p>Kuryer sifarişiniz 24 saat ərzində təyin olunur.</p>
+                            <p>Kuryerin iş saatları 10:00 - 19:00 (həftənin 6 günü).</p>
+                        </div>
+                        <div class="hidden-courier-table">
+                            @{
+                                if (Model.courierDbViewModels.Where(x => x.DeliveredStatus == 1).Count() > 0)
+                                {
+                                    <h3 id="courierWaitingHeaders">Kuryer Sifarislerim</h3>
+                                    foreach (var courier in Model.courierDbViewModels.Where(x => x.DeliveredStatus == 1))
+                                    {
+                                        foreach (var invoice in courier.CourierDbViewModelInvoices.Select(x => x.Invoice))
+                                        {
+
+                                            <div class="hidden-courier-table-row waitingOrders">
+                                                <div>
+                                                    <p>Tam ünvan</p>
+                                                    <p>
+                                                        @courier.District,
+
+                                                        @if (@courier.Village != null)
+                                                        {
+                                                            @courier.Village <span>,</span>
+                                                        }
+                                                        @courier.Street, @courier.House
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <p>Əlaqə Nömrəsi</p>
+                                                    <p>@courier.PhoneNumber</p>
+                                                </div>
+                                                <div>
+                                                    <p>Sifariş Haqqında</p>
+                                                    <p>@invoice.StoreName: @invoice.InvoiceProductType</p>
+                                                </div>
+                                                <div>
+                                                    <a class="btn btn-success m-1 editCourier"
+                                                       data-courier-id="@courier.id"
+                                                       data-courier-district="@courier.District"
+                                                       data-courier-village="@courier.Village"
+                                                       data-courier-street="@courier.Street"
+                                                       data-courier-house="@courier.House"
+                                                       data-courier-phone="@courier.PhoneNumber"
+                                                       data-courier-comment="@courier.InvoiceComments"
+                                                       data-courier-delivery-address="@courier.AddressOfDelivery">Düzəliş et</a>
+                                                    <a class="btn btn-danger m-1 deleteCourier"
+                                                       data-id="@courier.id"
+                                                       data-controller="PanelPage"
+                                                       data-action="DeleteCourierOrder"
+                                                       data-body-message="Bu kuryer sifarişini silməyə əminsinizmi?">Sil</a>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                }
+                                <br>
+                                <hr>
+                                <br>
+                                if (Model.courierDbViewModels.Where(x => x.DeliveredStatus == 2).Count() > 0)
+                                {
+                                    <h3>Sifarişlərin Tarixçəsi</h3>
+                                    foreach (var courier in Model.courierDbViewModels.Where(x => x.DeliveredStatus == 2))
+                                    {
+                                        foreach (var invoice in courier.CourierDbViewModelInvoices.Select(x => x.Invoice))
+                                        {
+
+                                            <div class="hidden-courier-table-row">
+                                                <div>
+                                                    <p>Tam ünvan</p>
+                                                    <p>
+                                                        @courier.District,
+
+                                                        @if (@courier.Village != null)
+                                                        {
+                                                            @courier.Village <span>,</span>
+                                                        }
+                                                        @courier.Street, @courier.House
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <p>Əlaqə Nömrəsi</p>
+                                                    <p>@courier.PhoneNumber</p>
+                                                </div>
+                                                <div>
+                                                    <p>Sifariş Haqqında</p>
+                                                    <p>@invoice.StoreName: @invoice.InvoiceProductType</p>
+                                                </div>
+                                                <div>
+                                                    <p>Status</p>
+                                                    <p>Çatdırıldı</p>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                    <!-- ======================================================================= SORĞULARIM -->
+                    <!-- ======================================================================= SORĞULARIM -->
+                    <div class="navbar-hidden-content hidden-requests-section">
+                        <div class="hidden-requests-navigation-header">
+                            <h3>Sorğu</h3>
+                        </div>
+                    </div>
+                    <!-- ======================================================================= SETTINGS (TENZIMLEMELER) -->
+                    <!-- ======================================================================= SETTINGS (TENZIMLEMELER) -->
+                    <div class="navbar-hidden-content hidden-user-settings">
+                        <div class="hidden-user-settings-nav-headers">
+                            <a href="#/profileInfo">Profil məlumatları</a>
+                            <a href="#/password">Şifrə</a>
+                            <a href="#passportInfo">Ş/V məlumatları</a>
+                        </div>
+                        <div class="hidden-user-settings-content-blocks">
+                            <form action="" class="hidden-user-settings-profile-info">
+                                <div>
+                                    <input type="text" class="customMName" disabled value=@ViewBag.Name>
+                                    <label>Ad *</label>
+                                </div>
+                                <div>
+                                    <input type="text" class="customMSurname" disabled value=@ViewBag.Surname>
+                                    <label>Soyad *</label>
+                                </div>
+                                <div>
+                                    <h5>Çatdırılma ofisi *</h5>
+                                    <select name="cargoOffice" class="customMOffice" id="cargoOffice">
+                                        <option value="1" selected>Bakı (İçərişəhər)</option>
+                                        <option value="2">Bakı (Xalqlar Dostluğu)</option>
+                                        <option value="3">Gəncə</option>
+                                        <option value="4">Sumqayıt</option>
+                                        <option value="5">Zaqatala</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <h5>Doğum tarixi</h5>
+                                    <div>
+                                        <select name="birth-Day" class="customMDay" id="birth-Day">
+                                            <option>Gun</option>
+
+                                            @{
+                                                for (int i = 1; i <= 31; i++)
+                                                {
+
+                                                    <option value=@i>@i</option>
+
+                                                }
+                                            }
+                                        </select>
+                                        <select name="birth-Month" class="customMMonth" id="birth-Month">
+                                            <option>Ay</option>
+                                            <option value="1">Yanvar</option>
+                                            <option value="2">Fevral</option>
+                                            <option value="3">Mart</option>
+                                            <option value="4">Aprel</option>
+                                            <option value="5">May</option>
+                                            <option value="6">Iyun</option>
+                                            <option value="7">Iyul</option>
+                                            <option value="8">Avqust</option>
+                                            <option value="9">Sentyabr</option>
+                                            <option value="10">Oktabr</option>
+                                            <option value="11">Noyabr</option>
+                                            <option value="12">Dekabr</option>
+                                        </select>
+                                        <select name="birth-Year" id="birth-Year" class="customMYear">
+                                            <option>Il</option>
+                                            @{
+                                                for (int i = 1940; i < 2002; i++)
+                                                {
+                                                    <option value=@i> @i </option>
+
+                                                }
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <input type="email" disabled class="customMEmail" value=@ViewBag.Email>
+                                    <label>E-mail *</label>
+                                </div>
+                                <div>
+                                    <input type="text" class="customMPhone" value=@ViewBag.Phone>
+                                    <label>Telefon *</label>
+                                    <p class="customPhoneErrorMesage"></p>
+                                </div>
+                                <input type="button" class="YaddaSaxla" value="Yadda Saxla">
+                            </form>
+                            <form action="" class="hidden-user-settings-password-change">
+                                <div>
+                                    <h5>Cari şifrə</h5>
+                                    <input class="customMOldPass" type="password">
+                                </div>
+                                <h5>Yeni şifrə təyin et</h5>
+                                <div>
+                                    <div>
+                                        <div>
+                                            <input class="customMNewPass" type="password">
+                                            <label for="">Şifrə</label>
+                                        </div>
+                                        <div>
+                                            <input class="customMNewPassConfirm" type="password">
+                                            <label for="">Şifrənin təkrarı</label>
+                                            <p class="confirmPasswordError"></p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5>Yeni şifrə əlavə edərkən diqqət edin!</h5>
+                                        <p>Şifrənizin daha təhlükəsiz olması üçün tövsiyyə olunur.</p>
+                                        <ul>
+                                            <li>Şifrənizdə böyük hərf istifadə edin</li>
+                                            <li>Şifrənizdə rəqəm istifadə edin</li>
+                                            <li>Şifrənizdə simvollardan istifadə edin</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <p class="customAllErrors"></p>
+                                <input type="button" class="customPasswordButton" value="Yadda Saxla">
+
+                            </form>
+                            <form action="" class="hidden-user-settings-passport-info">
+                                <div>
+                                    <input type="text" class="customMSeria" value=@ViewBag.Seria>
+                                    <span>Ş/V seriya nömrəsi</span>
+                                </div>
+                                <div>
+                                    <input type="text" class="customMFin" disabled value=@ViewBag.Fin>
+                                    <span>FİN * </span>
+                                </div>
+                                <div>
+                                    <input type="text" class="customMCitizenship" value=@ViewBag.Citizenship>
+                                    <span>Vətəndaşlığı *</span>
+                                </div>
+                                @{
+
+
+                                }
+
+                                <select name="Gender" class="customMGender" id="Settings-Gender">
+                                    @{
+                                        if (ViewBag.Sex == "Kisi")
+                                        {
+                                            <option selected="selected" value="Kisi">Kişi</option>
+
+                                        }
+                                        else
+                                        {
+                                            <option value="Kisi">Kişi</option>
+
+
+                                        }
+
+                                    }
+                                    @{
+                                        if (ViewBag.Sex == "Qadin")
+                                        {
+                                            <option selected="selected" value="Qadin">Qadın</option>
+
+
+                                        }
+                                        else
+                                        {
+                                            <option value="Qadin">Qadın</option>
+
+
+
+                                        }
+
+                                    }
+
+                                </select>
+                                <div>
+                                    <input type="text" class="customMMEmail" hidden value=@ViewBag.Email />
+                                    <input type="text" class="customMCity" value="Baku">
+                                    <span>Ş/V-dəki ünvan *</span>
+                                </div>
+                                <p class="customMPPersonal"> </p>
+                                <input type="button" value="Yadda Saxla" class="customMPersonalButton" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+
+
+
+
+    @* ==================== FOOTER *@
+    <footer id="main-footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                        <div class="footerLeft">
+                            <div class="footerLeftImage">
+                                <img src="https://limak.az/front/new/img/logo-white.png" alt="">
+                            </div>
+                            <div class="footerLeftText">
+                                <p>
+                                    "Limak VM" MMC sürətli poçtdaşıma və kuryer şirkətidir. Fiziki və hüquqi şəxslərin sifariş etdikləri yükləri xaricdəki anbarlarına qəbul edir, onların Azərbaycana daşınıb, müştəriyə təhvil verilməsini təmin edir.
+                                </p>
+
+
+                            </div>
+                            <div class="followSocialUp">
+                                <span class="followSocial">
+                                    Bizi sosial şəbəkələrdən izləyin
+                                </span>
+                                <div class="socialList">
+                                    <ul>
+                                        <li>
+                                            <a href="facebook.com">
+                                                <i class="fab fa-facebook-f"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="twitter.com">
+                                                <i class="fab fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="twitter.com">
+                                                <i class="fab fa-instagram"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                        <div class="footerCenter">
+                            <h4>
+                                Bölmələr
+                            </h4>
+                            <div class="footerCenterList">
+                                <div class="footerCenterListLeft">
+                                    <a href="/countries/index"> Olkeler</a>
+                                    <a href="/stores/index"> Magazalar</a>
+                                    <a> Gizlilik şərtləri</a>
+
+                                </div>
+                                <div class="footerCenterListRight">
+                                    <a href="/calculator/index"> Kalkulyator</a>
+                                    <a href="/about"> Haqqımızda</a>
+                                    <a href="/contact/index"> Əlaqə</a>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12"></div>
+                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                        <div class="footerRight">
+                            <ul>
+                                <li>
+
+
+
+                                    <a href="#9595" style="text-decoration: none;" class="aTag">
+                                        <span class="numberSpan"> *9595 </span>
+                                        <span class="numberSpanSecond">
+                                            Dəstək
+
+                                            Xətti
+                                            <i class="fas fa-phone-alt"></i>
+                                        </span>
+                                        <span>
+
+                                        </span>
+                                    </a>
+
+
+                                </li>
+                                <li>
+                                    <span style="color:#AAAAAA;text-align:right;">
+                                        Səbail rayonu, Mehdi Hüseyn küç. 94
+                                        (İçərişəhər metrostansiyasının yaxınlığı və Təzə Bəy hamamının yanı) Bakı/Azərbaycan
+                                    </span>
+                                </li>
+                                <li class="tezlikleList">
+                                    Tezliklə
+                                </li>
+                                <li class="lastList" style="display: flex;">
+                                    <a href="sad">
+                                        <img class="footerImage" style="margin-right: 5px;" src="https://limak.az/front/new/img/google-play.png" alt="">
+                                    </a>
+                                    <a href="sad">
+                                        <img class="footerImage" src="https://limak.az/front/new/img/appstore.png" alt="">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class=" col-lg-6 col-md-12 col-sm-12">
+                        <span>© 2018 Limak.az | Bütün hüquqlar qorunur</span>
+                    </div>
+                    <div class=" col-lg-6 col-md-12 col-sm-12">
+                        <div class="footer-bottom-right">
+                            <div class="footer-bottom-right-content">
+                                <img src="https://limak.az/front/new/img/visa-logo.png" alt="">
+                                <img src="https://limak.az/front/new/img/master-card-logo.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+
+
+
+
+
+
+
+    <!-- ======================================================================= MODAL FOR SHOWING THE ROADMAP(STATUS)  -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="getStatusModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sifarişin izlənməsi</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><img src="~/PanelPage/images/close-mod.png" alt=""></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body-status-header">
+                        <div class="modal-body-status-header-block">
+                            <p>Sifariş №</p>
+                            <p>0000000</p>
+                        </div>
+                        <div class="modal-body-status-header-block">
+                            <p>Tarix</p>
+                            <p>01.01.2000</p>
+                        </div>
+                        <div class="modal-body-status-header-block">
+                            <p>Mağaza</p>
+                            <p>Store Name</p>
+                        </div>
+                        <div class="modal-body-status-header-block">
+                            <p>Status</p>
+                            <p>GÖZLƏYİR</p>
+                        </div>
+                    </div>
+                    <div class="modal-body-status-content">
+                        <div class="modal-body-status-content-status-block">
+                            <div class="modal-body-status-content-status-block-image-block">
+                                <div class="modal-body-status-content-status-block-image-block-image">
+                                    <img src="~/PanelPage/images/status-shopping-bag.png" alt="">
+                                </div>
+                                <div class="modal-body-status-content-status-block-image-block-text">
+                                    Sifariş verildi
+                                </div>
+                            </div>
+                            <div class="modal-body-status-content-status-block-linking-block">
+                                <div class="modal-body-status-content-status-block-linking-block-border"></div>
+                                <div class="modal-body-status-content-status-block-linking-block-circle"></div>
+                            </div>
+                        </div>
+                        <div class="modal-body-status-content-status-block">
+                            <div class="modal-body-status-content-status-block-image-block">
+                                <div class="modal-body-status-content-status-block-image-block-image">
+                                    <img src="~/PanelPage/images/status-order.png" alt="">
+                                </div>
+                                <div class="modal-body-status-content-status-block-image-block-text">
+                                    Xaricdəki anbar
+                                </div>
+                            </div>
+                            <div class="modal-body-status-content-status-block-linking-block">
+                                <div class="modal-body-status-content-status-block-linking-block-border"></div>
+                                <div class="modal-body-status-content-status-block-linking-block-circle"></div>
+                            </div>
+                        </div>
+                        <div class="modal-body-status-content-status-block">
+                            <div class="modal-body-status-content-status-block-image-block">
+                                <div class="modal-body-status-content-status-block-image-block-image">
+                                    <img src="~/PanelPage/images/status-departures.png" alt="">
+                                </div>
+                                <div class="modal-body-status-content-status-block-image-block-text">Yoldadır</div>
+                            </div>
+                            <div class="modal-body-status-content-status-block-linking-block">
+                                <div class="modal-body-status-content-status-block-linking-block-border"></div>
+                                <div class="modal-body-status-content-status-block-linking-block-circle"></div>
+                            </div>
+                        </div>
+                        <div class="modal-body-status-content-status-block">
+                            <div class="modal-body-status-content-status-block-image-block">
+                                <div class="modal-body-status-content-status-block-image-block-image">
+                                    <img src="~/PanelPage/images/status-warehouse.png" alt="">
+                                </div>
+                                <div class="modal-body-status-content-status-block-image-block-text">
+                                    Gömrük yoxlanışı
+                                </div>
+                            </div>
+                            <div class="modal-body-status-content-status-block-linking-block">
+                                <div class="modal-body-status-content-status-block-linking-block-border"></div>
+                                <div class="modal-body-status-content-status-block-linking-block-circle"></div>
+                            </div>
+                        </div>
+                        <div class="modal-body-status-content-status-block">
+                            <div class="modal-body-status-content-status-block-image-block">
+                                <div class="modal-body-status-content-status-block-image-block-image">
+                                    <img src="~/PanelPage/images/status-warehouse.png" alt="">
+                                </div>
+                                <div class="modal-body-status-content-status-block-image-block-text">Bakı anbarı</div>
+                            </div>
+                            <div class="modal-body-status-content-status-block-linking-block">
+                                <div class="modal-body-status-content-status-block-linking-block-border"></div>
+                                <div class="modal-body-status-content-status-block-linking-block-circle"></div>
+                            </div>
+                        </div>
+                        <div class="modal-body-status-content-status-block">
+                            <div class="modal-body-status-content-status-block-image-block">
+                                <div class="modal-body-status-content-status-block-image-block-image">
+                                    <img src="~/PanelPage/images/status-shipped.png" alt="">
+                                </div>
+                                <div class="modal-body-status-content-status-block-image-block-text">
+                                    Kuryer çatdırma
+                                </div>
+                            </div>
+                            <div class="modal-body-status-content-status-block-linking-block">
+                                <div class="modal-body-status-content-status-block-linking-block-border"></div>
+                                <div class="modal-body-status-content-status-block-linking-block-circle"></div>
+                            </div>
+                        </div>
+                        <div class="modal-body-status-content-status-block">
+                            <div class="modal-body-status-content-status-block-image-block">
+                                <div class="modal-body-status-content-status-block-image-block-image">
+                                    <img src="~/PanelPage/images/status-shipped.png" alt="">
+                                </div>
+                                <div class="modal-body-status-content-status-block-image-block-text">İadə</div>
+                            </div>
+                            <div class="modal-body-status-content-status-block-linking-block">
+                                <div class="modal-body-status-content-status-block-linking-block-border"></div>
+                                <div class="modal-body-status-content-status-block-linking-block-circle"></div>
+                            </div>
+                        </div>
+                        <div class="modal-body-status-content-status-block">
+                            <div class="modal-body-status-content-status-block-image-block">
+                                <div class="modal-body-status-content-status-block-image-block-image">
+                                    <img src="~/PanelPage/images/status-package-panel.png" alt="">
+                                </div>
+                                <div class="modal-body-status-content-status-block-image-block-text">Tamam- <br> lanmış</div>
+                            </div>
+                        </div>
+                    </div>
+                    @* ============================================ MOBILE VERSION  *@
+                    <div class="modal-body-mobile-status-content">
+                        <div class="modal-body-mobile-status-content-status-block">
+                            <div class="modal-body-mobile-status-content-status-block-linking-block">
+                                <div class="modal-body-mobile-status-content-status-block-linking-block-border"></div>
+                                <div class="modal-body-mobile-status-content-status-block-linking-block-circle"></div>
+                                <div class="modal-body-mobile-status-content-status-block-linking-block-circle-mini"></div>
+                            </div>
+                            <div class="modal-body-mobile-status-content-status-block-image-block">
+                                <div class="modal-body-mobile-status-content-status-block-image-block-image">
+                                    <img src="~/PanelPage/images/status-shopping-bag.png" alt="">
+                                </div>
+                                <div class="modal-body-mobile-status-content-status-block-image-block-text">Sifariş verildi</div>
+                            </div>
+                        </div>
+                        <div class="modal-body-mobile-status-content-status-block">
+                            <div class="modal-body-mobile-status-content-status-block-linking-block">
+                                <div class="modal-body-mobile-status-content-status-block-linking-block-border"></div>
+                                <div class="modal-body-mobile-status-content-status-block-linking-block-circle"></div>
+                            </div>
+                            <div class="modal-body-mobile-status-content-status-block-image-block">
+                                <div class="modal-body-mobile-status-content-status-block-image-block-image">
+                                    <img src="~/PanelPage/images/status-order.png" alt="">
+                                </div>
+                                <div class="modal-body-mobile-status-content-status-block-image-block-text">Xaricdəki anbar</div>
+                            </div>
+                        </div>
+                        <div class="modal-body-mobile-status-content-status-block">
+                            <div class="modal-body-mobile-status-content-status-block-linking-block">
+                                <div class="modal-body-mobile-status-content-status-block-linking-block-border"></div>
+                                <div class="modal-body-mobile-status-content-status-block-linking-block-circle"></div>
+                            </div>
+                            <div class="modal-body-mobile-status-content-status-block-image-block">
+                                <div class="modal-body-mobile-status-content-status-block-image-block-image">
+                                    <img src="~/PanelPage/images/status-departures.png" alt="">
+                                </div>
+                                <div class="modal-body-mobile-status-content-status-block-image-block-text">Yoldadır</div>
+                            </div>
+                        </div>
+                        <div class="modal-body-mobile-status-content-status-block">
+                            <div class="modal-body-mobile-status-content-status-block-linking-block">
+                                <div class="modal-body-mobile-status-content-status-block-linking-block-border"></div>
+                                <div class="modal-body-mobile-status-content-status-block-linking-block-circle"></div>
+                            </div>
+                            <div class="modal-body-mobile-status-content-status-block-image-block">
+                                <div class="modal-body-mobile-status-content-status-block-image-block-image">
+                                    <img src="~/PanelPage/images/status-warehouse.png" alt="">
+                                </div>
+                                <div class="modal-body-mobile-status-content-status-block-image-block-text">Gömrük yoxlanışı</div>
+                            </div>
+                        </div>
+                        <div class="modal-body-mobile-status-content-status-block">
+                            <div class="modal-body-mobile-status-content-status-block-linking-block">
+                                <div class="modal-body-mobile-status-content-status-block-linking-block-border"></div>
+                                <div class="modal-body-mobile-status-content-status-block-linking-block-circle"></div>
+                            </div>
+                            <div class="modal-body-mobile-status-content-status-block-image-block">
+                                <div class="modal-body-mobile-status-content-status-block-image-block-image">
+                                    <img src="~/PanelPage/images/status-warehouse.png" alt="">
+                                </div>
+                                <div class="modal-body-mobile-status-content-status-block-image-block-text">Bakı anbarı</div>
+                            </div>
+                        </div>
+                        <div class="modal-body-mobile-status-content-status-block">
+                            <div class="modal-body-mobile-status-content-status-block-linking-block">
+                                <div class="modal-body-mobile-status-content-status-block-linking-block-border"></div>
+                                <div class="modal-body-mobile-status-content-status-block-linking-block-circle"></div>
+                            </div>
+                            <div class="modal-body-mobile-status-content-status-block-image-block">
+                                <div class="modal-body-mobile-status-content-status-block-image-block-image">
+                                    <img src="~/PanelPage/images/status-shipped.png" alt="">
+                                </div>
+                                <div class="modal-body-mobile-status-content-status-block-image-block-text">Kuryer çatdırma</div>
+                            </div>
+                        </div>
+                        <div class="modal-body-mobile-status-content-status-block">
+                            <div class="modal-body-mobile-status-content-status-block-linking-block">
+                                <div class="modal-body-mobile-status-content-status-block-linking-block-border"></div>
+                                <div class="modal-body-mobile-status-content-status-block-linking-block-circle"></div>
+                            </div>
+                            <div class="modal-body-mobile-status-content-status-block-image-block">
+                                <div class="modal-body-mobile-status-content-status-block-image-block-image">
+                                    <img src="~/PanelPage/images/status-shipped.png" alt="">
+                                </div>
+                                <div class="modal-body-mobile-status-content-status-block-image-block-text">İadə</div>
+                            </div>
+                        </div>
+                        <div class="modal-body-mobile-status-content-status-block">
+                            <div class="modal-body-mobile-status-content-status-block-linking-block">
+                                <div class="modal-body-mobile-status-content-status-block-linking-block-border"></div>
+                                <div class="modal-body-mobile-status-content-status-block-linking-block-circle"></div>
+                            </div>
+                            <div class="modal-body-mobile-status-content-status-block-image-block">
+                                <div class="modal-body-mobile-status-content-status-block-image-block-image">
+                                    <img src="~/PanelPage/images/status-package-panel.png" alt="">
+                                </div>
+                                <div class="modal-body-mobile-status-content-status-block-image-block-text">Tamamlanmış</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ======================================================================= MODAL FOR EDIT INVOICE -->
+    <!-- ======================================================================= MODAL FOR EDIT INVOICE -->
+    <div class="modal fade" id="editModalInvoice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Düzəliş!</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body edit-modal-body">
+                    <form asp-controller="PanelPage" asp-action="EditInvoice" enctype="multipart/form-data" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label class="control-label">Mağaza Adı *</label>
+                            <input asp-for="@Model.EditInvoice.StoreName" class="form-control" />
+                            <span class="text-danger d-none">Mağaza adı qeyd olunmalıdır *</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Bağlamadakı məhsulun növü *</label>
+                            <input asp-for="@Model.EditInvoice.InvoiceProductType" class="form-control" />
+                            <span class="text-danger d-none">Məhsulun növü qeyd olunmalıdır *</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Bağlamadakı məhsul sayı *</label>
+                            <input asp-for="@Model.EditInvoice.InvoiceProductAmount" class="form-control" />
+                            <span class="text-danger d-none">Məhsulun sayı qeyd olunmalıdır *</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Qiyməti *</label>
+                            <input asp-for="@Model.EditInvoice.InvoiceProductPrice" class="form-control" />
+                            <span class="text-danger d-none">Məhsulun qiyməti qeyd olunmalıdır *</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Sifarişin izlənmə kodu *</label>
+                            <input asp-for="@Model.EditInvoice.InvoiceFollowCode" class="form-control" />
+                            <span class="text-danger d-none">Sifarişin izlənmə kodu qeyd olunmalıdır *</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Çatdılıma ofisi *</label>
+                            <select asp-for="@Model.EditInvoice.DeliveryOffice" class="form-control">
+                                <option value="1">Bakı (İçərişəhər)</option>
+                                <option value="2">Bakı (Xalqlar Dostluğu)</option>
+                                <option value="3">Gəncə</option>
+                                <option value="4">Sumqayıt</option>
+                                <option value="5">Zaqatala</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Bağlamaya aid qeydleri yazın</label>
+                            <textarea asp-for="@Model.EditInvoice.InvoiceComments" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-file">
+                                <label asp-for="@Model.EditInvoice.FormFile" class="custom-file-label ">Şəkil Yükləyin</label>
+                                <input asp-for="@Model.EditInvoice.FormFile" class="custom-file-input" id="validatedCustomFile" />
+                            </div>
+                        </div>
+                        <input asp-for="@Model.EditInvoice.id" class="hiddenId" type="hidden" />
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancel-edit-invoice">Bağla</button>
+                            <button type="Submit" class="btn btn-success" id="confirm-edit">Düzəliş Et</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- ======================================================================= MODAL FOR EDIT COURIER -->
+    <!-- ======================================================================= MODAL FOR EDIT COURIER -->
+    <div class="modal fade" id="editModalCourier" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Düzəliş!</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body edit-courier-modal-body">
+                    <form asp-controller="PanelPage" asp-action="EditCourierDelivery" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label class="control-label">Rayon *</label>
+                            <input asp-for="@Model.editCourierViewModel.District" class="form-control" />
+                            <span class="text-danger d-none">Rayon qeyd olunmalıdır *</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Qəsəbə</label>
+                            <input asp-for="@Model.editCourierViewModel.Village" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Küçə *</label>
+                            <input asp-for="@Model.editCourierViewModel.Street" class="form-control" />
+                            <span class="text-danger d-none">Küçə qeyd olunmalıdır *</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Ev *</label>
+                            <input asp-for="@Model.editCourierViewModel.House" class="form-control" />
+                            <span class="text-danger d-none">Ev qeyd olunmalıdır *</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Telefon *</label>
+                            <input asp-for="@Model.editCourierViewModel.PhoneNumber" class="form-control" />
+                            <span class="text-danger d-none">Telefon qeyd olunmalıdır *</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Çatdılıma ofisi*</label>
+                            <select asp-for="@Model.editCourierViewModel.AddressOfDelivery" class="form-control">
+                                <option value="1">Səbail, Yasamal, Nəsimi, Binəqədi, Nərimanov - 3AZN</option>
+                                <option value="2">Xətai, Nizami, Sabunçu, Suraxanı - 4AZN</option>
+                                <option value="3">Xırdalan,Masazır,Lökbatan - 5 AZN</option>
+                                <option value="4">Bakı ətrafı kənd və qəsəbələr - 5 AZN</option>
+                                <option value="5">Gəncə (Şəhər daxili) - 2 AZN</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Bağlamaya aid qeydleri yazın</label>
+                            <textarea asp-for="@Model.editCourierViewModel.InvoiceComments" class="form-control"></textarea>
+                        </div>
+                        <input asp-for="@Model.editCourierViewModel.CourierId" class="hiddenIdCourier" type="hidden" />
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancel-edi-courier">Bağla</button>
+                            <button type="Submit" class="btn btn-success" id="confirm-edit-courier">Düzəliş Et</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- ======================================================================= MODAL FOR EDIT ORDER -->
+    <!-- ======================================================================= MODAL FOR EDIT ORDER -->
+    <div class="modal fade" id="editModalOrder" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Düzəliş!</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body edit-order-modal-body">
+                    <form asp-controller="PanelPage" asp-action="Order" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label class="control-label">Çatdılıma ofisi *</label>
+                            <select asp-for="@Model.editLinkOrder.DeliveryAddress" class="form-control">
+                                <option value="1">Bakı (İçərişəhər)</option>
+                                <option value="2">Bakı (Xalqlar Dostluğu)</option>
+                                <option value="3">Gəncə</option>
+                                <option value="4">Sumqayıt</option>
+                                <option value="5">Zaqatala</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Bağlamaya aid qeydleri yazın</label>
+                            <textarea asp-for="@Model.editLinkOrder.OrderComment" class="form-control"></textarea>
+                        </div>
+                        <input asp-for="@Model.editLinkOrder.OrderId" class="hiddenIdOrder" type="hidden" />
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancel-edit-order">Bağla</button>
+                            <button type="Submit" class="btn btn-success" id="confirm-edit-order">Düzəliş Et</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <!-- ======================================================================= MODAL FOR GIVING SUCCES INFORMATION TO USER -->
+    <div class="modal fade" tabindex="-1" id="SuccessfullyAdded">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Məlumat!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Balans uğurla artırıldı</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Bağla</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="~/PanelPage/js/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script src="~/PanelPage/js/userPanel.js"></script>
+    <script src="~/PanelPage/js/layout.js"></script>
+    <script src="~/PanelPage/js/CurrencyRequest.js"></script>
+    <script src="~/PanelPage/js/deleteInvoice.js"></script>
+    <script src="~/PanelPage/js/editInvoice.js"></script>
+    <script src="~/PanelPage/js/sortInvoices.js"></script>
+    <script src="~/PanelPage/js/IncreaseBalance.js"></script>
+    <script src="~/PanelPage/js/createCourierDelivery.js"></script>
+    <script src="~/PanelPage/js/deleteCourierOrder.js"></script>
+    <script src="~/PanelPage/js/editCourierOrder.js"></script>
+    <script src="~/PanelPage/js/deleteOrder.js"></script>
+    <script src="~/PanelPage/js/changeSettings.js"></script>
+    <script src="~/PanelPage/js/sortTransactions.js"></script>
+    <script src="~/PanelPage/js/sortLinkOrders.js"></script>
+    <script src="~/PanelPage/js/editLinkOrder.js"></script>
+    <script src="~/PanelPage/js/getStatusBar.js"></script>
+
+</body>
+
+</html>

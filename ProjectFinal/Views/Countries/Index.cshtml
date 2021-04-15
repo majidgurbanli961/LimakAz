@@ -1,0 +1,237 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section css {
+    <link rel="stylesheet" href="~/Project/css/style.css">
+
+}
+
+<section id="calculator" style="background-color:transparent !important">
+    <div class="container">
+        <div class="calculatorContent">
+            <div class="row colExs">
+                <div class="col-md-4 col-sm-5 col-xs-6 ">
+                    <div class="calculatorContentLeft">
+                        <h4>ÖLKƏLƏR    </h4>
+
+                    </div>
+
+                </div>
+                <div class="col-md-8 col-sm-7 col-xs-6">
+                    <div class="calculatorContentRight">
+                        <ul>
+                            <li>
+                                <a href="/home/index">
+                                    <span class="calcVisible">Ana səhifə</span>
+                                    <span class="calcNotVisible">...</span>
+
+                                </a>
+                            </li>
+                            <li class="customSlash"> / </li>
+                            <li class="calclist">  ÖLKƏLƏR </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<section id="country">
+    <div class="country-page-header">
+       
+    </div>
+    <div class="container">
+        <div class="country-content">
+
+            <ul class="country-accordion">
+                <li class="active">
+                    <a href="#" onclick="return false;" class="color">
+                        <img src="~/Project/images/flg-tr.png">
+                        <span> Türkiye </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="return false;" class="color">
+                        <img src="~/Project/images/flg-usa.png" alt="" srcset="">
+                        <span>Amerika</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="country-accordion-body ">
+                <div class="block col-sm-12 col-xs-12">
+                    <div class="block col-sm-12 col-xs-12">
+                        <div class="accordion-body ">
+                            <div class="d-flex">
+                                <div>
+                                    <div class="country-accordion-body-header   ">
+
+
+                                        <img src="https://limak.az/front/new/img/turkey.png">
+                                        <p>Türkiyədən çatdırılma</p>
+                                    </div>
+                                    <ul class="nav country-inner-tabs" role="tablist">
+                                        <li role="presentation" class="active-inner-tabs">
+                                            <a href="#turkey">
+                                                Türkiyə-Bakı
+                                            </a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a href="#turkey-ganja">
+                                                Türkiyə-Gəncə
+                                            </a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a href="#turkey-sumgait">
+                                                Türkiyə-Sumqayıt
+                                            </a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a href="#turkey-zagatala">
+                                                Türkiyə-Zaqatala
+                                            </a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a href="#turkey-lankaran">
+                                                Türkiyə-Lənkəran
+                                            </a>
+                                        </li>
+                                        <li role="presentation">
+                                            <span>Ardı var...</span>
+                                        </li>
+                                    </ul>
+
+                                    <div class="tab-content">
+                                        <div class="tablist-content " id="turkey">
+                                            <ul>
+                                                <li>0 dan - 0,25 kq dək<span>2.00 $</span></li>
+                                                <li>0,25 kq dan - 0.5 kq dək<span>3.00 $</span></li>
+                                                <li>0,5 kq dan - 0.7 kq dək<span>4.00 $</span></li>
+                                                <li>0,7 kq dan - 1 kq dək<span>4.50 $</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-content">
+                                        <div class="tablist-content " id="turkey">
+                                            <b>Maye məhsullar üçün</b>
+                                            <ul>
+                                                <li>0 dan - 0,25 kq dək<span>2.00 $</span></li>
+                                                <li>0,25 kq dan - 0.5 kq dək<span>3.00 $</span></li>
+                                                <li>0,5 kq dan - 0.7 kq dək<span>4.00 $</span></li>
+                                                <li>0,7 kq dan - 1 kq dək<span>4.50 $</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="bottom-text">
+                                        <p>
+                                            Korporativ təkliflər üçün corporate@limak.az email ünvanına yaza bilərsiniz.
+                                            <br><br>
+                                            Şirkətimiz Türkiyə və Amerikadan yüklərin daşınması ilə məşğul olur. Sizin
+                                            sifarişləriniz həftədə 2 dəfə Türkiyədən, 1 dəfə isə Amerikadan Bakıya çatdırılır.
+                                            <br><br>
+                                            Limak Sizə bağlamalarınızın çəkisindən asılı olaraq, Türkiyədən 2 dollardan, ABŞ-dan
+                                            isə 1.99 dollardan başlayan qiymətlərlə sərfəli çatdırılma təklif edir.
+
+                                            Sifariş olunan bağlamanın çatdırılma haqqı çəkiyə görə hesablanır. Ölçüsü 1 metrdən
+                                            böyük olan bağlamaların kargo pulu isə həcmi çəkiyə görə müəyyən edilir.
+                                        </p>
+                                    </div>
+
+                                </div>
+                                <div>
+                                    <img src="https://limak.az/front/new/img/countries.png" alt="success" class="img-responsive center-block">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-body d-none ">
+                            <div class="d-flex">
+                                <div>
+                                    <div class="country-accordion-body-header   ">
+
+
+                                        <img src="https://limak.az/front/new/img/united-states-of-america.png">
+                                        <p>Amerikadan çatdırılma</p>
+                                    </div>
+                                    <ul class="nav country-inner-tabs" role="tablist">
+                                        <li role="presentation" class="active-inner-tabs">
+                                            <a href="#turkey">
+                                                Amerika-Bakı
+                                            </a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a href="#turkey-ganja">
+                                                Amerika-Gəncə
+                                            </a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a href="#turkey-sumgait">
+                                                Amerika-Sumqayıt
+                                            </a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a href="#turkey-zagatala">
+                                                Amerika-Zaqatala
+                                            </a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a href="#turkey-lankaran">
+                                                Amerika-Lənkəran
+                                            </a>
+                                        </li>
+                                        <li role="presentation">
+                                            <span>Ardı var...</span>
+                                        </li>
+                                    </ul>
+
+                                    <div class="tab-content">
+                                        <div class="tablist-content " id="turkey">
+                                            <ul>
+                                                <li>0 dan - 0,25 kq dək<span>1.99 $</span></li>
+                                                <li>0,25 kq dan - 0.5 kq dək<span>3.99 $</span></li>
+                                                <li>0,5 kq dan - 0.7 kq dək<span>4.99 $</span></li>
+                                                <li>0,7 kq dan - 1 kq dək<span>5.99 $</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="bottom-text">
+                                        <p>
+                                            Korporativ təkliflər üçün corporate@limak.az email ünvanına yaza bilərsiniz.
+                                            <br><br>
+                                            Şirkətimiz Türkiyə və Amerikadan yüklərin daşınması ilə məşğul olur. Sizin
+                                            sifarişləriniz həftədə 2 dəfə Türkiyədən, 1 dəfə isə Amerikadan Bakıya çatdırılır.
+                                            <br><br>
+                                            Limak Sizə bağlamalarınızın çəkisindən asılı olaraq, Türkiyədən 2 dollardan, ABŞ-dan
+                                            isə 1.99 dollardan başlayan qiymətlərlə sərfəli çatdırılma təklif edir.
+
+                                            Sifariş olunan bağlamanın çatdırılma haqqı çəkiyə görə hesablanır. Ölçüsü 1 metrdən
+                                            böyük olan bağlamaların kargo pulu isə həcmi çəkiyə görə müəyyən edilir.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <img src="https://limak.az/front/new/img/countries.png" alt="success" class="img-responsive center-block">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

@@ -1,0 +1,42 @@
+﻿@model ProjectFinal.Areas.Admin.Models.ShopContent
+
+@{
+    ViewData["Title"] = "EditShopContent";
+}
+@section cssCkEditor{
+    <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+}
+
+@*sadasd*@
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditShopContent" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+            <div class="form-group">
+                <label asp-for="CustomText" class="control-label"></label>
+                <textarea asp-for="CustomText" class="form-control"></textarea>
+                <span asp-validation-for="CustomText" class="text-danger"></span>
+            </div>
+
+          
+            <div class="form-group">
+                <input type="submit" value="Düzəliş Edin" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section scriptCkEditor{
+
+    <script>
+        CKEDITOR.replace('CustomText');
+    </script>
+}
+
+
+    

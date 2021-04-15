@@ -1,0 +1,181 @@
+﻿@model List<ProjectFinal.Models.Courier.CourierDbViewModel>
+
+@{
+    ViewData["Title"] = "CourierIndex";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@section TableCss{
+    <link href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet">
+
+}
+
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="row mt-4">
+        <!-- First Column -->
+        <div class="col-lg-12">
+            <!-- Custom Text Color Utilities -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                    <h6 class="m-0 font-weight-bold text-primary">Kuryer</h6>
+                    
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+
+                                <th scope="col"> Isdifadeci No</th>
+                                <th scope="col"> Küçə</th>
+                                <th scope="col"> Tel</th>
+                                <th scope="col">Ev </th>
+                                <th scope="col">Status </th>
+                                <th scope="col"> Settings</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>
+                                    @item.DbPassportUserModel.CustomerNumber
+                                </td>
+                                <td>
+                                    @item.Street
+                                </td>
+                                <td>
+                                    @item.PhoneNumber
+                                </td>
+                                <td>
+                                    @item.House
+                                </td>
+
+
+                                <td>
+                                    @{
+                                        if (item.DeliveredStatus == 1)
+                                        {
+                                            <p>Yoldadir</p>
+                                        }
+                                        else if (item.DeliveredStatus == 2)
+                                        {
+                                            <p>Çatdirildi</p>
+                                        }
+
+                                    }
+
+
+
+
+                                </td>
+                                <td class="d-flex">
+                                    <a asp-action="Edit" asp-route-id="@item.id" class="btn btn-info btn-circle btn-sm">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </a>
+
+                                    <p>&nbsp;</p>
+                                    <a asp-action="Details" asp-route-id="@item.id" class="btn btn-warning btn-circle btn-sm">
+                                        <i class="fa fa-list" aria-hidden="true"></i>
+
+                                    </a>
+                                    <p>&nbsp;</p>
+                                    <a asp-action="Delete" asp-route-id="@item.id" class="btn btn-danger btn-circle btn-sm deleteitem ">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+@*<div class="row">
+        <div class="col-lg-12 mt-5">
+            <table id="myTable" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col"> Isdifadeci No</th>
+                        <th scope="col"> Küçə</th>
+                        <th scope="col"> Tel</th>
+                        <th scope="col">Ev </th>
+                        <th scope="col">Status </th>
+                        <th scope="col"> Settings</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.DbPassportUserModel.CustomerNumber
+                            </td>
+                            <td>
+                                @item.Street
+                            </td>
+                            <td>
+                                @item.PhoneNumber
+                            </td>
+                            <td>
+                                @item.House
+                            </td>
+
+
+                            <td>
+                                @{
+                                    if (item.DeliveredStatus == 1)
+                                    {
+                                        <p>Yoldadir</p>
+                                    }
+                                    else if (item.DeliveredStatus == 2)
+                                    {
+                                        <p>Çatdirildi</p>
+                                    }
+
+                                }
+
+
+
+
+                            </td>
+                            <td class="d-flex">
+                                <a asp-action="Edit" asp-route-id="@item.id" class="btn btn-info btn-circle btn-sm">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </a>
+
+                                <p>&nbsp;</p>
+                                <a asp-action="Details" asp-route-id="@item.id" class="btn btn-warning btn-circle btn-sm">
+                                    <i class="fa fa-list" aria-hidden="true"></i>
+
+                                </a>
+                                <p>&nbsp;</p>
+                                <a asp-action="Delete" asp-route-id="@item.id" class="btn btn-danger btn-circle btn-sm deleteitem ">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>*@
+
+@section CustomTableJs{
+    <script src="~/AdminPanel/js/customTable.js"></script>
+}

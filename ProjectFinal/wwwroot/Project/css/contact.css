@@ -1,0 +1,161 @@
+﻿#calculator {
+    background-color: #f8f8f8;
+}
+
+.calculatorContent {
+    padding: 24px 0px;
+}
+
+.calculatorContentLeft h4 {
+    font-size: 23px;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.calculatorContentRight {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+    .calculatorContentRight ul {
+        display: flex;
+        font-size: 14px;
+        list-style: none;
+    }
+
+.customSlash {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.calculatorContentRight a {
+    text-decoration: none;
+    color: #333;
+}
+
+.calclist {
+    color: #f95732;
+}
+
+.calcNotVisible {
+    display: none;
+}
+
+#elaqeMain {
+    padding: 60px 0;
+    background-color:white;
+}
+
+.elaqeNav {
+    display: flex;
+}
+
+.elaqeNavContent {
+    padding: 16px 16px;
+    font-size: 16px;
+    font-weight: 700;
+    font-style: normal;
+    color: grey;
+    border-radius: 0;
+    margin: 0;
+    border-bottom: 1px solid #d7d7d7;
+    width: 20%;
+}
+
+.elaqeNavContentActive {
+    border-bottom-color: #fff;
+    border-left: 1px solid #d7d7d7;
+    border-right: 1px solid #d7d7d7;
+    border-top: 4px solid #f95732;
+}
+
+.address {
+    margin-top: 22px;
+    display: flex;
+}
+
+.addressLeft {
+    margin-right: 10px;
+}
+
+.addressText {
+    font-size: 18px;
+}
+
+.addressTextSecond {
+    width: 60%;
+}
+
+.lastAddress {
+    font-size: 18px;
+}
+.addressLeft img{
+    width:30px;
+    height:30px;
+}
+
+#s11, #s12, #s13, #s14 {
+    display: none;
+}
+
+.elaqeNavContent {
+    cursor: pointer;
+}
+
+.elaqeRight h3 {
+    margin-top: 40px;
+    margin-bottom: 23px;
+}
+
+.border-btn {
+    background: 0 0;
+    color: #f95732;
+}
+
+.btn-effect {
+    text-decoration: none;
+    border-radius: 3px;
+    border: 1px solid #f95732;
+    background: white;
+    color: #f95732;
+    display: inline-block;
+    width: 100%;
+    padding: 9px 4px;
+    font-size: 16px;
+    text-align: center;
+    -webkit-transition: .2s ease-in-out;
+    -moz-transition: .2s ease-in-out;
+    -ms-transition: .2s ease-in-out;
+    -o-transition: .2s ease-in-out;
+    transition: .2s ease-in-out;
+}
+
+    .btn-effect:hover {
+        background-color: #f95732;
+        color: white;
+    }
+
+.elaqeRight > a {
+    text-decoration: none;
+}
+
+.elaqeNav span {
+    width: 100%;
+}
+
+@media( max-width:767px) {
+    .btn-effect {
+        width: 170px;
+    }
+}
+
+@media (max-width:550px) {
+    .elaqeNavContent {
+        font-size: 8px;
+    }
+}
+
+#map {
+    height: 600px;
+}

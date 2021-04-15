@@ -1,0 +1,130 @@
+﻿@model ProjectFinal.Models.addressesabroad
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+
+
+
+
+
+<div class="row ">
+    <div class="col-md-4 col-lg-10 mt-5 text-center">
+
+
+
+        <div class="form-group">
+
+            <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Şəhər</div>
+                </div>
+                <input disabled asp-for="City" class="form-control" id="inlineFormInputGroupUsername2" />
+            </div>
+        </div>
+        <div class="form-group">
+
+            <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">İlçe</div>
+                </div>
+                <input disabled asp-for="District" class="form-control" id="inlineFormInputGroupUsername2" />
+            </div>
+        </div>
+        <div class="form-group">
+
+            <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Vergi dairesi</div>
+                </div>
+                <input disabled asp-for="TaxAdministration" class="form-control" id="inlineFormInputGroupUsername2" />
+            </div>
+        </div>
+        <div class="form-group">
+
+            <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Semt</div>
+                </div>
+                <input disabled asp-for="DistrictTwo" class="form-control" id="inlineFormInputGroupUsername2" />
+            </div>
+        </div>
+
+
+        <div class="form-group">
+
+            <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"> ZIP/Post kodu</div>
+                </div>
+                <input disabled asp-for="ZIP" class="form-control" id="inlineFormInputGroupUsername2" />
+            </div>
+        </div>
+        <div class="form-group">
+
+            <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"> Status</div>
+                </div>
+
+                <select disabled asp-for="@Model.CountryId" class="form-control">
+                    <option value="1">Türkiyə</option>
+                    <option value="2">Amerika </option>
+
+
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"> TC kimlik</div>
+                </div>
+                <input disabled asp-for="identityNumber" class="form-control" id="inlineFormInputGroupUsername2" />
+            </div>
+        </div>
+        <div class="form-group">
+
+            <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"> Cep telefon</div>
+                </div>
+                <input disabled asp-for="PhoneNumber" class="form-control" id="inlineFormInputGroupUsername2" />
+            </div>
+        </div>
+        <div class="form-group">
+
+            <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">   Vergi numarası</div>
+                </div>
+                <input disabled asp-for="TaxNumber" class="form-control" id="inlineFormInputGroupUsername2" />
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+</div>
+
+<a asp-action="Index" class="btn btn-outline-warning">Geri Dön</a>
+
+
+

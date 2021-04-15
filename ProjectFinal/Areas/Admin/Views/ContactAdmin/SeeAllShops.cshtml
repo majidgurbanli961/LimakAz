@@ -1,0 +1,49 @@
+﻿@model List<ProjectFinal.Areas.Admin.Models.Shop>
+
+@{
+    ViewData["Title"] = "SeeAllShops";
+}
+
+
+<a class="btn btn-outline-success mt-4" href="/Admin/ContactAdmin/createshop">Yeni Mağaza Yarat</a>
+
+<br />
+<br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Magaza adi</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>
+                        @Model[i].Id
+                    </td>
+                    <td>
+                        @Model[i].ShopAdress
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "DeleteShop", new { id = Model[i].Id }, new { @class = "btn btn-danger", onclick = "return confirm('Eminsiz?')" })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditShop", new { id = Model[i].Id }, new { @class = "btn btn-warning" })
+
+
+                    </td>
+
+                </tr>
+
+            }
+        }
+
+
+    </tbody>
+</table>
+

@@ -1,0 +1,141 @@
+﻿@model ProjectFinal.Models.addressesabroad
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+
+
+
+
+
+<div class="row ">
+    <div class="col-md-4 col-lg-10 mt-5 text-center">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Şəhər</div>
+                    </div>
+                    <input asp-for="City" class="form-control" id="inlineFormInputGroupUsername2" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">İlçe</div>
+                    </div>
+                    <input asp-for="District" class="form-control" id="inlineFormInputGroupUsername2" />
+                    <span asp-validation-for="District" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Vergi dairesi</div>
+                    </div>
+                    <input asp-for="TaxAdministration" class="form-control" id="inlineFormInputGroupUsername2" />
+                    <span asp-validation-for="TaxAdministration" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Semt</div>
+                    </div>
+                    <input asp-for="DistrictTwo" class="form-control" id="inlineFormInputGroupUsername2" />
+                    <span asp-validation-for="DistrictTwo" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"> ZIP/Post kodu</div>
+                    </div>
+                    <input asp-for="ZIP" class="form-control" id="inlineFormInputGroupUsername2" />
+                    <span asp-validation-for="ZIP" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"> Status</div>
+                    </div>
+
+                    <select asp-for="@Model.CountryId" class="form-control">
+                        <option value="1">Türkiyə</option>
+                        <option value="2">Amerika </option>
+
+
+                    </select>
+                    <span asp-validation-for="CountryId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"> TC kimlik</div>
+                    </div>
+                    <input asp-for="identityNumber" class="form-control" id="inlineFormInputGroupUsername2" />
+                    <span asp-validation-for="identityNumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"> Cep telefon</div>
+                    </div>
+                    <input asp-for="PhoneNumber" class="form-control" id="inlineFormInputGroupUsername2" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">   Vergi numarası</div>
+                    </div>
+                    <input asp-for="TaxNumber" class="form-control" id="inlineFormInputGroupUsername2" />
+                    <span asp-validation-for="TaxNumber" class="text-danger"></span>
+                </div>
+            </div>
+          
+            <div class="form-group w-100 text-center">
+                <input style="width:150px" type="submit" value="Düzəliş Edin" class="text-center btn btn-outline-success mt-3" />
+            </div>
+
+
+
+        </form>
+    </div>
+</div>
+
+<a asp-action="Index" class="btn btn-outline-warning">Geri Dön</a>
+
+
+

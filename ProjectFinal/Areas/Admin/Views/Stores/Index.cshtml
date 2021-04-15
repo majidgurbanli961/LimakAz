@@ -1,0 +1,67 @@
+﻿@model List<Stores>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<a asp-action="create" class="btn btn-outline-success mt-4">Yeni Mağaza Yarat</a>
+
+@section TableCss{
+    <link href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet">
+
+}
+<div class="row">
+    <div class="col-lg-12 mt-5">
+        <table id="myTable" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col"> Mağaza</th>
+                    <th scope="col"> Başlıq</th>
+                    <th scope="col"> Settings</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img style="width: 100px;" src="~/Project/@item.Image" class="img-thumbnail">
+                        </td>
+                        <td>
+                            @item.Title
+                        </td>
+                        <td class="d-flex">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info btn-circle btn-sm">
+                                <i class="fas fa-pencil-alt"></i>
+                            </a>
+                            <p>&nbsp;</p>
+                            @if (Model.Count() > 1)
+                            {
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-warning btn-circle btn-sm">
+                                    <i class="fa fa-list" aria-hidden="true"></i>
+
+                                </a>
+                                <p>&nbsp;</p>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-circle btn-sm deleteitem ">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            }
+                            else
+                            {
+                                <p>&nbsp;</p>
+                                <h6 class="mt-2"> Bir Mağaza Qalmasi Mutləqdir</h6>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+@section CustomTableJs{
+    <script src="~/AdminPanel/js/customTable.js"></script>
+}

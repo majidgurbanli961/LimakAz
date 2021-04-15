@@ -1,0 +1,270 @@
+﻿@inject Microsoft.AspNetCore.Identity.UserManager<DbPassportUserModel> userManager;
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>AdminPanel Panel</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="~/AdminPanel/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="~/AdminPanel/css/sb-admin-2.min.css" rel="stylesheet">
+    @RenderSection("cssCkEditor", required: false)
+    @RenderSection("seeAllShopsAdmin", required: false)
+    @RenderSection("TableCss", required: false)
+    <link href="~/AdminPanel/css/Jquery-ConfirmCSS/jquery-confrimCss.css" rel="stylesheet" type="text/css"/>
+
+
+</head>
+
+<body id="page-top">
+
+    <div id="wrapper">
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            @{
+                var myuser = await userManager.FindByNameAsync(User.Identity.Name);
+                var roles = userManager.GetRolesAsync(myuser).Result.ToList();
+                var result = roles[0];
+                if (result != "Moderator")
+                {
+
+
+
+                    <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-area="AdminPanel" asp-controller="Dashboard" asp-action="Index">
+                        <div class="sidebar-brand-icon rotate-n-15">
+
+                        </div>
+                        <div class="sidebar-brand-text mx-3">Admin Panel</div>
+                    </a>
+
+
+
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+                            <i class="fas fa-fw fa-folder"></i>
+                            <span>Ana Səhifə</span>
+                        </a>
+                        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <a class="collapse-item" asp-area="Admin" asp-controller="Home" asp-action="IndexHomeSlider">Slider</a>
+
+                                <a class="collapse-item" asp-area="Admin" asp-controller="HomeNews" asp-action="IndexHomeNews">Yeniliklər</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-flex">
+                        <a class="nav-link collapse-item" asp-area="Admin" asp-controller="Rules" asp-action="Index">
+                            <i class="fas fa-fw fa-pen-fancy"></i>
+                            Qaydalar
+
+
+                        </a>
+
+                    </li>
+                    <li class="nav-item d-flex">
+                        <a class="nav-link collapse-item" asp-area="Admin" asp-controller="About" asp-action="Index">
+                            <i class="fas fa-fw fa-pen-fancy"></i>
+                            Haqqımızda
+
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                            <i class="fas fa-fw fa-folder"></i>
+                            <span>Suallar</span>
+                        </a>
+                        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <a class="collapse-item" asp-area="Admin" asp-controller="Questions" asp-action="Index">Accardion</a>
+
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-flex">
+                        <a class="nav-link collapse-item" asp-area="Admin" asp-controller="Stores" asp-action="Index">
+                            <i class="fas fa-fw fa-pen-fancy"></i>
+                            Magaza
+
+
+                        </a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseUtilities">
+                            <i class="fas fa-fw fa-folder"></i>
+                            <span>Əlaqələr</span>
+                        </a>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Contact Page</h6>
+                               
+                                <a class="collapse-item" asp-area="Admin" asp-controller="ContactAdmin" asp-action="SeeAllShops">Butun Magazalari gor</a>
+                               
+                                <a class="collapse-item" asp-area="Admin" asp-controller="ContactAdmin" asp-action="SeeAllShopContent">Butun Elaqe nomreleri gor</a>
+
+
+
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseUtilities">
+                            <i class="fas fa-fw fa-folder"></i>
+                            <span>Role admin Page</span>
+                        </a>
+                        <div id="collapseFive" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Contact Page</h6>
+                             @*   <a class="collapse-item" asp-area="Admin" asp-controller="RoleAdmin" asp-action="CreateRole">Yeni Role yarat</a>*@
+                                <a class="collapse-item" asp-area="Admin" asp-controller="RoleAdmin" asp-action="Index">Butun Rolelari gor</a>
+
+
+
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseUtilities">
+                            <i class="fas fa-fw fa-folder"></i>
+                            <span>SuperAdmin</span>
+                        </a>
+                        <div id="collapseSix" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Contact Page</h6>
+                                <a class="collapse-item" asp-area="Admin" asp-controller="SuperAdmin" asp-action="Index"> Istifadecileri gormek </a>
+                                <a class="collapse-item" asp-area="Admin" asp-controller="SuperAdmin" asp-action="GiveRoleToUser">Usere role vermek</a>
+
+
+
+
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <i class="fas fa-fw fa-folder"></i>
+                            <span>Moderator</span>
+                        </a>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Moderator:</h6>
+                                <a class="collapse-item" asp-area="Admin" asp-controller="Invoice" asp-action="InvoiceIndex">Baglamalarim</a>
+                                <a class="collapse-item" asp-area="Admin" asp-controller="Courier" asp-action="CourierIndex">Kuryer</a>
+                                <a class="collapse-item" asp-area="Admin" asp-controller="Orders" asp-action="OrdersIndex">Sifarişlərim</a>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-flex">
+                        <a class="nav-link collapse-item" asp-area="Admin" asp-controller="Addressesabroads" asp-action="Index">
+                            <i class="fas fa-fw fa-pen-fancy"></i>
+
+
+                            Ünvanlarım
+                        </a>
+
+                    </li>
+                    <li class="nav-item d-flex">
+                        <a class="nav-link collapse-item" href="/home/index">
+                            <i class="fas fa-fw fa-pen-fancy"></i>
+
+
+                            Admin Panelden Çıxış
+                        </a>
+
+                    </li>
+                    <!-- Nav Item - Charts -->
+                    <!-- Divider -->
+                    <!-- Sidebar Toggler (Sidebar) -->
+                    <div class="text-center d-none d-md-inline">
+                        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                    </div>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <i class="fas fa-fw fa-folder"></i>
+                            <span>Moderator</span>
+                        </a>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Moderator:</h6>
+                                <a class="collapse-item" asp-area="Admin" asp-controller="Invoice" asp-action="InvoiceIndex">Baglamalarim</a>
+                                <a class="collapse-item" asp-area="Admin" asp-controller="Courier" asp-action="CourierIndex">Kuryer</a>
+                                <a class="collapse-item" asp-area="Admin" asp-controller="Orders" asp-action="OrdersIndex">Sifarişlərim</a>
+
+                            </div>
+                        </div>
+                    </li>
+                       <li class="nav-item d-flex">
+                        <a class="nav-link collapse-item" href="/home/index">
+                            <i class="fas fa-fw fa-pen-fancy"></i>
+
+
+                            Admin Panelden Çıxış
+                        </a>
+
+                    </li>
+
+                }
+            }
+
+        </ul>
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <div id="content">
+                <div class="container-fluid">
+                    @RenderBody()
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/AdminPanel/vendor/jquery/jquery.min.js"></script>
+    <script src="~/AdminPanel/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="~/AdminPanel/vendor/jquery-easing/jquery.easing.min.js"></script>
+    @RenderSection("scriptCkEditor", required: false)
+    @RenderSection("seeAllShopContent", false)
+
+    @RenderSection("scripts", false)
+    @RenderSection("CustomTableJs", false)
+
+    <!-- Custom scripts for all pages-->
+    <script src="~/AdminPanel/js/sb-admin-2.min.js"></script>
+
+    <script src="~/AdminPanel/js/Jquery-confirm/jquery-confirmJS.js"></script>
+    <!-- Page level plugins -->
+    <script src="~/AdminPanel/js/custom.js"></script>
+
+    <!-- Page level custom scripts -->
+    @*<script src="~/AdminPanel/js/demo/chart-area-demo.js"></script>
+    <script src="~/AdminPanel/js/demo/chart-pie-demo.js"></script>*@
+
+</body>
+
+</html>
+

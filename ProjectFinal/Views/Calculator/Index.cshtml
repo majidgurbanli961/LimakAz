@@ -1,0 +1,382 @@
+﻿@{ ViewData["Title"] = "Index"; }
+@section calculatorCSS{
+    <link rel="stylesheet" href="~/Project/css/calculator.css">
+}
+
+<section style="background-color:#f0f0f7" id="calculator">
+    <div class="container">
+        <div class="calculatorContent">
+            <div class="row colExs">
+                <div class="col-md-4 col-sm-5 col-xs-6 ">
+                    <div class="calculatorContentLeft">
+                        <h4>Kalkulyator </h4>
+
+                    </div>
+
+                </div>
+                <div class="col-md-8 col-sm-7 col-xs-6">
+                    <div class="calculatorContentRight">
+                        <ul>
+                            <li>
+                                <a href="/home/index">
+                                    <span class="calcVisible">Ana səhifə</span>
+                                    <span class="calcNotVisible">...</span>
+
+                                </a>
+                            </li>
+                            <li class="customSlash"> / </li>
+                            <li class="calclist"> KALKULYATOR </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<section id="calculatorMain">
+    <div class="container">
+        <div class="calculatorMainContent">
+            <div class="row">
+                <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                    <div class="calculatorMainLeft">
+                        <div class="calculatorMainLeftTop">
+                            <div class="block">
+                                <div class="blockTop">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="blockTopLeft">
+                                                <h4>Kalkulyator</h4>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-6 customRight">
+                                            <span class="customCalcReset"> Kalkulyatoru sıfırla </span>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="blockMain">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="blockMainLeft">
+                                                <div class="formContent">
+
+
+                                                    <div class="btn-group dropup">
+                                                        <button type="button"
+                                                                class="btn btn-secondary countryButton dropdown-toggle customButton"
+                                                                data-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false">
+                                                            Türkiyə
+                                                        </button>
+
+
+                                                        <div class="dropdown-menu">
+                                                            <ul>
+                                                                <li class="dropdownFirst clickedDropdown redSelected">
+                                                                    Türkiyə
+                                                                </li>
+                                                                <li class="clickedDropdown"> Amerike </li>
+
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="formContent width100 formContentMargin">
+                                                    <div class="btn-group width100 ">
+                                                        <input class="form-control CustomCekiInput customDefaultInput" type="text"
+                                                               placeholder="Çəki">
+
+                                                        <button type="button"
+                                                                class="btn btn-sm smallSecondButton kqcustomMain btn-secondary dropdown-toggle dropdown-toggle-split"
+                                                                data-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false">
+                                                            <span class="kqcustomMain">kq </span>
+                                                            <span class="sr-only">Toggle Dropdown</span>
+                                                        </button>
+                                                        <div class="dropdown-menu smallDropdownMenu">
+                                                            <ul>
+                                                                <li class="dropdownFirst clickedDropdown redSelected">
+                                                                    kq
+                                                                </li>
+                                                                <li class="clickedDropdown"> qram </li>
+
+                                                            </ul>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="formContent width100 formContentMargin">
+                                                    <div class="btn-group width100 ">
+                                                        <input class="form-control customEnInput customDefaultInput" type="text"
+                                                               placeholder="En">
+
+                                                        <button type="button"
+                                                                class="btn btn-sm smallSecondButton btn-secondary dropdown-toggle dropdown-toggle-split"
+                                                                data-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false">
+                                                            <span class="smcustom">sm </span>
+                                                            <span class="sr-only">Toggle Dropdown</span>
+                                                        </button>
+                                                        <div class="dropdown-menu smallDropdownMenu">
+                                                            <ul>
+                                                                <li class="dropdownFirst clickedDropdown redSelected">
+                                                                    sm
+                                                                </li>
+                                                                <li class="clickedDropdown"> m </li>
+                                                                <li class="dropdownFirst clickedDropdown ">
+                                                                    dm
+                                                                </li>
+
+                                                            </ul>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="formContent width100 formContentMargin">
+                                                    <div class="btn-group width100 ">
+                                                        <input class="form-control customHundurlukInput customDefaultInput" type="text"
+                                                               placeholder="Hündürlük">
+
+                                                        <button type="button"
+                                                                class="btn btn-sm smallSecondButton btn-secondary dropdown-toggle dropdown-toggle-split"
+                                                                data-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false">
+                                                            <span class="kqcustom">sm </span>
+                                                            <span class="sr-only">Toggle Dropdown</span>
+                                                        </button>
+                                                        <div class="dropdown-menu smallDropdownMenu">
+                                                            <ul>
+                                                                <li class="dropdownFirst clickedDropdown redSelected">
+                                                                    sm
+                                                                </li>
+                                                                <li class="clickedDropdown"> m </li>
+                                                                <li class="dropdownFirst clickedDropdown ">
+                                                                    dm
+                                                                </li>
+
+                                                            </ul>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="formContent width100 ">
+                                                    <button type="button"
+                                                            class="btn btn-secondary hesablaButton  customButton"
+                                                            aria-haspopup="true"
+                                                            aria-expanded="false">
+                                                        Hesabla
+                                                    </button>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="formContent">
+                                                <div class="blockMainRight">
+                                                    <div class="btn-group dropup">
+                                                        <button type="button"
+                                                                class="btn btn-secondary dropdown-toggle customButton"
+                                                                data-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false">
+                                                            Bakı
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <ul>
+                                                                <li class="dropdownFirst clickedDropdown redSelected">
+                                                                    Bakı
+                                                                </li>
+                                                                <li class="clickedDropdown dropdownFirst">
+                                                                    Gəncə
+                                                                </li>
+                                                                <li class="clickedDropdown dropdownFirst">
+                                                                    Sumqayıt
+                                                                </li>
+                                                                <li class="clickedDropdown"> Zaqatala </li>
+
+
+
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="formContent">
+                                                <input class="form-control customAmount customDefaultInput" type="text"
+                                                       placeholder="Bağlama sayı">
+
+                                            </div>
+                                            <div class="formContent width100 formContentMargin">
+                                                <div class="btn-group width100 ">
+                                                    <input class="form-control customUzunlugInput customDefaultInput" type="text"
+                                                           placeholder="Uzunlug">
+
+                                                    <button type="button"
+                                                            class="btn btn-sm smallSecondButton btn-secondary dropdown-toggle dropdown-toggle-split"
+                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
+                                                        <span class="kqcustom">sm </span>
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                    <div class="dropdown-menu smallDropdownMenu">
+                                                        <ul>
+                                                            <li class="dropdownFirst clickedDropdown redSelected">
+                                                                sm
+                                                            </li>
+                                                            <li class="clickedDropdown"> m </li>
+                                                            <li class="dropdownFirst clickedDropdown ">
+                                                                dm
+                                                            </li>
+
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div style="visibility: hidden;"
+                                                 class="formContent width100 formContentMargin">
+                                                <div class="btn-group width100 ">
+                                                    <input class="form-control customDefaultInput" type="text"
+                                                           placeholder="Uzunlug">
+
+                                                    <button type="button"
+                                                            class="btn btn-sm smallSecondButton btn-secondary dropdown-toggle dropdown-toggle-split"
+                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
+                                                        <span class="kqcustom">sm </span>
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                    <div class="dropdown-menu smallDropdownMenu">
+                                                        <ul>
+                                                            <li class="dropdownFirst clickedDropdown redSelected">
+                                                                sm
+                                                            </li>
+                                                            <li class="clickedDropdown"> m </li>
+                                                            <li class="dropdownFirst clickedDropdown ">
+                                                                dm
+                                                            </li>
+
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="formContent width100 ">
+                                                <div class="dataShower">
+                                                    <div class="dataShowerLeft">
+                                                        <span>Cəmi:</span>
+                                                    </div>
+                                                    <div class="dataShowerRight">
+                                                        <span>$</span>
+                                                        <span class="finalAmount">
+                                                            0,00
+
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="calculatorMainLeftBottom">
+                            <div class="currency">
+                                <div class="calculator-input">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <input class="form-control" type="number" placeholder="0.0" min="0.00">
+
+                                        </div>
+                                        <div class="col-6">
+                                            <select class="form-control" name="Input" id="Input">
+                                                <option value="1">AZN</option>
+                                                <option value="2">USD</option>
+                                                <option value="3">TRY</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="calculator-output">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <input class="form-control" type="number" placeholder="0.0" disabled>
+
+                                        </div>
+                                        <div class="col-6">
+                                            <select class="form-control" name="Output" id="Output">
+                                                <option value="1">AZN</option>
+                                                <option value="2">USD</option>
+                                                <option value="3">TRY</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+                    <div class="calculatorMainRight">
+                        <div class="howCalculate">
+                            <h3>
+                                Necə hesablayım ?
+                            </h3>
+                            <p>
+                                Seçdiyiniz məhsulların toplam məbləğini "Konvertor" yazılan hissəyə qeyd edin.
+                                Kalkulatorda ödəyəcəyiniz toplam məbləğ manat ilə göstəriləcək
+                            </p>
+                            <h5>
+                                Qeyd:
+                            </h5>
+                            <p>
+                                Hesablayacağınız məbləğlərdə satıcı firmaların tələb etdiyi Türkiyə daxili karqo
+                                pulunu nəzərə almağı unutmayın
+                            </p>
+                            <h5> Məlumat</h5>
+                            <p>
+                                Şirkətimiz Türkiyə və Amerikadan yüklərin daşınması ilə məşğul olur. Sizin
+                                sifarişləriniz həftədə 2 dəfə Türkiyədən, 1 dəfə isə Amerikadan Bakıya çatdırılır.
+                            </p>
+                            <p>
+                                Sifariş olunan bağlamanın çatdırılma haqqı çəkiyə görə hesablanır. Ölçüsü 1 metrdən
+                                böyük olan bağlamaların kargo pulu isə həcmi çəkiyə görə müəyyən edilir.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</section>
+@section CalculatorJs{
+
+    <script src="~/Project/js/calculator.js"></script>
+    <script src="~/PanelPage/js/CurrencyRequest.js"></script>
+}

@@ -1,0 +1,90 @@
+﻿@model ProjectFinal.Models.Courier.CourierDbViewModel
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="row ">
+    <div class="col-md-4 col-lg-10 mt-5 text-center">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Ev</div>
+                    </div>
+                    <input asp-for="House" class="form-control" id="inlineFormInputGroupUsername2" />
+                    <span asp-validation-for="House" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Küçə</div>
+                    </div>
+                    <input asp-for="Street" class="form-control" id="inlineFormInputGroupUsername2" />
+                    <span asp-validation-for="Street" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Tel</div>
+                    </div>
+                    <input asp-for="PhoneNumber" class="form-control" id="inlineFormInputGroupUsername2" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Commet</div>
+                    </div>
+                    <input asp-for="InvoiceComments" class="form-control" id="inlineFormInputGroupUsername2" />
+                    <span asp-validation-for="InvoiceComments" class="text-danger"></span>
+                </div>
+            </div>
+         
+            
+          
+          
+         
+            <div class="form-group">
+
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"> Status</div>
+                    </div>
+
+                    <select asp-for="@Model.DeliveredStatus" class="form-control">
+                        <option value="1">Yoldadir</option>
+                        <option value="2">Catdirildi </option>
+                    
+                    </select>
+                    <span asp-validation-for="DeliveredStatus" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group w-100 text-center">
+                <input style="width:150px" type="submit" value="Düzəliş Edin" class="text-center btn btn-outline-success mt-3" />
+            </div>
+
+
+
+        </form>
+    </div>
+</div>
+
+<a asp-action="CourierIndex" class="btn btn-outline-warning">Geri Dön</a>
+
+
+
+

@@ -1,0 +1,118 @@
+﻿@model List<About>
+@{
+    ViewData["Title"] = "Index";
+}
+@section css {
+    <link rel="stylesheet" href="~/Project/css/about.css">
+
+}
+
+<section id="calculator">
+    <div class="container">
+        <div class="calculatorContent">
+            <div class="row colExs">
+                <div class="col-md-4 col-sm-5 col-xs-6 ">
+                    <div class="calculatorContentLeft">
+                        <h4>Gizlilik şərtləri  </h4>
+
+                    </div>
+
+                </div>
+                <div class="col-md-8 col-sm-7 col-xs-6">
+                    <div class="calculatorContentRight">
+                        <ul>
+                            <li>
+                                <a href="limak.az">
+                                    <span class="calcVisible">Ana səhifə</span>
+                                    <span class="calcNotVisible">...</span>
+
+                                </a>
+                            </li>
+                            <li class="customSlash"> / </li>
+                            <li class="calclist">  Gizlilik şərtləri </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<section id="magazalarMain">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+
+                <div class="magazalarMainLeft magazalarMainLeftSecond">
+                    <div class="magazalarMainLeftTop">
+                        <h4>Köməkçi bölmələr </h4>
+                        <div class="customBorderClass"></div>
+                        <ul>
+                            <li>
+                                <a href="">
+                                    Qaydalar
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/az/suallar">Suallar</a>
+                            </li>
+                            <li>
+                                <a href="/az/gizlilik-sertleri">Gizlilik şərtləri</a>
+                            </li>
+                            <li class="activeLi">
+                                <a href="#">
+                                    Haqqımızda
+                                </a>
+                            </li>
+
+
+                        </ul>
+                        <select class="form-control customOptionalSelect">
+                            <option>Qaydalar</option>
+                            <option>Suallar</option>
+                            <option>Gizlilik şərtləri</option>
+                            <option>Haqqımızda</option>
+
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                <div class="magazalarMainRight">
+                    @foreach (var item in Model)
+                    {
+                        <div class="magazalarMainRightTop">
+                            <img src="~/Project/@item.Image" alt="about_back" class="img-responsive">
+
+
+                            <img src="https://limak.az/front/new/img/about_logo.png" alt="about_logo" class="about-logo">
+                        </div>
+                        <div class="magazalarMainRightMain">
+                            <div class="">
+                                <div class="">
+                                    <div class="mt-3" style="word-break:break-all" >
+                                        @Html.Raw(item.BodyText)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</section>
+@section scriptABoutJs{
+
+    <script src="~/Project/js/about.js"></script>
+
+}

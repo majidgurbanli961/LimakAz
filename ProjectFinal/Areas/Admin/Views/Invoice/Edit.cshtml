@@ -1,0 +1,141 @@
+﻿
+@model ProjectFinal.Models.Invoices.Invoice
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+
+
+<div class="row ">
+    <div class="col-md-4 col-lg-10 mt-5 text-center">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Mağaza</div>
+                    </div>
+                    <input asp-for="StoreName" class="form-control" id="inlineFormInputGroupUsername2" />
+                    <span asp-validation-for="StoreName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Basliq</div>
+                    </div>
+                    <input asp-for="InvoiceProductType" class="form-control" id="inlineFormInputGroupUsername2" />
+                    <span asp-validation-for="InvoiceProductType" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Məhsulun Sayı</div>
+                    </div>
+                    <input asp-for="InvoiceProductAmount" class="form-control" id="inlineFormInputGroupUsername2" />
+                    <span asp-validation-for="InvoiceProductAmount" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Qiymet</div>
+                    </div>
+                    <input asp-for="InvoiceProductPrice" class="form-control" id="inlineFormInputGroupUsername2" />
+                    <span asp-validation-for="InvoiceProductPrice" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"> İzlələmə №</div>
+                    </div>
+                    <input asp-for="InvoiceFollowCode" class="form-control" id="inlineFormInputGroupUsername2" />
+                    <span asp-validation-for="InvoiceFollowCode" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"> Vaxt</div>
+                    </div>
+                    <input asp-for="InvoiceDate" class="form-control" id="inlineFormInputGroupUsername2" />
+                    <span asp-validation-for="InvoiceDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"> Çəki (kg)</div>
+                    </div>
+                    <input asp-for="InvoiceProductWeight" class="form-control" id="inlineFormInputGroupUsername2" />
+                    <span asp-validation-for="InvoiceProductWeight" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"> Çatdırılma qiyməti</div>
+                    </div>
+                    <input asp-for="DeliveryMoney" class="form-control" id="inlineFormInputGroupUsername2" />
+                    <span asp-validation-for="DeliveryMoney" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"> Status</div>
+                    </div>
+                 
+                    <select asp-for="@Model.InvoiceStatus" class="form-control">
+                        <option value="1">Sifariş verildi</option>
+                        <option value="2">Xarici Anbarda </option>
+                        <option value="3">Yoldadır </option>
+                        <option value="4">Gömrük yoxlanışı </option>
+                        <option value="5">Anbarda </option>
+                        <option value="6">Kuryer Çatdırma</option>
+                        <option value="7">İadə</option>
+                        <option value="8">Təhvil verildi</option>
+                    </select>
+                    <span asp-validation-for="InvoiceStatus" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group w-100 text-center">
+                <input style="width:150px" type="submit" value="Düzəliş Edin" class="text-center btn btn-outline-success mt-3" />
+            </div>
+
+
+
+        </form>
+    </div>
+</div>
+
+<a asp-action="InvoiceIndex" class="btn btn-outline-warning">Geri Dön</a>
+
+

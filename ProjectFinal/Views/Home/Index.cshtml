@@ -1,0 +1,635 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section css {
+    <link rel="stylesheet" href="~/Project/css/style.css">
+
+}
+<section id="login_modal">
+    <div class="loginModal">
+
+
+        <div class="content_login">
+            <h3>Hesaba daxil ol</h3>
+
+            <form action="" method="POST">
+                <div class="input-group border-radius">
+                    <label>
+                        <input name="email" value="E-mail *" required="" type="text" class="form-control inputText " placeholder=" ">
+
+                    </label>
+
+                    <div class="input-group border-radius">
+                        <label>
+                            <input name="password" value="Şifrə*" required="" type="password" class="form-control inputText mt-2 mb-2" placeholder=" ">
+                        </label>
+                    </div>
+                    <div class="save-password">
+                        <label class="check-button">
+                            <span>Yadda saxla</span>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <a href="/az/password/reset">Şifrəni unutdum</a>
+                    </div>
+                    <div class="btn-password">
+                        <button type="submit" href="#" class="btn-enter  btn-effect">Daxil ol</button>
+                        <a href="https://limak.az/register" class="btn-log btn-effect">Qeydiyyat</a>
+                        <a href="/Register/ForgotPassword" class="btn-log btn-effect">Forgot Password?</a>
+
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+
+        <div class="login-image">
+            <img src="https://limak.az/front/new/img/pop-back.png" class="pop-bg img-responsive login-img" alt="pop_back">
+            <img src="https://limak.az/front/new/img/popup.png" alt="popup" class="pop-img">
+        </div>
+
+    </div>
+
+
+</section>
+<section class="slide1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12 ">
+                <div class="owl-carousel main-slider  ">
+                    @foreach (var item in Model.HomeSliders)
+                    {
+                        <div class="item">
+
+                            <a href="#">
+                                <img src="~/Project/@item.Image">
+                            </a>
+
+                        </div>}
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12 right-side">
+                <div class="calculatorMainLeft">
+                    <div class="calculatorMainLeftTop">
+                        <div class="block">
+                            <div class="blockTop">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="blockTopLeft">
+                                            <h4>Kalkulyator</h4>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-6 customRight">
+                                        <span class="customCalcReset" style="cursor:pointer"> Kalkulyatoru sıfırla </span>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="blockMain">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="blockMainLeft">
+                                            <div class="formContent">
+
+
+                                                <div class="btn-group dropup">
+                                                    <button type="button"
+                                                            class="btn btn-secondary countryButton dropdown-toggle customButton"
+                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
+                                                        Türkiyə
+                                                    </button>
+
+
+                                                    <div class="dropdown-menu">
+                                                        <ul>
+                                                            <li class="dropdownFirst clickedDropdown redSelected">
+                                                                Türkiyə
+                                                            </li>
+                                                            <li class="clickedDropdown"> Amerike </li>
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="formContent width100 formContentMargin">
+                                                <div class="btn-group width100 ">
+                                                    <input class="form-control CustomCekiInput customDefaultInput" type="text"
+                                                           placeholder="Çəki">
+
+                                                    <button type="button"
+                                                            class="btn btn-sm smallSecondButton kqcustomMain btn-secondary dropdown-toggle dropdown-toggle-split"
+                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
+                                                        <span class="kqcustomMain">kq </span>
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                    <div class="dropdown-menu smallDropdownMenu">
+                                                        <ul>
+                                                            <li class="dropdownFirst clickedDropdown redSelected">
+                                                                kq
+                                                            </li>
+                                                            <li class="clickedDropdown"> qram </li>
+
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="formContent width100 formContentMargin">
+                                                <div class="btn-group width100 ">
+                                                    <input class="form-control customEnInput customDefaultInput" type="text"
+                                                           placeholder="En">
+
+                                                    <button type="button"
+                                                            class="btn btn-sm smallSecondButton btn-secondary dropdown-toggle dropdown-toggle-split"
+                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
+                                                        <span class="smcustom">sm </span>
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                    <div class="dropdown-menu smallDropdownMenu">
+                                                        <ul>
+                                                            <li class="dropdownFirst clickedDropdown redSelected">
+                                                                sm
+                                                            </li>
+                                                            <li class="clickedDropdown"> m </li>
+                                                            <li class="dropdownFirst clickedDropdown ">
+                                                                dm
+                                                            </li>
+
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="formContent width100 formContentMargin">
+                                                <div class="btn-group width100 ">
+                                                    <input class="form-control customHundurlukInput customDefaultInput" type="text"
+                                                           placeholder="Hündürlük">
+
+                                                    <button type="button"
+                                                            class="btn btn-sm smallSecondButton btn-secondary dropdown-toggle dropdown-toggle-split"
+                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
+                                                        <span class="kqcustom">sm </span>
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                    <div class="dropdown-menu smallDropdownMenu">
+                                                        <ul>
+                                                            <li class="dropdownFirst clickedDropdown redSelected">
+                                                                sm
+                                                            </li>
+                                                            <li class="clickedDropdown"> m </li>
+                                                            <li class="dropdownFirst clickedDropdown ">
+                                                                dm
+                                                            </li>
+
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="formContent width100 ">
+                                                <button type="button"
+                                                        class="btn btn-secondary hesablaButton  customButton"
+                                                        aria-haspopup="true"
+                                                        aria-expanded="false">
+                                                    Hesabla
+                                                </button>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="formContent">
+                                            <div class="blockMainRight">
+                                                <div class="btn-group dropup">
+                                                    <button type="button"
+                                                            class="btn btn-secondary dropdown-toggle customButton"
+                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
+                                                        Bakı
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        <ul>
+                                                            <li class="dropdownFirst clickedDropdown redSelected">
+                                                                Bakı
+                                                            </li>
+                                                            <li class="clickedDropdown dropdownFirst">
+                                                                Gəncə
+                                                            </li>
+                                                            <li class="clickedDropdown dropdownFirst">
+                                                                Sumqayıt
+                                                            </li>
+                                                            <li class="clickedDropdown"> Zaqatala </li>
+
+
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="formContent">
+                                            <input class="form-control customAmount customDefaultInput" type="text"
+                                                   placeholder="Bağlama sayı">
+
+                                        </div>
+                                        <div class="formContent width100 formContentMargin">
+                                            <div class="btn-group width100 ">
+                                                <input class="form-control customUzunlugInput customDefaultInput" type="text"
+                                                       placeholder="Uzunlug">
+
+                                                <button type="button"
+                                                        class="btn btn-sm smallSecondButton btn-secondary dropdown-toggle dropdown-toggle-split"
+                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                        aria-expanded="false">
+                                                    <span class="kqcustom">sm </span>
+                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                </button>
+                                                <div class="dropdown-menu smallDropdownMenu">
+                                                    <ul>
+                                                        <li class="dropdownFirst clickedDropdown redSelected">
+                                                            sm
+                                                        </li>
+                                                        <li class="clickedDropdown"> m </li>
+                                                        <li class="dropdownFirst clickedDropdown ">
+                                                            dm
+                                                        </li>
+
+                                                    </ul>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div style="visibility: hidden;"
+                                             class="formContent width100 formContentMargin">
+                                            <div class="btn-group width100 ">
+                                                <input class="form-control customDefaultInput" type="text"
+                                                       placeholder="Uzunlug">
+
+                                                <button type="button"
+                                                        class="btn btn-sm smallSecondButton btn-secondary dropdown-toggle dropdown-toggle-split"
+                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                        aria-expanded="false">
+                                                    <span class="kqcustom">sm </span>
+                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                </button>
+                                                <div class="dropdown-menu smallDropdownMenu">
+                                                    <ul>
+                                                        <li class="dropdownFirst clickedDropdown redSelected">
+                                                            sm
+                                                        </li>
+                                                        <li class="clickedDropdown"> m </li>
+                                                        <li class="dropdownFirst clickedDropdown ">
+                                                            dm
+                                                        </li>
+
+                                                    </ul>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="formContent width100 ">
+                                            <div class="dataShower">
+                                                <div class="dataShowerLeft">
+                                                    <span>Cəmi:</span>
+                                                </div>
+                                                <div class="dataShowerRight">
+                                                    <span>$</span>
+                                                    <span class="finalAmount">
+                                                        0,00
+
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="how_it_works">
+    <div class="container">
+        <div class="">
+            <h1>Necə işləyir ?</h1>
+            <div class="block col-xs-12">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <div class="block-inner">
+                            <img src="https://limak.az/front/new/img/mehsulunu_sec.png" class="img-responsive" alt="box">
+                            <p class="head">Qeydiyyatdan keç</p>
+                            <p class="text">Limak.az saytında qeydiyyatdan keçməklə, xaricdə daimi ünvana sahib olun.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <div class="block-inner">
+                            <img src="https://limak.az/front/new/img/box.png" class="img-responsive" alt="box">
+                            <p class="head">Sifarişi bizə yolla</p>
+                            <p class="text">Onlayn mağazalardan alış-veriş edərkən bağlamanızın çatdırılacağı ünvan yerinə sizə təmin etdiyimiz ünvanı daxil edin.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <div class="block-inner">
+                            <img src="https://limak.az/front/new/img/courier.png" class="img-responsive" alt="box">
+                            <p class="head">Bağlamanı əldə et</p>
+                            <p class="text">3-5 iş günü ərzində sifarişinizi Bakı anbarımızdan əldə edə və ya kuryer xidmətimizdən istifadə edə bilərsiniz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="country">
+    <div class="country-page-header">
+        <h2>ÖLKƏLƏR ÜZRƏ TARİFLƏR</h2>
+    </div>
+    <div class="container">
+        <div class="country-content">
+
+            <ul class="country-accordion">
+                <li class="active">
+                    <a href="#" onclick="return false;" class="color">
+                        <img src="~/Project/images/flg-tr.png">
+                        <span> Türkiye </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="return false;" class="color">
+                        <img src="~/Project/images/flg-usa.png" alt="" srcset="">
+                        <span>Amerika</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="country-accordion-body ">
+                <div class="block col-sm-12 col-xs-12">
+                    <div class="block col-sm-12 col-xs-12">
+                        <div class="accordion-body ">
+                            <div class="country-accordion-body-header   ">
+
+
+                                <img src="https://limak.az/front/new/img/turkey.png">
+                                <p>Türkiyədən çatdırılma</p>
+                            </div>
+                            <ul class="nav country-inner-tabs" role="tablist">
+                                <li role="presentation" class="active-inner-tabs">
+                                    <a href="#turkey">
+                                        Türkiyə-Bakı
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#turkey-ganja">
+                                        Türkiyə-Gəncə
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#turkey-sumgait">
+                                        Türkiyə-Sumqayıt
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#turkey-zagatala">
+                                        Türkiyə-Zaqatala
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#turkey-lankaran">
+                                        Türkiyə-Lənkəran
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <span>Ardı var...</span>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tablist-content " id="turkey">
+                                    <ul>
+                                        <li>0 dan - 0,25 kq dək<span>2.00 $</span></li>
+                                        <li>0,25 kq dan - 0.5 kq dək<span>3.00 $</span></li>
+                                        <li>0,5 kq dan - 0.7 kq dək<span>4.00 $</span></li>
+                                        <li>0,7 kq dan - 1 kq dək<span>4.50 $</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="tab-content">
+                                <div class="tablist-content " id="turkey">
+                                    <b>Maye məhsullar üçün</b>
+                                    <ul>
+                                        <li>0 dan - 0,25 kq dək<span>2.00 $</span></li>
+                                        <li>0,25 kq dan - 0.5 kq dək<span>3.00 $</span></li>
+                                        <li>0,5 kq dan - 0.7 kq dək<span>4.00 $</span></li>
+                                        <li>0,7 kq dan - 1 kq dək<span>4.50 $</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="bottom-text">
+                                <p>
+                                    Korporativ təkliflər üçün corporate@limak.az email ünvanına yaza bilərsiniz.
+                                    <br><br>
+                                    Şirkətimiz Türkiyə və Amerikadan yüklərin daşınması ilə məşğul olur. Sizin
+                                    sifarişləriniz həftədə 2 dəfə Türkiyədən, 1 dəfə isə Amerikadan Bakıya çatdırılır.
+                                    <br><br>
+                                    Limak Sizə bağlamalarınızın çəkisindən asılı olaraq, Türkiyədən 2 dollardan, ABŞ-dan
+                                    isə 1.99 dollardan başlayan qiymətlərlə sərfəli çatdırılma təklif edir.
+
+                                    Sifariş olunan bağlamanın çatdırılma haqqı çəkiyə görə hesablanır. Ölçüsü 1 metrdən
+                                    böyük olan bağlamaların kargo pulu isə həcmi çəkiyə görə müəyyən edilir.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-body d-none ">
+                            <div class="country-accordion-body-header   ">
+
+
+                                <img src="https://limak.az/front/new/img/united-states-of-america.png">
+                                <p>Amerikadan çatdırılma</p>
+                            </div>
+                            <ul class="nav country-inner-tabs" role="tablist">
+                                <li role="presentation" class="active-inner-tabs">
+                                    <a href="#turkey">
+                                        Amerika-Bakı
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#turkey-ganja">
+                                        Amerika-Gəncə
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#turkey-sumgait">
+                                        Amerika-Sumqayıt
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#turkey-zagatala">
+                                        Amerika-Zaqatala
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#turkey-lankaran">
+                                        Amerika-Lənkəran
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <span>Ardı var...</span>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tablist-content " id="turkey">
+                                    <ul>
+                                        <li>0 dan - 0,25 kq dək<span>1.99 $</span></li>
+                                        <li>0,25 kq dan - 0.5 kq dək<span>3.99 $</span></li>
+                                        <li>0,5 kq dan - 0.7 kq dək<span>4.99 $</span></li>
+                                        <li>0,7 kq dan - 1 kq dək<span>5.99 $</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+
+                            <div class="bottom-text">
+                                <p>
+                                    Korporativ təkliflər üçün corporate@limak.az email ünvanına yaza bilərsiniz.
+                                    <br><br>
+                                    Şirkətimiz Türkiyə və Amerikadan yüklərin daşınması ilə məşğul olur. Sizin
+                                    sifarişləriniz həftədə 2 dəfə Türkiyədən, 1 dəfə isə Amerikadan Bakıya çatdırılır.
+                                    <br><br>
+                                    Limak Sizə bağlamalarınızın çəkisindən asılı olaraq, Türkiyədən 2 dollardan, ABŞ-dan
+                                    isə 1.99 dollardan başlayan qiymətlərlə sərfəli çatdırılma təklif edir.
+
+                                    Sifariş olunan bağlamanın çatdırılma haqqı çəkiyə görə hesablanır. Ölçüsü 1 metrdən
+                                    böyük olan bağlamaların kargo pulu isə həcmi çəkiyə görə müəyyən edilir.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section id="tarifs">
+    <div class="container">
+        <div class="work-content">
+            <h1>SERTİFİKATLARIMIZ VƏ TƏRƏFDAŞLARIMIZ</h1>
+            <div class="block col-xs-12 col-md-12 ">
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="block-inner">
+                            <img src="https://limak.az/front/new/img/logos/IATA.png" class="img-responsive" alt="box" style="margin-bottom: 0">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="block-inner">
+                            <img src="https://limak.az/front/new/img/logos/fiata.png" class="img-responsive" alt="box" style="margin-bottom: 0">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="block-inner">
+                            <img src="https://limak.az/front/new/img/logos/THY.png" class="img-responsive" alt="box" style="margin-bottom: 0">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="block-inner">
+                            <img src="https://limak.az/front/new/img/logos/Silkway.png" class="img-responsive" alt="box" style="margin-bottom: 0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="last-news">
+    <div class="container">
+        <div class="section-header">
+            <h2>YENİLİKLƏR VƏ ELANLAR</h2>
+        </div>
+        <div class="row">
+            @foreach (var item in Model.HomeNews.TakeLast(3))
+            {
+                
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <div class="overlay" style=" margin-bottom: 20px;">
+
+
+                            <a asp-controller="Home" asp-action="Details" asp-route-Id="@item.Id">
+                                <img src="~/Project/@item.Image" class="img-responsive" alt="news-01">
+
+                                <div class="caption">
+                                    <h4>@item.Title</h4>
+                                    <p>
+                                        <i class="far fa-calendar-alt mr-1"></i>@item.Date.ToString("dd/MM/yyyy")
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+            
+
+
+
+        </div>
+    </div>
+</section>
+<section id="logo-slide">
+    <div class="container">
+        <div class="owl-carousel footer-slider">
+            <div>
+                <img src="https://limak.az/front/img/defacto.png" class="img-responsive" alt="defacto">
+            </div>
+            <div>
+                <img src="https://limak.az/front/img/n11com.png" alt="n11com">
+            </div>
+            <div>
+                <img src="https://limak.az/front/img/trendyol.png" alt="defacto">
+            </div>
+            <div>
+                <img src="https://limak.az/front/img/koton.png" alt="defacto">
+            </div>
+            <div>
+                <img src="https://limak.az/front/img/markafoni.png" alt="defacto">
+            </div>
+            <div><img src="https://limak.az/front/img/gitdigidiyor.png" alt="gitdigidiyor"></div>
+        </div>
+    </div>
+</section>
+
+@section scriptCalc{
+    <script src="~/Project/js/calculator.js"></script>
+}

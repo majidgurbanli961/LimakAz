@@ -1,0 +1,371 @@
+ul li{
+    list-style:none
+}
+ul  {
+    list-style: none
+}
+#calculator{
+    background-color: #f8f8f8;
+}
+.calculatorContent{
+    padding: 30px 0px;
+}
+.calculatorContentLeft h4{
+    font-size: 23px;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+.calculatorContentRight{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.calculatorContentRight ul{
+    display: flex;
+    font-size: 14px;
+    list-style: none;
+}
+.customSlash{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.calculatorContentRight a{
+    text-decoration: none;
+    color: #333;
+}
+.calclist{
+    color: #f95732;
+}
+.calcNotVisible{
+    display: none;
+}
+#magazalarMain{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color:white;
+}
+.magazalarMainLeftTop{
+    padding: 24px;
+    border-radius: 10px;
+    border: 1px solid #dedede;
+}
+.magazalarMainLeftTop h4{
+    color: #f95631;
+    font-weight: 700;
+    font-size: 19px;
+}
+.customBorderClass{
+    width: 30%;
+    background-color: #f95631;
+    padding: 2px;
+}
+.magazalarMainLeftTop ul{
+    padding: 0;
+    margin-top: 10px;
+    list-style: none;
+}
+.magazalarMainLeftTop ul li{
+    padding: 10px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+}
+.magazalarMainLeftTop ul li a{
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+}
+.activeLi{
+    color: #f95631;
+    border-bottom: 3px solid;
+    width: 45%;
+}
+.magazalarMainLeftSecond{
+    margin-top: 30px;
+}
+.magazalarMainRightTop h2{
+    margin-bottom: 40px;
+}
+.magazaContent{
+   
+    border-radius: 10px;
+    background-color: #f9f9f9;
+        text-align: center;
+    height: 120px;
+}
+.magazaContentContent{
+    position: relative;
+}
+.magazaContentImage img{
+    width: 100%;
+    height: 60px;
+    object-fit: contain;
+
+}
+.magazaContentImage{
+    display: flex;
+    justify-content: center;
+}
+.magazaContentText{
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+.magazalarMainRightTop{
+    position: relative;
+}
+.magazalarMainRightTop >img:nth-child(2){
+    position: absolute;
+    bottom: 43%;
+    left: 64px;
+   
+}
+.magazalarMainRightTop>img:nth-child(1){
+    width: 100%;
+}
+
+.pagesFaq .contentPagesFaq .pagesFaqLeft .pagesFaqList .pagesFaqContent p a:hover {
+    text-decoration: none;
+  }
+  
+.pagesFaqAccardion {
+    background-color: white;
+  }
+  
+ .pagesFaqAccardion .accardionTitle {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 600;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    padding: 41px 49px 18px 29px;
+  }
+  
+ .pagesFaqAccardion .accardionTitle h3 {
+    font-size: 20px !important;
+    margin: 0 0 15px;
+    color: #303030;
+    font-family: Poppins;
+    font-weight: 600;
+  }
+  
+ .pagesFaqAcc {
+    padding-bottom: 20px !important;
+    padding-right: 53px;
+  }
+ .pagesFaqAccardion .accHeader {
+    border: #e7e7e7 solid 1px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: relative;
+  }
+  
+ .accHeader {
+    background-color: #f7f7f7;
+    border-radius: 5px;
+  }
+  
+   .accHeader i {
+    position: absolute;
+    right: 76px;
+    margin-top: -55px;
+    font-size: 22px;
+    cursor: pointer;
+  }
+ .accHeader a {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 600;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    padding: 30px 99px 41px 29px;
+    color: black;
+  }
+  
+ .accBody {
+    line-height: 22px;
+    border-top: 0;
+    background: #fff;
+    background-color: #f7f7f7;
+    padding:9px;
+    display: none;
+  }
+  
+ .accBody p {
+    padding: 20px !important;
+  }
+  
+  .defaultColor {
+    text-decoration: none;
+    color: black;
+  }
+  
+  /* .defaultColor:hover {
+    color: #007df2;
+  } */
+  
+  .activeColor {
+    /* border: 1px solid #007df2 !important; */
+    background-color: #f7f7f7;
+
+  }
+
+.activeHead {
+    /* background-color: #007df2 !important; */
+    background-color: #f7f7f7 !important;
+    border-radius: 5px;
+    border-bottom-left-radius: 0px;
+}
+  
+  
+.accHeader:hover a {
+    text-decoration: none;
+  } 
+  
+ .colorDefault {
+    color: black !important;
+  }
+  .colorDefault:hover {
+      text-decoration: none;
+  }
+  
+ .colorBlack {
+    color: black !important;
+  }
+  
+  .customOptionalSelect:active{
+    box-shadow: none;
+  
+    box-shadow: none !important;
+
+
+}
+.customOptionalSelect:focus{
+    box-shadow: none !important;
+   
+
+}
+.customOptionalSelect{
+    display: none;
+}
+
+@media(max-width:550px){
+    .calculatorContentLeft h4{
+        font-size: 13px;
+        line-height: 1.5;
+
+    }
+
+}
+@media(max-width:576px){
+    .colExs{
+        flex-wrap: nowrap;
+    }
+    .h4, h4 {
+        font-size: 16px;
+        padding-top: 40px;
+    padding-bottom: 18px;
+    }
+}
+
+
+        @media (min-width: 1200px){
+            .container {
+                width: 1170px;
+            }
+        }
+        @media(max-width: 992px){
+            .calcVisible{
+                display: none;
+            }
+            .calcNotVisible{
+                display: block;
+            }
+            .magazalarMainRightTop >img:nth-child(2){
+                
+                left: 34px;
+                width: 216px;
+                bottom: 29%;
+            }
+            .magazalarMainRightTop>img:nth-child(1){
+                margin-top: 30px;
+             
+                }
+                .magazalarMainLeftTop ul {
+                    display: none;
+                 }
+                 .customOptionalSelect {
+                     display: block;
+                     margin-top: 52px;
+                 }
+                 .magazalarMainRight{
+                     margin-top: 50px;
+                 }
+           
+        }
+    
+        @media (max-width:768px){
+           
+            .pagesFaqAcc {
+                padding-right: initial;
+            }
+        }
+        @media (max-width:360px){
+            .accHeader a{
+                padding: 30px 46px 37px 2px;
+            }
+            .accHeader i {
+                right: 32px;
+        }
+      
+    }
+    @media (max-width:414px){
+       
+    .magazalarMainRight h2{
+        font-size: 22px;
+        margin-bottom: 19px;
+    }
+    }
+    @media (max-width:320px){
+        .calculatorContentRight .customSlash{
+
+        margin-left: -30px;
+}
+.calcNotVisible{
+    margin-left: -50px;
+
+}
+    }
+    @media(max-width:576px){
+        .colExs{
+            flex-wrap: nowrap;
+            align-items: baseline;
+        }
+        .h4, h4 {
+            font-size: 16px;
+            padding-top: 40px;
+        padding-bottom: 18px;
+        }
+        .customSlash {
+            margin-left: 3px;
+        }
+    }
+.right-content>h5>.aDetails {
+    text-decoration: none;
+}
+    .right-content > h5 > .aDetails :hover {
+        color: #23527c;
+        text-decoration: none;
+    }
+
+.right-content span {
+    color: #aaa;
+}

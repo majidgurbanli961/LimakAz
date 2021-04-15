@@ -1,0 +1,53 @@
+﻿@model ProjectFinal.Areas.Admin.Models.ShopContent
+
+@{
+    ViewData["Title"] = "CreateShopContent";
+}
+@section cssCkEditor{
+    <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+}
+
+<hr />
+
+@*dasd*@
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateShopContent" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+            <div class="form-group">
+                <label class="control-label"> Kontent elave et </label>
+                <textarea asp-for="CustomText" class="form-control"></textarea>
+                <span asp-validation-for="CustomText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label"> Magaza adi </label>
+                <select name="ShopId">
+                    @{
+                        for (int i = 0; i < ViewBag.Shops.Count; i++)
+                        {
+                            <option value=@ViewBag.Shops[i].Id> @ViewBag.Shops[i].ShopAdress</option>
+
+                        }
+                    }
+
+                </select>
+                <span asp-validation-for="ShopId" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <input type="submit" value="Yarat" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section scriptCkEditor{
+
+    <script>
+        CKEDITOR.replace('CustomText');
+    </script>
+}
+

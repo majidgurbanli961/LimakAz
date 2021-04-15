@@ -1,0 +1,105 @@
+﻿@model ProjectFinal.Models.Invoices.CreateInvoiceViewModel
+
+@{
+    ViewData["Title"] = "Bəyan Et";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="invoiceHeader">
+    <div class="invoiceHeaderContainer">
+        <span>BƏYANNAMƏ <b> YÜKLƏ</b></span>
+        <ul>
+            <li><a href="">Ana səhifə </a></li>
+            <li> / </li>
+            <li><a href=""> İstifadəçi paneli </a></li>
+            <li> / </li>
+            <li>Bəyan et</li>
+        </ul>
+    </div>
+</div>
+
+<div class="invoice-main-container">
+    <div class="invoice-main-container-center">
+        <div class="invoice-main-container-form-section">
+            <div class="invoice-main-container-form-header">
+                <div class="invoice-main-container-form-header-block">
+                    <img src="~/PanelPage/images/flg-tr.png" alt="Turkey Flag!">
+                    <span>Türkiyə</span>
+                </div>
+                <a class="invoice-main-container-form-header-block" asp-controller="Invoice" asp-action="CreateInvoiceUSA">
+                    <img src="~/PanelPage/images/flg-usa.png" alt="US Flag!">
+                    <span>Amerika</span>
+                </a>
+            </div>
+            <form asp-action="CreateInvoice" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="invoice-form-input">
+                    <input asp-for="StoreName" type="text" placeholder="Mağaza adı *">
+                    <span asp-validation-for="StoreName" class="text-danger"></span>
+                </div>
+                <div class="invoice-form-input">
+                    <input asp-for="InvoiceProductType" type="text" placeholder="Bağlamadakı məhsulun növü *">
+                    <span asp-validation-for="InvoiceProductType" class="text-danger"></span>
+                </div>
+                <div class="invoice-form-input">
+                    <div class="invoice-form-input-amount">
+                        <div>-</div>
+                        <input asp-for="InvoiceProductAmount" type="number" placeholder="Məhsulun sayı *" min="0">
+                        <div>+</div>
+                    </div>
+                    <span asp-validation-for="InvoiceProductAmount" class="text-danger"></span>
+                </div>
+                <div class="invoice-form-input">
+                    <input asp-for="InvoiceProductPrice" type="number" placeholder="Qiyməti (TL) *" min="0">
+                    <span asp-validation-for="InvoiceProductPrice" class="text-danger"></span>
+                </div>
+                <div class="invoice-form-input">
+                    <input asp-for="InvoiceFollowCode" type="text" placeholder="Sifarişin izlənmə kodu *">
+                    <span asp-validation-for="InvoiceFollowCode" class="text-danger"></span>
+                </div>
+                <div class="invoice-form-input">
+                    <p>Çatdırılma ofisi*</p>
+                    <select asp-for="DeliveryOffice">
+                        <option value="1">Bakı (İçərişəhər)</option>
+                        <option value="2">Bakı (Xalqlar Dostluğu)</option>
+                        <option value="3">Gəncə</option>
+                        <option value="4">Sumqayıt</option>
+                        <option value="5">Zaqatala</option>
+                    </select>
+                </div>
+                <div class="invoice-form-input">
+                    <p>Sifarişin tarixi*</p>
+                    <input type="date" asp-for="InvoiceDate">
+                </div>
+                <div class="invoice-form-input">
+                    <textarea asp-for="InvoiceComments" id="" rows="5" placeholder="Bağlamanıza aid qeydləriniz varsa, yazın."></textarea>
+                </div>
+                <div class="form-group invoice-form-input">
+                    <div class="custom-file">
+                        <label asp-for="FormFile" class="custom-file-label ">Şəkil Yükləyin</label>
+                        <input asp-for="FormFile" class="custom-file-input" id="validatedCustomFile" />
+                    </div>
+                </div>
+                <input type="hidden" asp-for="InvoiceCountryIndex" value="1">
+                <button type="submit">Göndər</button>
+            </form>
+        </div>
+        <div class="invoice-main-container-info-section">
+            <h3>Diqqət!</h3>
+            <p>
+                Dəyərli müştərilər, sifarişlərinizi özünüz etdiyiniz zaman bəyannamə Sizin tərəfinizdən əlavə
+                olunmalıdır. İnvoys yükləmədən bəyannamə əlavə etmək mümkün deyildir. Bəyannaməni dəqiq və operativ
+                doldurmağınız Sizin bağlamalarınızın gömrük yoxlamasından daha tez və problemsiz keçməsinə kömək
+                edəcək.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+@section createInvoice {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

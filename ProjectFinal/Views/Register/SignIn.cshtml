@@ -1,0 +1,71 @@
+﻿@model ProjectFinal.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "SignIn";
+}
+@section signInCss{
+    <link rel="stylesheet" href="~/css/login.css">
+
+
+}
+
+<div class="container">
+    <div class="loginTop">
+        <div class="row">
+            <div class="col-4">
+                <div class="loginTopLeft">
+                    <h4>Daxil Ol</h4>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="loginTopRight">
+                    <ul>
+                        <li class="firstLiBlock">Ana səhifə</li>
+                        <li class="firstLiNone">...</li>
+                        <li class="firstLiSecond">/</li>
+                        <li class="firstLiThird"> Daxil Ol </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="loginMain">
+        <div class="loginMainContent">
+            <form method="post" asp-action="SignIn">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" name="returnUrl" value=@ViewBag.returnUrl />
+                <div class="inputGroup">
+                    <label>E-mail </label>
+                    <input asp-for="Username" class="form-control inputText" type="text">
+                    <span asp-validation-for="Username" class="text-danger"></span>
+
+                </div>
+                <div class="inputGroup">
+                    <label>Şifrə </label>
+                    <input  asp-for="Password" class="form-control inputText" type="password">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="buttonGroupParent">
+                    <div class="buttonGroup">
+                        <button type="submit" class="btn-effect"> Daxil ol </button>
+                    </div>
+
+                </div>
+            </form>
+            <div class="rememberMe">
+                <input type="checkbox">
+                <span> Məni xatırla </span>
+            </div>
+            <div class="forgotPassword">
+                <a href="/register/forgotpassword"> Şifrəni unutmusunuz? </a>
+                <a href="/register/createusersecond"> Qeydiyyat </a>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
